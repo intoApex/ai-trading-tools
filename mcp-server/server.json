@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.intoApex/tradingagentstack",
+  "title": "TradingAgentStack",
+  "description": "Read-only search of a sourced directory of broker MCP servers, trading APIs and market data tools.",
+  "websiteUrl": "https://tradingagentstack.com",
+  "repository": { "url": "https://github.com/intoApex/ai-trading-tools", "source": "github", "subfolder": "mcp-server" },
+  "version": "0.1.0",
+  "packages": [
+    { "registryType": "npm", "identifier": "tradingagentstack-mcp", "version": "0.1.0", "transport": { "type": "stdio" } }
+  ]
+}

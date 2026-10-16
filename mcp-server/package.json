@@ -1,0 +1,21 @@
+{
+  "name": "tradingagentstack-mcp",
+  "version": "0.1.0",
+  "description": "Read-only MCP server to search the TradingAgentStack directory of broker MCP servers, trading APIs, market data, agent frameworks and backtesters.",
+  "mcpName": "io.github.intoApex/tradingagentstack",
+  "type": "module",
+  "bin": { "tradingagentstack-mcp": "src/index.js" },
+  "main": "src/index.js",
+  "files": ["src", "data", "README.md", "server.json"],
+  "scripts": {
+    "prepack": "node scripts/copy-data.js",
+    "pretest": "node scripts/copy-data.js",
+    "test": "node --test test/"
+  },
+  "keywords": ["mcp", "model-context-protocol", "trading", "broker", "alpaca", "ai-agents", "market-data"],
+  "homepage": "https://tradingagentstack.com",
+  "repository": { "type": "git", "url": "https://github.com/intoApex/ai-trading-tools.git", "directory": "mcp-server" },
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.32.1", "zod": "^3.25.0" }
+}
