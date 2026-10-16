@@ -562,18 +562,20 @@
   },
   {
     "name": "Freqtrade",
-    "url": "https://github.com/freqtrade/freqtrade",
-    "category": "trading_agent",
+    "url": "https://www.freqtrade.io/en/stable/",
+    "category": "open_source_bot",
     "assets_covered": [
-      "crypto"
+      "crypto spot",
+      "crypto futures"
     ],
-    "live_vs_paper": "dry-run and live",
-    "order_approval_safety": "unknown",
-    "pricing_free_tier": "open source",
-    "rate_limits": "unknown",
+    "live_vs_paper": "dry-run (paper) and live, self-hosted",
+    "order_approval_safety": "open-source (GPL-3.0) Python bot; runs on your machine with your exchange keys; control via Telegram, freqUI or REST API; FreqAI adds ML/reinforcement-learning strategies; exchanges incl. Binance, Bybit, OKX, Kraken, Gate, Bitget, Hyperliquid",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "exchange rate limits",
     "official_or_community": "official",
-    "last_checked": "2026-10-16",
-    "source": "https://github.com/freqtrade/freqtrade",
+    "last_checked": "2026-10-17",
+    "source": "https://www.freqtrade.io/en/stable/",
+    "repo": "https://github.com/freqtrade/freqtrade",
     "details_url": "https://tradingagentstack.com/tool/freqtrade/"
   },
   {
@@ -731,5 +733,745 @@
     "last_checked": "2026-10-16",
     "source": "https://docs.pyth.network/price-feeds/pro/mcp",
     "details_url": "https://tradingagentstack.com/tool/pyth-pro-mcp-server/"
+  },
+  {
+    "name": "3Commas",
+    "url": "https://3commas.io/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures"
+    ],
+    "live_vs_paper": "live via exchange API keys; free trial; backtesting",
+    "order_approval_safety": "DCA, grid and signal bots run on your exchange account via API keys; QuantPilot is an agentic AI layer that builds, tests and optimizes strategies; TradingView Pine Script execution",
+    "pricing_free_tier": "Starter $15/mo annual ($20 monthly), Pro $38/mo annual ($50), Expert $105/mo annual ($140); free trial",
+    "rate_limits": "plan limits: e.g. Starter 5 DCA, 2 signal, 2 grid bots; 1 active API key per exchange",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://3commas.io/pricing",
+    "details_url": "https://tradingagentstack.com/tool/3commas/"
+  },
+  {
+    "name": "Cryptohopper",
+    "url": "https://www.cryptohopper.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "live via exchange API or OAuth; paper trading bot included",
+    "order_approval_safety": "cloud bot with strategy designer, copy bots, DCA, market making and arbitrage; AI strategies and AI designer on Hero plan; funds stay on the exchange and withdrawal rights are never requested",
+    "pricing_free_tier": "Explorer $29/mo ($24.16 annual), Adventurer $69/mo, Hero $129/mo; 3-day free trial; copy bots $9.99-$99.99/mo",
+    "rate_limits": "Explorer 15 coins, 80 open positions/exchange, 10-min interval; Hero 75 coins, 2-min interval",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.cryptohopper.com/pricing",
+    "details_url": "https://tradingagentstack.com/tool/cryptohopper/"
+  },
+  {
+    "name": "Pionex",
+    "url": "https://www.pionex.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures"
+    ],
+    "live_vs_paper": "live (Pionex is the exchange; bots are built in)",
+    "order_approval_safety": "exchange with built-in grid, DCA and other bots; you deposit funds on Pionex itself, so custody sits with the exchange; availability varies by region",
+    "pricing_free_tier": "no bot subscription fee; standard spot trading fee 0.05% per executed buy or sell; futures funding and spreads extra",
+    "rate_limits": "n/a (exchange order limits apply)",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.pionex.com/blog/is-there-any-fees-for-starting-a-bot-or-only-transaction-fees/",
+    "sources": [
+      "https://www.pionex.com/blog/is-there-any-fees-for-starting-a-bot-or-only-transaction-fees/",
+      "https://www.pionex.com/blog/pionex-fee-trx-grid-is-0-05-buy-0-05-sell-or-0-05-fee-buy-sell/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/pionex/"
+  },
+  {
+    "name": "Bitsgap",
+    "url": "https://bitsgap.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures"
+    ],
+    "live_vs_paper": "live via exchange API keys; free demo with 20 bots",
+    "order_approval_safety": "grid, DCA and COMBO bots across 18 exchanges (Binance, Coinbase Advanced, Kraken, OKX, Bybit, Hyperliquid and more); AI Assistant suggests bot settings; AI Portfolio Mode on Pro",
+    "pricing_free_tier": "Basic $23/mo annual ($29 monthly), Advanced $55 ($69), Pro $119 ($149); free plan for demo bots; 7-day PRO trial, no card",
+    "rate_limits": "Basic 3 grid + 10 DCA bots; Pro 50 grid + 250 DCA bots",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://bitsgap.com/pricing",
+    "sources": [
+      "https://bitsgap.com/pricing",
+      "https://bitsgap.com/affiliate-program"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/bitsgap/"
+  },
+  {
+    "name": "Coinrule",
+    "url": "https://coinrule.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto",
+      "US stocks",
+      "ETFs"
+    ],
+    "live_vs_paper": "live via exchange/broker connection; backtesting; templates",
+    "order_approval_safety": "no-code if-this-then-that rule builder with 350+ templates across 25+ exchanges and brokers (Binance, Coinbase, Kraken, Hyperliquid, Trading 212, Webull, Public, E*Trade, Alpaca); offers an MCP for agent control. Not available in the EU/EEA under MiCA",
+    "pricing_free_tier": "free start; paid plans (Trader plan cited at $719/yr on its affiliate page)",
+    "rate_limits": "plan-based rule and market limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://coinrule.com/",
+    "sources": [
+      "https://coinrule.com/",
+      "https://coinrule.com/affiliate/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/coinrule/"
+  },
+  {
+    "name": "WunderTrading",
+    "url": "https://wundertrading.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures"
+    ],
+    "live_vs_paper": "live via exchange API keys; demo account",
+    "order_approval_safety": "signal bots (TradingView/webhook automation), DCA, grid, multi-pair grid and market-neutral bots on 18+ exchanges; API and MCP connectivity; requires API keys with withdrawals disabled",
+    "pricing_free_tier": "lifetime Free plan; Basic/Pro/Premium paid tiers (prices shown in-app); 7-day Pro trial; Premium free on Hyperliquid with 0.035% builder fee",
+    "rate_limits": "Free: 50 open positions, 10 API keys/exchange; Premium: 300 DCA, 200 grid bots",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://wundertrading.com/en/pricing",
+    "details_url": "https://tradingagentstack.com/tool/wundertrading/"
+  },
+  {
+    "name": "Trade Ideas (Holly AI)",
+    "url": "https://www.trade-ideas.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "ETFs"
+    ],
+    "live_vs_paper": "live via connected brokers; real-time paper trading",
+    "order_approval_safety": "Holly AI signals and auto-trading through partner broker integrations; scans and backtesting; signals are model output, not advice",
+    "pricing_free_tier": "Standard $89/mo annual ($127 monthly); Premium with AI signals and auto trading $178/mo annual ($254 monthly)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.trade-ideas.com/pricing/",
+    "details_url": "https://tradingagentstack.com/tool/trade-ideas-holly-ai/"
+  },
+  {
+    "name": "TrendSpider",
+    "url": "https://trendspider.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "futures",
+      "options",
+      "forex",
+      "crypto"
+    ],
+    "live_vs_paper": "live via SignalStack to 30+ brokers and exchanges (5 free automated orders/mo); backtesting and forward testing",
+    "order_approval_safety": "trading bots fire orders from chart/indicator conditions; Quant Model Lab (KNN models, LLM feature engineering) and AI Sidekick assistant",
+    "pricing_free_tier": "Standard from ~$54/mo annual; 14-day trial for $1-$49 depending on plan; Advanced up to $349/mo",
+    "rate_limits": "Standard 5 bots, Premium 10, Enhanced 50, Advanced 100",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://trendspider.com/pricing/",
+    "details_url": "https://tradingagentstack.com/tool/trendspider/"
+  },
+  {
+    "name": "Tickeron",
+    "url": "https://tickeron.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "crypto",
+      "forex"
+    ],
+    "live_vs_paper": "virtual and brokerage AI robots",
+    "order_approval_safety": "AI robots built on Tickeron's FLM models on 5m/15m/60m timeframes; marketing cites high model returns, treat as hypothetical",
+    "pricing_free_tier": "AI Robots about $540/yr standard, $1,500/yr unlimited per Tickeron promotions; no free trial for robots",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://tickeron.com/",
+    "sources": [
+      "https://tickeron.com/",
+      "https://tickeron.com/trading-investing-101/faq-how-do-i-use-my-credits-with-ai-robot-subscriptions/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/tickeron/"
+  },
+  {
+    "name": "Composer",
+    "url": "https://www.composer.trade/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "crypto"
+    ],
+    "live_vs_paper": "live in a Composer brokerage account; unlimited backtests",
+    "order_approval_safety": "no-code strategy builder and 'Trade with AI' that drafts strategies you backtest and automate; brokerage by Composer Securities LLC (SEC-registered broker-dealer, FINRA/SIPC), clearing via Alpaca and Apex",
+    "pricing_free_tier": "Starter $0 (1 automated strategy), Advanced $10/mo, Pro $32/mo billed yearly (API access)",
+    "rate_limits": "Starter up to 200-node strategies; Pro up to 10,000 nodes and 500 strategies",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.composer.trade/pricing",
+    "sources": [
+      "https://www.composer.trade/pricing",
+      "https://www.composer.trade/disclosures"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/composer/"
+  },
+  {
+    "name": "Capitalise.ai",
+    "url": "https://capitalise.ai/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "forex",
+      "CFDs",
+      "crypto",
+      "stocks (via partner brokers)"
+    ],
+    "live_vs_paper": "live via partner brokers; backtesting and simulation",
+    "order_approval_safety": "write if-then strategies in plain English; executes at partner brokers such as FOREX.com, AvaTrade, Tickmill, FXCM; acquired by Kraken and Interactive Brokers support ended Mar 31 2026",
+    "pricing_free_tier": "free (no platform fee, no subscription; Capitalise says this may change with notice; broker commissions apply)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://capitalise.ai/getstarted/",
+    "sources": [
+      "https://capitalise.ai/getstarted/",
+      "https://support.capitalise.ai/en/articles/2509112-fees-on-capitalise",
+      "https://www.forex.com/en/trading-tools/capitalise-ai/",
+      "https://www.interactivebrokers.com/docs/third-party-integrations/changelog/2026/3/31.md"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/capitalise-ai/"
+  },
+  {
+    "name": "Option Alpha",
+    "url": "https://optionalpha.com/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US options",
+      "US stocks"
+    ],
+    "live_vs_paper": "live and paper via connected brokers",
+    "order_approval_safety": "no-code options autotrading bots with per-bot capital limits ($100k) and backtesting",
+    "pricing_free_tier": "Pro $99/mo annual ($149 monthly); $0 with a qualifying TradeStation ($10k), Tradier ($5k) or tastytrade ($5k) account",
+    "rate_limits": "50 bots, $100k limit per bot",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://optionalpha.com/pricing",
+    "sources": [
+      "https://optionalpha.com/pricing",
+      "https://optionalpha.com/affiliates"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/option-alpha/"
+  },
+  {
+    "name": "TradersPost",
+    "url": "https://traderspost.io/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "futures",
+      "options",
+      "crypto"
+    ],
+    "live_vs_paper": "paper auto-submit free; live auto-submit on paid plans",
+    "order_approval_safety": "routes TradingView/TrendSpider/webhook signals to brokers: Tradovate, TradeStation, Alpaca, IBKR, NinjaTrader, Robinhood, Webull, tastytrade, E*TRADE, Tradier, Coinbase, Kraken, Bybit, Binance; manual-submit mode lets you approve each signal",
+    "pricing_free_tier": "Free with 7-day trial (manual live, auto paper); Starter $41.65/mo billed yearly",
+    "rate_limits": "Starter: 1 live account",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://traderspost.io/pricing",
+    "details_url": "https://tradingagentstack.com/tool/traderspost/"
+  },
+  {
+    "name": "Surmount",
+    "url": "https://surmount.ai/",
+    "category": "ai_bot_platform",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "crypto"
+    ],
+    "live_vs_paper": "paper trading on Core; live via connected brokers or Quantbase account",
+    "order_approval_safety": "automated strategy marketplace and builder; Surmount AI Inc. is not a registered adviser; advisory accounts run by Quantbase LLC (SEC-registered adviser) with custody at Alpaca Securities",
+    "pricing_free_tier": "Free account; Core $5/mo",
+    "rate_limits": "Core: 1 external broker connection",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://surmount.ai/pricing",
+    "details_url": "https://tradingagentstack.com/tool/surmount/"
+  },
+  {
+    "name": "Hummingbot",
+    "url": "https://hummingbot.org/",
+    "category": "open_source_bot",
+    "assets_covered": [
+      "crypto spot",
+      "crypto perpetuals",
+      "DEX",
+      "Kalshi"
+    ],
+    "live_vs_paper": "live (self-hosted); paper connectors",
+    "order_approval_safety": "open-source (Apache-2.0) Python framework for market making and agentic strategies; 50+ exchange connectors incl. Binance, OKX, Bybit, Coinbase, Kraken, Hyperliquid, dYdX, Uniswap; Condor AI harness",
+    "pricing_free_tier": "free, self-hosted",
+    "rate_limits": "exchange rate limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://hummingbot.org/",
+    "repo": "https://github.com/hummingbot/hummingbot",
+    "sources": [
+      "https://hummingbot.org/",
+      "https://hummingbot.org/exchanges/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/hummingbot/"
+  },
+  {
+    "name": "OctoBot",
+    "url": "https://www.octobot.cloud/",
+    "category": "open_source_bot",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "live and paper (virtual money)",
+    "order_approval_safety": "open-source (GPL-3.0) bot with DCA, grid, AI/ChatGPT, TradingView and copy bots; ccxt connectors to Binance, OKX, Coinbase, Kucoin, Bybit, Hyperliquid and more; crypto only",
+    "pricing_free_tier": "self-hosted open source is free; OctoBot cloud Investor Plus $9.99/mo, Pro $29.99/mo, 7-day trial",
+    "rate_limits": "cloud: 10 bots (Investor Plus), 30 (Pro)",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.octobot.cloud/en/pricing",
+    "repo": "https://github.com/Drakkar-Software/OctoBot",
+    "sources": [
+      "https://www.octobot.cloud/en/pricing",
+      "https://www.octobot.cloud/en/guides/exchanges"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/octobot/"
+  },
+  {
+    "name": "Jesse",
+    "url": "https://jesse.trade/",
+    "category": "open_source_bot",
+    "assets_covered": [
+      "crypto",
+      "stocks",
+      "commodities"
+    ],
+    "live_vs_paper": "backtesting and live (self-hosted)",
+    "order_approval_safety": "open-source (MIT) Python framework; self-hosted so keys and strategies stay local; built-in MCP server lets Claude/Cursor agents research and backtest strategies",
+    "pricing_free_tier": "core framework free; paid plans listed at jesse.trade/pricing",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://jesse.trade/",
+    "repo": "https://github.com/jesse-ai/jesse",
+    "details_url": "https://tradingagentstack.com/tool/jesse/"
+  },
+  {
+    "name": "Superalgos",
+    "url": "https://superalgos.org/",
+    "category": "open_source_bot",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "backtest, paper and live (self-hosted)",
+    "order_approval_safety": "open-source (Apache-2.0) visual platform to design, test and deploy crypto bots, plus a token-incentivized signals/copy network",
+    "pricing_free_tier": "free, self-hosted",
+    "rate_limits": "exchange rate limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://superalgos.org/",
+    "repo": "https://github.com/Superalgos/Superalgos",
+    "details_url": "https://tradingagentstack.com/tool/superalgos/"
+  },
+  {
+    "name": "Binance",
+    "url": "https://www.binance.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto margin",
+      "crypto futures"
+    ],
+    "live_vs_paper": "live; Spot Testnet (testnet.binance.vision) for paper testing",
+    "order_approval_safety": "Official MCP server (Agent OS, https://agent.binance.com/mcp/agentic, launched Aug 2026): OAuth scopes for market data, read-only account, trade and in-sub-account transfer; the agent works in a dedicated Agentic sub-account and there is no withdrawal scope; writes are confirm-first by default",
+    "pricing_free_tier": "no API fee; trading fees per Binance fee schedule",
+    "rate_limits": "Spot API: 6,000 request weight per minute per IP (check /api/v3/exchangeInfo)",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://developers.binance.com/en/docs/agent-native/mcp-server",
+    "sources": [
+      "https://developers.binance.com/en/docs/agent-native/mcp-server",
+      "https://developers.binance.com/docs/binance-spot-api-docs/testnet/general-info",
+      "https://www.binance.com/en/activity/affiliate"
+    ],
+    "regions": "US: not available (Binance.US is a separate exchange with no testnet). UK and EU: eligibility varies; check Binance's terms for your country.",
+    "details_url": "https://tradingagentstack.com/tool/binance/"
+  },
+  {
+    "name": "Bybit",
+    "url": "https://www.bybit.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto derivatives",
+      "options"
+    ],
+    "live_vs_paper": "live; Demo Trading (api-demo.bybit.com, live prices) and a separate Testnet",
+    "order_approval_safety": "Official MCP server (bybit-official-trading-server on npm, github.com/bybit-exchange/trading-mcp) with 390+ V5 tools; market data works without a key; BYBIT_TESTNET flag; AI sub-account OAuth flow for agents",
+    "pricing_free_tier": "no API fee; trading fees per Bybit schedule",
+    "rate_limits": "per-endpoint V5 limits; demo trading has the default limit (not upgradable)",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/bybit-exchange/trading-mcp",
+    "sources": [
+      "https://github.com/bybit-exchange/trading-mcp",
+      "https://bybit-exchange.github.io/docs/v5/demo",
+      "https://www.bybit.com/en/help-center/article/Service-Restricted-Countries",
+      "https://announcements.bybit.com/en/article/important-notice-service-changes-for-uk-registered-users--art68a362e9acc7/"
+    ],
+    "regions": "US: restricted. UK: no new registrations; from Oct 21 2026 UK accounts are withdrawal-only and active bots are terminated. EU/EEA: separate MiCA-authorized Bybit EU platform.",
+    "details_url": "https://tradingagentstack.com/tool/bybit/"
+  },
+  {
+    "name": "OKX",
+    "url": "https://www.okx.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto perpetuals",
+      "futures",
+      "options"
+    ],
+    "live_vs_paper": "live; demo trading profile (simulated) supported by the MCP",
+    "order_approval_safety": "Official open-source Agent Trade Kit (MIT): okx-trade-mcp MCP server + okx-trade-cli, 100+ tools for spot, swap, options, algo orders (OCO, trailing stop) and grid bots; --read-only flag, per-module filtering, built-in rate limiter; keys stay local",
+    "pricing_free_tier": "free open-source MCP; trading fees per OKX schedule",
+    "rate_limits": "OKX v5 per-endpoint limits; MCP has a built-in rate limiter",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.okx.com/docs-v5/agent_en/",
+    "sources": [
+      "https://www.okx.com/docs-v5/agent_en/",
+      "https://github.com/okx/agent-trade-kit",
+      "https://www.okx.com/en-us/help/okx-affiliate-program-rules"
+    ],
+    "repo": "https://github.com/okx/agent-trade-kit",
+    "regions": "US: separate OKX US exchange with a narrower product set. EU/EEA: OKX Europe (MiCA licence, Malta). UK: check OKX's UK terms.",
+    "details_url": "https://tradingagentstack.com/tool/okx/"
+  },
+  {
+    "name": "Kraken",
+    "url": "https://www.kraken.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures",
+      "xStocks",
+      "forex"
+    ],
+    "live_vs_paper": "live; built-in spot and futures paper trading in Kraken CLI (no API key needed)",
+    "order_approval_safety": "Official open-source Kraken CLI with a built-in MCP server (151 commands); default exposes only market, account and paper; trade/funding tools are flagged dangerous and need acknowledged=true unless --allow-dangerous; dead man's switch for live runs",
+    "pricing_free_tier": "CLI and MCP free; trading fees per Kraken schedule",
+    "rate_limits": "Kraken REST counter-based limits per tier; MCP inherits CLI rate-limit handling",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.kraken.com/home/mcp",
+    "sources": [
+      "https://docs.kraken.com/home/mcp",
+      "https://www.kraken.com/kraken-cli",
+      "https://www.kraken.com/affiliate"
+    ],
+    "repo": "https://github.com/krakenfx/kraken-cli",
+    "regions": "US, UK and EU (MiCA) supported; some products and US states are restricted; check Kraken's availability page.",
+    "details_url": "https://tradingagentstack.com/tool/kraken/"
+  },
+  {
+    "name": "Coinbase Advanced",
+    "url": "https://www.coinbase.com/advanced-trade",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures (eligible regions)"
+    ],
+    "live_vs_paper": "live; static Advanced Trade sandbox (mocked Accounts and Orders responses)",
+    "order_approval_safety": "Official Coinbase MCP server (https://agents.coinbase.com/mcp, OAuth 2.1) plus a local MCP in the Coinbase CLI with orders_preview dry-run (fill, fees, slippage) before orders_create; revoke in Account > Security > Connections",
+    "pricing_free_tier": "no API fee; trading fees per Coinbase Advanced schedule",
+    "rate_limits": "WebSocket: 8 connections/sec and 8 unauthenticated messages/sec per IP; public REST cached 1s",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.cdp.coinbase.com/coinbase-for-agents/overview",
+    "sources": [
+      "https://docs.cdp.coinbase.com/coinbase-for-agents/overview",
+      "https://docs.cdp.coinbase.com/coinbase-app/advanced-trade-apis/sandbox",
+      "https://docs.cdp.coinbase.com/coinbase-app/advanced-trade-apis/websocket/websocket-rate-limits",
+      "https://www.coinbase.com/affiliates"
+    ],
+    "regions": "US, UK and EU (MiCA) supported; product availability (e.g. futures) varies by country.",
+    "details_url": "https://tradingagentstack.com/tool/coinbase-advanced/"
+  },
+  {
+    "name": "Hyperliquid",
+    "url": "https://hyperliquid.xyz/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto perpetuals",
+      "crypto spot (on-chain)"
+    ],
+    "live_vs_paper": "live; public testnet (api.hyperliquid-testnet.xyz)",
+    "order_approval_safety": "On-chain order-book exchange (self-custodial wallet, no KYC account); API wallets/agent keys can trade but not withdraw; no first-party MCP found, community MCPs exist; verify any third-party server before giving it a key",
+    "pricing_free_tier": "no API fee; maker/taker fees per Hyperliquid fee docs",
+    "rate_limits": "REST: 1,200 weight per minute per IP; exchange actions cost 1 + floor(batch/40)",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/rate-limits-and-user-limits",
+    "sources": [
+      "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/rate-limits-and-user-limits",
+      "https://app.hyperliquid.xyz/terms",
+      "https://hyperliquid.gitbook.io/hyperliquid-docs/referrals"
+    ],
+    "regions": "US and Ontario (Canada): restricted by Hyperliquid's terms, along with sanctioned jurisdictions. UK/EU: not restricted by the terms; check local rules.",
+    "details_url": "https://tradingagentstack.com/tool/hyperliquid/"
+  },
+  {
+    "name": "Bitget",
+    "url": "https://www.bitget.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto futures",
+      "copy trading"
+    ],
+    "live_vs_paper": "live; demo trading in app",
+    "order_approval_safety": "Official Agent Hub: MCP (npx @bitget-ai/bitget-agent-mcp, OAuth authorization) plus CLI and Skills; market-only HTTP MCP at https://agent.bitget.com/mcp with no account needed",
+    "pricing_free_tier": "no API fee; trading fees per Bitget schedule",
+    "rate_limits": "6,000 requests per IP per minute overall, plus per-endpoint limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.bitget.com/docs/uta/agent-hub",
+    "sources": [
+      "https://www.bitget.com/docs/uta/agent-hub",
+      "https://www.bitget.com/support/articles/360014944032-terms-of-use",
+      "https://www.bitget.com/affiliates"
+    ],
+    "regions": "US: prohibited. UK: served via an FCA-approved partner (authorised person). EU: check Bitget's EU entity for your country.",
+    "details_url": "https://tradingagentstack.com/tool/bitget/"
+  },
+  {
+    "name": "Gemini",
+    "url": "https://www.gemini.com/",
+    "category": "bot_exchange",
+    "assets_covered": [
+      "crypto spot",
+      "crypto perpetuals (eligible regions)"
+    ],
+    "live_vs_paper": "live; full-function sandbox with test funds (exchange.sandbox.gemini.com)",
+    "order_approval_safety": "Open-source Gemini MCP server (github.com/gemini/developer-platform) with 40+ exchange tools; point it at the sandbox URL to test",
+    "pricing_free_tier": "no API fee; trading fees per Gemini schedule",
+    "rate_limits": "public 120 req/min, private 600 req/min; 429 when exceeded",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://developer.gemini.com/rate-limit",
+    "sources": [
+      "https://developer.gemini.com/rate-limit",
+      "https://developer.gemini.com/get-started/sandbox",
+      "https://github.com/gemini/developer-platform",
+      "https://www.gemini.com/legal/gemini-referral-rewards-program-terms/"
+    ],
+    "repo": "https://github.com/gemini/developer-platform",
+    "regions": "US (NY-regulated trust company), UK and EU (MiCA) supported; derivatives availability varies.",
+    "details_url": "https://tradingagentstack.com/tool/gemini/"
+  },
+  {
+    "name": "Danelfin",
+    "url": "https://danelfin.com/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "European stocks"
+    ],
+    "live_vs_paper": "research only (no execution); broker sync on paid plans",
+    "order_approval_safety": "AI Score 1-10 rates each stock's probability of beating the market over 3 months, with the features behind the score; scores are probabilities, not guarantees",
+    "pricing_free_tier": "Free; Plus $22/mo annual ($29 monthly); Pro $59 ($79); Elite $134 ($179) with API access",
+    "rate_limits": "Elite plan includes API access",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://danelfin.com/pricing/annual",
+    "sources": [
+      "https://danelfin.com/pricing/annual",
+      "https://danelfin.com/affiliate-program"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/danelfin/"
+  },
+  {
+    "name": "Kavout",
+    "url": "https://www.kavout.com/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "crypto"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "InvestGPT research agent plus Kai Score (1-9 AI ranking from fundamental, technical and alternative data); credit-based",
+    "pricing_free_tier": "Free (10 credits/mo); Pro $16/mo annual (1,000 credits); Premium $39/mo annual (3,000 credits)",
+    "rate_limits": "credit-based usage",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.kavout.com/pricing-plans",
+    "sources": [
+      "https://www.kavout.com/pricing-plans",
+      "https://affiliate.kavout.com/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/kavout/"
+  },
+  {
+    "name": "LevelFields",
+    "url": "https://www.levelfields.ai/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "US stocks",
+      "options"
+    ],
+    "live_vs_paper": "alerts only",
+    "order_approval_safety": "event-driven AI alerts: monitors ~6,300 companies and matches events (buybacks, leadership changes, lawsuits) to historical price reactions",
+    "pricing_free_tier": "Level 1 $299/yr; Level 2 $1,599/yr (analyst-vetted alerts, SMS)",
+    "rate_limits": "Level 1: 10 custom alerts; Level 2: 100",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.levelfields.ai/trade-the-signal-annual",
+    "sources": [
+      "https://www.levelfields.ai/trade-the-signal-annual",
+      "https://www.levelfields.org/faq"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/levelfields/"
+  },
+  {
+    "name": "Prospero.ai",
+    "url": "https://www.prospero.ai/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "US stocks"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "free app with 10 stock signals ranked 1-100 (options sentiment, profitability, breakout scores) built from institutional-flow data",
+    "pricing_free_tier": "core app and signals free; paid newsletter/alerts (price not published on site)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://learn.prospero.ai/",
+    "details_url": "https://tradingagentstack.com/tool/prospero-ai/"
+  },
+  {
+    "name": "Santiment",
+    "url": "https://santiment.net/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "on-chain, social and development metrics for crypto; official MCP connector for AI agents; Sanbase Pro insights",
+    "pricing_free_tier": "Sanbase Free; Pro $49/mo or $529/yr",
+    "rate_limits": "MCP on Pro: 30 calls/min, 600/day; API on Pro: 5,000 calls/mo",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://app.santiment.net/pricing",
+    "sources": [
+      "https://app.santiment.net/pricing",
+      "https://academy.santiment.net/mcp-connector/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/santiment/"
+  },
+  {
+    "name": "LunarCrush",
+    "url": "https://lunarcrush.com/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "crypto",
+      "stocks"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "social sentiment and engagement metrics (Galaxy Score, AltRank); MCP server at lunarcrush.ai/mcp on paid plans",
+    "pricing_free_tier": "Individual $90/mo; Builder $300/mo; Scale $900/mo",
+    "rate_limits": "Individual 10 req/min, 2,000/day; Builder 100/min; Scale 500/min",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://lunarcrush.com/pricing/",
+    "sources": [
+      "https://lunarcrush.com/pricing/",
+      "https://lunarcrush.com/en/developers/mcp",
+      "https://lunarcrush.com/affiliates"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/lunarcrush/"
+  },
+  {
+    "name": "Kaito",
+    "url": "https://www.kaito.ai/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "AI search and sentiment over crypto social, news and research (Kaito Pro, API); the Yaps leaderboard was sunset in Jan 2026, the research product continues",
+    "pricing_free_tier": "Kaito Pro from $833/mo billed annually; enterprise by contact",
+    "rate_limits": "per plan",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://pro.kaito.ai/pricing",
+    "details_url": "https://tradingagentstack.com/tool/kaito/"
+  },
+  {
+    "name": "Intellectia",
+    "url": "https://intellectia.ai/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "crypto"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "AI Stock Picker: a weekly list of 10 long-only stocks (Mondays 8am ET) plus AI screeners, technical signals and an AI agent; the site says picks are not buy recommendations",
+    "pricing_free_tier": "Free (400 credits); Basic $11.96/mo annual; Pro $23.96; Max $39.96; Expert $71.96",
+    "rate_limits": "credit-based usage",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://intellectia.ai/pricing",
+    "sources": [
+      "https://intellectia.ai/pricing",
+      "https://intellectia.ai/partner"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/intellectia/"
+  },
+  {
+    "name": "Nansen",
+    "url": "https://www.nansen.ai/",
+    "category": "ai_signals",
+    "assets_covered": [
+      "crypto (on-chain)"
+    ],
+    "live_vs_paper": "research only",
+    "order_approval_safety": "on-chain wallet labels and smart-money flows; official Nansen MCP server for AI agents, billed per API credit",
+    "pricing_free_tier": "Pro $49/mo annual ($69 monthly) incl. 2,000 API/MCP credits; extra credits $10 per 10,000",
+    "rate_limits": "credit-based; premium tools cost more credits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.nansen.ai/getting-started/credits",
+    "sources": [
+      "https://docs.nansen.ai/getting-started/credits",
+      "https://docs.nansen.ai/mcp/connecting",
+      "https://nansen.ai/affiliates"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/nansen/"
   }
 ]

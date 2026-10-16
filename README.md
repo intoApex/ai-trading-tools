@@ -1,8 +1,8 @@
 # AI Trading Tools: the open list of tools that connect AI agents to markets
 
-An open, sourced dataset of the broker MCP servers, market data APIs, agent frameworks and backtesters that let AI agents trade and research markets. Every entry links to an official source. Maintained by [TradingAgentStack](https://tradingagentstack.com), where each tool has a full page with pricing, rate limits, paper vs live trading and safety controls.
+An open, sourced dataset of the broker MCP servers, market data APIs, agent frameworks, backtesters and AI trading bots that let AI agents trade and research markets. Every entry links to an official source. Maintained by [TradingAgentStack](https://tradingagentstack.com), where each tool has a full page with pricing, rate limits, paper vs live trading and safety controls.
 
-**41 tools** · Last verified: **2026-10-16** · Data: [`data/tools.json`](data/tools.json) · [`data/tools.csv`](data/tools.csv) · License: [CC BY 4.0](LICENSE)
+**76 tools** · Last verified: **2026-10-17** · Data: [`data/tools.json`](data/tools.json) · [`data/tools.csv`](data/tools.csv) · License: [CC BY 4.0](LICENSE)
 
 📬 Get new tools and changes weekly: [subscribe to the TradingAgentStack newsletter](https://tradingagentstack.com/#nle).
 
@@ -18,6 +18,10 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 - [Backtesting](#backtesting)
 - [Trading agents](#trading-agents)
 - [Security](#security)
+- [AI trading bot platforms](#ai-trading-bot-platforms)
+- [Open-source trading bots](#open-source-trading-bots)
+- [Exchanges & brokers for bots](#exchanges--brokers-for-bots)
+- [AI signals & research copilots](#ai-signals--research-copilots)
 
 ## Broker MCP servers
 
@@ -92,13 +96,76 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 | Tool | Description | Type | Official / community | Details |
 |---|---|---|---|---|
 | [Agent Market Arena (AMA)](https://github.com/The-FinAI/Agent_Market_Arena) | crypto, stocks. live benchmark | Agent | academic | [details](https://tradingagentstack.com/tool/agent-market-arena-ama/) |
-| [Freqtrade](https://github.com/freqtrade/freqtrade) | crypto. dry-run and live | Agent | official | [details](https://tradingagentstack.com/tool/freqtrade/) |
 
 ## Security
 
 | Tool | Description | Type | Official / community | Details |
 |---|---|---|---|---|
 | [Canopii Trust Index](https://index.canopii.dev/) | MCP servers (any). n/a | Security tool | third-party | [details](https://tradingagentstack.com/tool/canopii-trust-index/) |
+
+## AI trading bot platforms
+
+Ready-to-use AI and automated trading bots for crypto, stocks and forex. No bot can guarantee returns; test on paper first and never give API keys withdrawal rights. Comparison: [Best AI trading bots (2026)](https://tradingagentstack.com/best-ai-trading-bots/).
+
+| Tool | Description | Type | Official / community | Details |
+|---|---|---|---|---|
+| [3Commas](https://3commas.io/) | crypto spot, crypto futures. live via exchange API keys; free trial; backtesting | Bot platform | official | [details](https://tradingagentstack.com/tool/3commas/) |
+| [Bitsgap](https://bitsgap.com/) | crypto spot, crypto futures. live via exchange API keys; free demo with 20 bots | Bot platform | official | [details](https://tradingagentstack.com/tool/bitsgap/) |
+| [Capitalise.ai](https://capitalise.ai/) | forex, CFDs, crypto, stocks (via partner brokers). live via partner brokers; backtesting and simulation | Bot platform | official | [details](https://tradingagentstack.com/tool/capitalise-ai/) |
+| [Coinrule](https://coinrule.com/) | crypto, US stocks, ETFs. live via exchange/broker connection; backtesting; templates | Bot platform | official | [details](https://tradingagentstack.com/tool/coinrule/) |
+| [Composer](https://www.composer.trade/) | US stocks, ETFs, crypto. live in a Composer brokerage account; unlimited backtests | Bot platform | official | [details](https://tradingagentstack.com/tool/composer/) |
+| [Cryptohopper](https://www.cryptohopper.com/) | crypto. live via exchange API or OAuth; paper trading bot included | Bot platform | official | [details](https://tradingagentstack.com/tool/cryptohopper/) |
+| [Option Alpha](https://optionalpha.com/) | US options, US stocks. live and paper via connected brokers | Bot platform | official | [details](https://tradingagentstack.com/tool/option-alpha/) |
+| [Pionex](https://www.pionex.com/) | crypto spot, crypto futures. live (Pionex is the exchange; bots are built in) | Bot platform | official | [details](https://tradingagentstack.com/tool/pionex/) |
+| [Surmount](https://surmount.ai/) | US stocks, ETFs, crypto. paper trading on Core; live via connected brokers or Quantbase account | Bot platform | official | [details](https://tradingagentstack.com/tool/surmount/) |
+| [Tickeron](https://tickeron.com/) | US stocks, ETFs, crypto, forex. virtual and brokerage AI robots | Bot platform | official | [details](https://tradingagentstack.com/tool/tickeron/) |
+| [Trade Ideas (Holly AI)](https://www.trade-ideas.com/) | US stocks, ETFs. live via connected brokers; real-time paper trading | Bot platform | official | [details](https://tradingagentstack.com/tool/trade-ideas-holly-ai/) |
+| [TradersPost](https://traderspost.io/) | US stocks, futures, options, crypto. paper auto-submit free; live auto-submit on paid plans | Bot platform | official | [details](https://tradingagentstack.com/tool/traderspost/) |
+| [TrendSpider](https://trendspider.com/) | US stocks, ETFs, futures, options, forex, crypto. live via SignalStack to 30+ brokers and exchanges (5 free automated orders/mo); backtesting and forward testing | Bot platform | official | [details](https://tradingagentstack.com/tool/trendspider/) |
+| [WunderTrading](https://wundertrading.com/) | crypto spot, crypto futures. live via exchange API keys; demo account | Bot platform | official | [details](https://tradingagentstack.com/tool/wundertrading/) |
+
+## Open-source trading bots
+
+Self-hosted bots you can read, modify and connect to your own agent. See [Open-source AI trading bots](https://tradingagentstack.com/open-source-ai-trading-bots/).
+
+| Tool | Description | Type | Official / community | Details |
+|---|---|---|---|---|
+| [Freqtrade](https://www.freqtrade.io/en/stable/) | crypto spot, crypto futures. dry-run (paper) and live, self-hosted | Open-source bot | official | [details](https://tradingagentstack.com/tool/freqtrade/) |
+| [Hummingbot](https://hummingbot.org/) | crypto spot, crypto perpetuals, DEX, Kalshi. live (self-hosted); paper connectors | Open-source bot | official | [details](https://tradingagentstack.com/tool/hummingbot/) |
+| [Jesse](https://jesse.trade/) | crypto, stocks, commodities. backtesting and live (self-hosted) | Open-source bot | official | [details](https://tradingagentstack.com/tool/jesse/) |
+| [OctoBot](https://www.octobot.cloud/) | crypto. live and paper (virtual money) | Open-source bot | official | [details](https://tradingagentstack.com/tool/octobot/) |
+| [Superalgos](https://superalgos.org/) | crypto. backtest, paper and live (self-hosted) | Open-source bot | official | [details](https://tradingagentstack.com/tool/superalgos/) |
+
+## Exchanges & brokers for bots
+
+Crypto exchanges with official MCP servers or strong bot APIs, with rate limits, testnets and US/UK/EU notes. See [Crypto exchanges for trading bots](https://tradingagentstack.com/crypto-exchanges-for-trading-bots/).
+
+| Tool | Description | Type | Official / community | Details |
+|---|---|---|---|---|
+| [Binance](https://www.binance.com/) | crypto spot, crypto margin, crypto futures. live; Spot Testnet (testnet.binance.vision) for paper testing | Exchange | official | [details](https://tradingagentstack.com/tool/binance/) |
+| [Bitget](https://www.bitget.com/) | crypto spot, crypto futures, copy trading. live; demo trading in app | Exchange | official | [details](https://tradingagentstack.com/tool/bitget/) |
+| [Bybit](https://www.bybit.com/) | crypto spot, crypto derivatives, options. live; Demo Trading (api-demo.bybit.com, live prices) and a separate Testnet | Exchange | official | [details](https://tradingagentstack.com/tool/bybit/) |
+| [Coinbase Advanced](https://www.coinbase.com/advanced-trade) | crypto spot, crypto futures (eligible regions). live; static Advanced Trade sandbox (mocked Accounts and Orders responses) | Exchange | official | [details](https://tradingagentstack.com/tool/coinbase-advanced/) |
+| [Gemini](https://www.gemini.com/) | crypto spot, crypto perpetuals (eligible regions). live; full-function sandbox with test funds (exchange.sandbox.gemini.com) | Exchange | official | [details](https://tradingagentstack.com/tool/gemini/) |
+| [Hyperliquid](https://hyperliquid.xyz/) | crypto perpetuals, crypto spot (on-chain). live; public testnet (api.hyperliquid-testnet.xyz) | Exchange | official | [details](https://tradingagentstack.com/tool/hyperliquid/) |
+| [Kraken](https://www.kraken.com/) | crypto spot, crypto futures, xStocks, forex. live; built-in spot and futures paper trading in Kraken CLI (no API key needed) | Exchange | official | [details](https://tradingagentstack.com/tool/kraken/) |
+| [OKX](https://www.okx.com/) | crypto spot, crypto perpetuals, futures, options. live; demo trading profile (simulated) supported by the MCP | Exchange | official | [details](https://tradingagentstack.com/tool/okx/) |
+
+## AI signals & research copilots
+
+AI stock scores, crypto sentiment and on-chain research tools. See [AI trading signals](https://tradingagentstack.com/ai-trading-signals/).
+
+| Tool | Description | Type | Official / community | Details |
+|---|---|---|---|---|
+| [Danelfin](https://danelfin.com/) | US stocks, ETFs, European stocks. research only (no execution); broker sync on paid plans | Signals / research | official | [details](https://tradingagentstack.com/tool/danelfin/) |
+| [Intellectia](https://intellectia.ai/) | US stocks, ETFs, crypto. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/intellectia/) |
+| [Kaito](https://www.kaito.ai/) | crypto. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/kaito/) |
+| [Kavout](https://www.kavout.com/) | US stocks, ETFs, crypto. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/kavout/) |
+| [LevelFields](https://www.levelfields.ai/) | US stocks, options. alerts only | Signals / research | official | [details](https://tradingagentstack.com/tool/levelfields/) |
+| [LunarCrush](https://lunarcrush.com/) | crypto, stocks. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/lunarcrush/) |
+| [Nansen](https://www.nansen.ai/) | crypto (on-chain). research only | Signals / research | official | [details](https://tradingagentstack.com/tool/nansen/) |
+| [Prospero.ai](https://www.prospero.ai/) | US stocks. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/prospero-ai/) |
+| [Santiment](https://santiment.net/) | crypto. research only | Signals / research | official | [details](https://tradingagentstack.com/tool/santiment/) |
 
 ## Use it from Claude or Cursor (MCP server)
 
