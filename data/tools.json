@@ -1,0 +1,734 @@
+[
+  {
+    "name": "Alpaca MCP Server",
+    "url": "https://docs.alpaca.markets/us/docs/trading-api-mcp",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "options",
+      "crypto",
+      "fixed income quotes"
+    ],
+    "live_vs_paper": "live and paper (paper with simulated $100K)",
+    "order_approval_safety": "local server; 65 tools incl. order placement; toolsets can be scoped",
+    "pricing_free_tier": "free account, no minimum deposit; free IEX data, $99/mo SIP+OPRA",
+    "rate_limits": "200 trading req/min",
+    "official_or_community": "official",
+    "source": "https://alpaca.markets/mcp-server",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/alpaca-mcp-server/"
+  },
+  {
+    "name": "Interactive Brokers AI Integration (MCP)",
+    "url": "https://www.interactivebrokers.com/en/general/about/mediaRelations/7-28-26.php",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "global multi-asset (account/portfolio, market data)"
+    ],
+    "live_vs_paper": "live account",
+    "order_approval_safety": "hosted at api.ibkr.com/v1/api/mcp-public; IBKR login, single-account authorization; order instructions require IBKR approval",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://www.interactivebrokers.com/en/general/about/mediaRelations/7-28-26.php",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/interactive-brokers-ai-integration-mcp/"
+  },
+  {
+    "name": "Longbridge MCP",
+    "url": "https://open.longbridge.com/docs/mcp",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "quotes/depth",
+      "fundamentals",
+      "options",
+      "warrants"
+    ],
+    "live_vs_paper": "live trading tools (place/modify/cancel)",
+    "order_approval_safety": "hosted; vendor advises start read-only, enable trading after scope config; 160+ tools",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://open.longbridge.com/docs/mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/longbridge-mcp/"
+  },
+  {
+    "name": "Webull Cloud MCP Server",
+    "url": "https://developer.webull.com/apis/docs/AI-friendly-Resources/mcp",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "stocks",
+      "ETFs",
+      "options",
+      "futures",
+      "crypto",
+      "event contracts"
+    ],
+    "live_vs_paper": "live: creates order instructions (stocks, options, futures, crypto, event contracts, algo) that you confirm in the Webull app/desktop; plus account data, order history, market data",
+    "order_approval_safety": "hosted at api.webull.com/mcp; OAuth login; you pick which accounts and capability groups to authorize; every order instruction requires confirmation in the Webull APP/Desktop and can be revoked",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://developer.webull.com/apis/docs/AI-friendly-Resources/mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/webull-cloud-mcp-server/"
+  },
+  {
+    "name": "TradingView MCP Server",
+    "url": "https://www.tradingview.com/support/solutions/43000795699-mcp-server-connect-your-ai-assistant-to-tradingview/",
+    "category": "data_mcp",
+    "assets_covered": [
+      "stocks",
+      "ETFs",
+      "forex",
+      "crypto",
+      "futures",
+      "indices",
+      "bonds",
+      "macro"
+    ],
+    "live_vs_paper": "no trading (watchlists/alerts only)",
+    "order_approval_safety": "OAuth 2.1; 35 tools; write tools change watchlists/alerts only; public beta",
+    "pricing_free_tier": "MCP included in Essential and higher TradingView plans (not trial plans); delayed data in beta",
+    "rate_limits": "about 100 requests/min per account in beta, plus possible daily limits; up to 5,000 bars per request",
+    "official_or_community": "official",
+    "source": "https://www.tradingview.com/support/solutions/43000795699-mcp-server-connect-your-ai-assistant-to-tradingview/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/tradingview-mcp-server/"
+  },
+  {
+    "name": "Massive (formerly Polygon) MCP",
+    "url": "https://massive.com/docs/ai-tools/quickstart",
+    "category": "data_mcp",
+    "assets_covered": [
+      "stocks",
+      "options",
+      "forex",
+      "crypto",
+      "futures",
+      "fundamentals",
+      "news"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "data only; hosted OAuth at mcp.massive.com, or self-host the open-source server with a Massive API key; 3 tools (search_endpoints, call_api, query_data); repo marked experimental",
+    "pricing_free_tier": "uses your Massive plan: free tier end-of-day; Starter $29/mo 15-min delayed; real-time on Advanced",
+    "rate_limits": "hosted: up to 10 concurrent workspaces, 64 MB working storage per session; data access mirrors your Massive plan",
+    "official_or_community": "official",
+    "repo": "https://github.com/massive-com/mcp_massive",
+    "former_names": "Polygon MCP (mcp_polygon); repo renamed from polygon-io/mcp_polygon to massive-com/mcp_massive",
+    "source": "https://massive.com/docs/ai-tools/quickstart",
+    "sources": [
+      "https://massive.com/docs/ai-tools/quickstart",
+      "https://github.com/massive-com/mcp_massive"
+    ],
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/massive-formerly-polygon-mcp/"
+  },
+  {
+    "name": "Alpha Vantage MCP",
+    "url": "https://github.com/alphavantage/alpha_vantage_mcp",
+    "category": "data_mcp",
+    "assets_covered": [
+      "stocks (20+ yrs history)",
+      "quotes"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "data only; remote server at mcp.alphavantage.co/mcp (OAuth page to enter your API key) or run locally with an API key",
+    "pricing_free_tier": "works with a free Alpha Vantage API key or a premium plan",
+    "rate_limits": "your Alpha Vantage key's limits (free: 25 requests/day; premium 75–1,200 req/min, per alphavantage.co/premium)",
+    "official_or_community": "official",
+    "source": "https://github.com/alphavantage/alpha_vantage_mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/alpha-vantage-mcp/"
+  },
+  {
+    "name": "Databento MCP servers (dbn-go)",
+    "url": "https://github.com/NimbleMarkets/dbn-go/blob/main/cmd/README.md",
+    "category": "data_mcp",
+    "assets_covered": [
+      "Databento datasets"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "dbn-go-mcp-meta is metadata-only ('no billing risk')",
+    "pricing_free_tier": "uses Databento billing",
+    "rate_limits": "unknown",
+    "official_or_community": "community",
+    "source": "https://github.com/NimbleMarkets/dbn-go/blob/main/cmd/README.md",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/databento-mcp-servers-dbn-go/"
+  },
+  {
+    "name": "Canopii Trust Index",
+    "url": "https://index.canopii.dev/",
+    "category": "security_tool",
+    "assets_covered": [
+      "MCP servers (any)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "scans MCP servers for tool poisoning, prompt injection, supply-chain, credential risk",
+    "pricing_free_tier": "free open-source CLI; keyed API",
+    "rate_limits": "unknown",
+    "official_or_community": "third-party",
+    "source": "https://index.canopii.dev/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/canopii-trust-index/"
+  },
+  {
+    "name": "Alpaca Trading API",
+    "url": "https://alpaca.markets/",
+    "category": "broker_api",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "options",
+      "crypto"
+    ],
+    "live_vs_paper": "live and paper",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free Basic data plan (real-time IEX; SIP history older than 15 min); Algo Trader Plus $99/mo (all US exchanges + OPRA)",
+    "rate_limits": "market data API: 200 calls/min (Basic), 10,000 calls/min (Algo Trader Plus)",
+    "official_or_community": "official",
+    "source": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/alpaca-trading-api/"
+  },
+  {
+    "name": "Interactive Brokers API",
+    "url": "https://www.interactivebrokers.com/",
+    "category": "broker_api",
+    "assets_covered": [
+      "global stocks",
+      "options",
+      "futures",
+      "forex"
+    ],
+    "live_vs_paper": "live and paper",
+    "order_approval_safety": "unknown",
+    "pricing_free_tier": "IBKR Pro required for Web API; per-exchange data subscriptions",
+    "rate_limits": "TWS: market-data lines/2 req/sec (50 by default); historical pacing 60 per 10 min",
+    "official_or_community": "official",
+    "source": "https://aifinhub.io/articles/interactive-brokers-vs-alpaca-vs-tradier-api-2026/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/interactive-brokers-api/"
+  },
+  {
+    "name": "Tradier Brokerage API",
+    "url": "https://tradier.com/",
+    "category": "broker_api",
+    "assets_covered": [
+      "US stocks",
+      "options"
+    ],
+    "live_vs_paper": "live and paper (sandbox)",
+    "order_approval_safety": "unknown",
+    "pricing_free_tier": "Lite $0/mo ($0.35 per stock trade, $0.35 per option contract); Pro $10/mo ($0 stocks and equity options); Pro Plus $35/mo; index options $0.35/contract ($0.10 on Pro Plus)",
+    "rate_limits": "per access token: 120 req/min account and market data, 60 req/min trading (sandbox 60 req/min), per docs.tradier.com",
+    "official_or_community": "official",
+    "source": "https://tradier.com/individuals/pricing",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/tradier-brokerage-api/"
+  },
+  {
+    "name": "Schwab Trader API",
+    "url": "https://developer.schwab.com/",
+    "category": "broker_api",
+    "assets_covered": [
+      "US stocks",
+      "options"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "OAuth (noted as complex)",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://aifinhub.io/articles/choosing-a-broker-api-2026/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/schwab-trader-api/"
+  },
+  {
+    "name": "Databento",
+    "url": "https://databento.com/",
+    "category": "data_api",
+    "assets_covered": [
+      "US equities",
+      "US futures",
+      "US options",
+      "crypto",
+      "FX"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "usage-based; $125 new-customer credits for historical data (not live), per Databento user agreement",
+    "rate_limits": "no hard limits on historical",
+    "official_or_community": "official",
+    "source": "https://databento.com/legal/databento-user-agreement/fees",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/databento/"
+  },
+  {
+    "name": "Massive (Polygon) API",
+    "url": "https://massive.com/",
+    "category": "data_api",
+    "assets_covered": [
+      "stocks",
+      "options",
+      "indices",
+      "forex"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free tier: end-of-day data, 5 req/min, no card; Stocks Starter $29/mo (15-min delayed, includes full-market snapshot); Developer $79/mo (15-min delayed); Advanced $199/mo (real-time)",
+    "rate_limits": "free: 5 API calls/min; paid plans: unlimited API calls",
+    "official_or_community": "official",
+    "source": "https://massive.com/stocks",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/massive-polygon-api/"
+  },
+  {
+    "name": "ThetaData",
+    "url": "https://www.thetadata.net/",
+    "category": "data_api",
+    "assets_covered": [
+      "stocks",
+      "options",
+      "indices",
+      "interest rates"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free tier, no card; options plans (individual use) $40, $80, $160/mo (Value, Standard, Pro); separate stocks, indices and rates plans",
+    "rate_limits": "concurrent-request caps by plan (options: 2 / 4 / 8)",
+    "official_or_community": "official",
+    "source": "https://www.thetadata.net/subscribe",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/thetadata/"
+  },
+  {
+    "name": "Alpha Vantage API",
+    "url": "https://www.alphavantage.co/",
+    "category": "data_api",
+    "assets_covered": [
+      "stocks",
+      "ETFs",
+      "mutual funds",
+      "indices",
+      "options",
+      "forex",
+      "commodities",
+      "economic indicators",
+      "news & sentiment"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free key: 25 requests/day for most endpoints; premium $49.99/mo (75 req/min) to $249.99/mo (1,200 req/min)",
+    "rate_limits": "free 25 requests/day; premium 75–1,200 requests/min",
+    "official_or_community": "official",
+    "source": "https://www.alphavantage.co/premium/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/alpha-vantage-api/"
+  },
+  {
+    "name": "SEC EDGAR APIs",
+    "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    "category": "data_api",
+    "assets_covered": [
+      "US filings/XBRL fundamentals"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free; data.sec.gov APIs need no authentication or API key",
+    "rate_limits": "max 10 requests/second (SEC fair-access policy)",
+    "official_or_community": "official",
+    "source": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/sec-edgar-apis/"
+  },
+  {
+    "name": "Kalshi API",
+    "url": "https://kalshi.com/",
+    "category": "data_api",
+    "assets_covered": [
+      "prediction markets"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "unknown",
+    "pricing_free_tier": "free websocket with full orderbook (per Reddit)",
+    "rate_limits": "token buckets by tier: Basic 200 read / 100 write tokens per second, most requests cost 10 tokens; higher tiers by volume (docs.kalshi.com)",
+    "official_or_community": "official",
+    "source": "https://www.reddit.com/r/algotrading/comments/1smdaah/data_vendor_recommendation_for_us_equities/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/kalshi-api/"
+  },
+  {
+    "name": "Polymarket API",
+    "url": "https://docs.polymarket.com/",
+    "category": "data_api",
+    "assets_covered": [
+      "prediction markets"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "unknown",
+    "pricing_free_tier": "free websocket with full orderbook (per Reddit)",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://www.reddit.com/r/algotrading/comments/1smdaah/data_vendor_recommendation_for_us_equities/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/polymarket-api/"
+  },
+  {
+    "name": "OpenBB",
+    "url": "https://openbb.co/",
+    "category": "data_api",
+    "assets_covered": [
+      "multi-provider wrapper"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "open source (Apache 2.0); OpenBB Inc. is winding down and the stack is now stewarded by the non-profit OpenBQ",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://openbb.co/blog/openbb-belongs-to-everyone/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/openbb/"
+  },
+  {
+    "name": "yfinance",
+    "url": "https://github.com/ranaroussi/yfinance",
+    "category": "data_api",
+    "assets_covered": [
+      "stocks",
+      "options chains"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free (unofficial Yahoo scraper); Reddit notes greeks/IV unreliable",
+    "rate_limits": "unknown",
+    "official_or_community": "community",
+    "source": "https://github.com/ranaroussi/yfinance",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/yfinance/"
+  },
+  {
+    "name": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph",
+    "category": "agent_framework",
+    "assets_covered": [
+      "n/a"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "human approval: yes; MCP client: yes",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://dotsagent.io/frameworks",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/langgraph/"
+  },
+  {
+    "name": "LlamaIndex",
+    "url": "https://github.com/run-llama/llama_index",
+    "category": "agent_framework",
+    "assets_covered": [
+      "n/a"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "human approval: yes; MCP client and server: yes",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://dotsagent.io/frameworks",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/llamaindex/"
+  },
+  {
+    "name": "Mastra",
+    "url": "https://github.com/mastra-ai/mastra",
+    "category": "agent_framework",
+    "assets_covered": [
+      "n/a"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "human approval, tracing, evals: yes; MCP server built in",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://dotsagent.io/frameworks",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/mastra/"
+  },
+  {
+    "name": "Microsoft Agent Framework",
+    "url": "https://github.com/microsoft/agent-framework",
+    "category": "agent_framework",
+    "assets_covered": [
+      "n/a"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "human approval: yes; MCP client: yes",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://dotsagent.io/frameworks",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/microsoft-agent-framework/"
+  },
+  {
+    "name": "Agent Market Arena (AMA)",
+    "url": "https://github.com/The-FinAI/Agent_Market_Arena",
+    "category": "trading_agent",
+    "assets_covered": [
+      "crypto",
+      "stocks"
+    ],
+    "live_vs_paper": "live benchmark",
+    "order_approval_safety": "research code",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "academic",
+    "source": "https://arxiv.org/abs/2510.11695",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/agent-market-arena-ama/"
+  },
+  {
+    "name": "QuantConnect / LEAN",
+    "url": "https://www.quantconnect.com/",
+    "category": "backtest_platform",
+    "assets_covered": [
+      "equities",
+      "forex",
+      "futures",
+      "options",
+      "crypto"
+    ],
+    "live_vs_paper": "backtest, paper, live",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "free tier + paid plans; LEAN open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://www.quantconnect.com/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/quantconnect-lean/"
+  },
+  {
+    "name": "NautilusTrader",
+    "url": "https://nautilustrader.io/",
+    "category": "backtest_platform",
+    "assets_covered": [
+      "multi-venue incl. IBKR and crypto"
+    ],
+    "live_vs_paper": "backtest and live",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "open source (LGPL-3.0)",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://github.com/nautechsystems/nautilus_trader",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/nautilustrader/"
+  },
+  {
+    "name": "VectorBT",
+    "url": "https://github.com/polakowo/vectorbt",
+    "category": "backtest_platform",
+    "assets_covered": [
+      "any (bring data)"
+    ],
+    "live_vs_paper": "backtest/research only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://github.com/polakowo/vectorbt",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/vectorbt/"
+  },
+  {
+    "name": "Backtesting.py",
+    "url": "https://github.com/kernc/backtesting.py",
+    "category": "backtest_platform",
+    "assets_covered": [
+      "any (bring data)"
+    ],
+    "live_vs_paper": "backtest only",
+    "order_approval_safety": "n/a",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://github.com/kernc/backtesting.py",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/backtesting-py/"
+  },
+  {
+    "name": "Freqtrade",
+    "url": "https://github.com/freqtrade/freqtrade",
+    "category": "trading_agent",
+    "assets_covered": [
+      "crypto"
+    ],
+    "live_vs_paper": "dry-run and live",
+    "order_approval_safety": "unknown",
+    "pricing_free_tier": "open source",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://github.com/freqtrade/freqtrade",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/freqtrade/"
+  },
+  {
+    "name": "tastytrade MCP Server",
+    "url": "https://developer.tastytrade.com/docs/sdks-and-tools/mcp-server/",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "tastytrade account (orders, quotes)"
+    ],
+    "live_vs_paper": "live; sandbox available",
+    "order_approval_safety": "order submit/edit tools require a single-use confirmation token from a dry_run tool (valid 60s, bound to request hash)",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://developer.tastytrade.com/docs/sdks-and-tools/mcp-server/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/tastytrade-mcp-server/"
+  },
+  {
+    "name": "Robinhood Trading MCP",
+    "url": "https://robinhood.com/us/en/support/articles/onboarding-an-external-agent/",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "equities (long)",
+      "options",
+      "crypto"
+    ],
+    "live_vs_paper": "live, from a dedicated MCP account",
+    "order_approval_safety": "hosted at agent.robinhood.com/mcp/trading; trade approvals toggle (off by default for MCP accounts, still rolling out)",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://robinhood.com/us/en/support/articles/onboarding-an-external-agent/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/robinhood-trading-mcp/"
+  },
+  {
+    "name": "NinjaTrader MCP (beta)",
+    "url": "https://docs.ninjatrader.com/mcp.md",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "NinjaTrader account (contracts, quotes, orders, risk)"
+    ],
+    "live_vs_paper": "Demo (simulated) and Live endpoints",
+    "order_approval_safety": "beta, not generally available; remote OAuth; separate Demo/Live URLs and accounts",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://docs.ninjatrader.com/mcp.md",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/ninjatrader-mcp-beta/"
+  },
+  {
+    "name": "TradeStation MCP",
+    "url": "https://www.tradestation.com/platforms-and-tools/mcp/",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "TradeStation execution, market data, account APIs"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "explicit confirmation required before orders; request access in HUB; Claude or ChatGPT",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://www.tradestation.com/platforms-and-tools/mcp/",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/tradestation-mcp/"
+  },
+  {
+    "name": "moomoo MCP",
+    "url": "https://open.moomoo.com/mcp-docs/overview",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "quotes",
+      "portfolio",
+      "orders; HK, US, CN, SG, JP, MY markets (OpenAPI)"
+    ],
+    "live_vs_paper": "live trading capability",
+    "order_approval_safety": "hosted at mcp.moomoo.com/mcp; OAuth 2.1, no API key; permission scopes on consent",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://open.moomoo.com/mcp-docs/overview",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/moomoo-mcp/"
+  },
+  {
+    "name": "Public Hosted MCP Server",
+    "url": "https://public.com/api/docs/templates/hosted-mcp",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "Public.com brokerage account"
+    ],
+    "live_vs_paper": "live (real money)",
+    "order_approval_safety": "hosted at mcp.public.com/mcp; preflight details shown before confirming orders",
+    "pricing_free_tier": "unknown",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://public.com/api/docs/templates/hosted-mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/public-hosted-mcp-server/"
+  },
+  {
+    "name": "Tradier MCP Server",
+    "url": "https://tradier.com/develop/mcp-server",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "US stocks",
+      "options (single-leg and multi-leg)"
+    ],
+    "live_vs_paper": "live and paper (PAPER_TRADING flag with your paper token)",
+    "order_approval_safety": "hosted at mcp.tradier.com/mcp; personal API token (header, or in the URL query for ChatGPT/Claude web); order tools incl. equity, options, multileg, OCO/OTO/OTOCO and cancel; no separate order-confirmation step documented",
+    "pricing_free_tier": "any Tradier plan works, including the free Lite plan",
+    "rate_limits": "not documented for MCP; Tradier API limits are 60 req/min trading, 120 req/min market data per token",
+    "official_or_community": "official",
+    "source": "https://docs.tradier.com/docs/tradier-mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/tradier-mcp-server/"
+  },
+  {
+    "name": "Axi MCP (MT5)",
+    "url": "https://www.axi.com/int/trading-platforms/mcp",
+    "category": "broker_mcp",
+    "assets_covered": [
+      "Axi MT5 account instruments (live prices, candles, positions, orders)"
+    ],
+    "live_vs_paper": "live and demo MT5 accounts; MT4 and Axi platform accounts view-only",
+    "order_approval_safety": "alpha; hosted at mcp.axi.com/mcp; OAuth with Axi login; Claude only; each trade action needs approval in chat unless you set that action to \"Always allow\"; cannot transfer funds",
+    "pricing_free_tier": "no Axi fee mentioned; works on Claude's free plan (one custom connector)",
+    "rate_limits": "unknown",
+    "official_or_community": "official",
+    "source": "https://help.axi.com/en-US/axiv2--axicorp-prod/article/2JDefk4Y-what-can-and-cant-i-ask-claude-to-do-through-the-axi-mcp-connection",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/axi-mcp-mt5/"
+  },
+  {
+    "name": "Pyth Pro MCP Server",
+    "url": "https://docs.pyth.network/price-feeds/pro/mcp",
+    "category": "data_mcp",
+    "assets_covered": [
+      "crypto",
+      "FX",
+      "equities",
+      "metals",
+      "rates",
+      "commodities",
+      "funding rates",
+      "NAVs"
+    ],
+    "live_vs_paper": "data only",
+    "order_approval_safety": "hosted at mcp.pyth.network/mcp; bring your own Pyth Pro API key (Bearer header); feed discovery works without a key",
+    "pricing_free_tier": "API key from a free Pyth Terminal account; feed access depends on your Pyth Pro plan entitlements",
+    "rate_limits": "per request: up to 100 feeds (latest), 50 (historical), 500 candles; historical data from April 2025",
+    "official_or_community": "official",
+    "source": "https://docs.pyth.network/price-feeds/pro/mcp",
+    "last_checked": "2026-10-16",
+    "details_url": "https://tradingagentstack.com/tool/pyth-pro-mcp-server/"
+  }
+]
