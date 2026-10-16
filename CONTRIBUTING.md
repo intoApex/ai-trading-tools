@@ -23,7 +23,7 @@ Thanks for helping keep this list accurate. Every entry must link to an official
 | `official_or_community` | `official` (built by the vendor) or `community` |
 | `source` | URL that backs the facts above |
 
-Optional: `repo` (source code URL), `former_names`.
+Optional: `repo` (source code URL), `former_names`, `sources`, `status` (e.g. a product being wound down). `details_url` is generated.
 
 ## Rules
 

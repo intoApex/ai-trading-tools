@@ -23,7 +23,7 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 
 | Tool | Description | Type | Official / community | Details |
 |---|---|---|---|---|
-| [Alpaca MCP Server](https://docs.alpaca.markets/us/docs/trading-api-mcp) | US stocks, ETFs, options, crypto, fixed income quotes. live and paper (paper with simulated $100K) | MCP | official | [details](https://tradingagentstack.com/tool/alpaca-mcp-server/) |
+| [Alpaca MCP Server](https://docs.alpaca.markets/us/docs/trading-api-mcp) | US stocks, ETFs, options, crypto, fixed income quotes. live and paper (ALPACA_PAPER_TRADE defaults to true/paper; paper with simulated $100K) | MCP | official | [details](https://tradingagentstack.com/tool/alpaca-mcp-server/) |
 | [Axi MCP (MT5)](https://www.axi.com/int/trading-platforms/mcp) | Axi MT5 account instruments (live prices, candles, positions, orders). live and demo MT5 accounts; MT4 and Axi platform accounts view-only | MCP | official | [details](https://tradingagentstack.com/tool/axi-mcp-mt5/) |
 | [Interactive Brokers AI Integration (MCP)](https://www.interactivebrokers.com/en/general/about/mediaRelations/7-28-26.php) | global multi-asset (account/portfolio, market data). live account | MCP | official | [details](https://tradingagentstack.com/tool/interactive-brokers-ai-integration-mcp/) |
 | [Longbridge MCP](https://open.longbridge.com/docs/mcp) | quotes/depth, fundamentals, options, warrants. live trading tools (place/modify/cancel) | MCP | official | [details](https://tradingagentstack.com/tool/longbridge-mcp/) |
@@ -63,7 +63,7 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 | [Databento](https://databento.com/) | US equities, US futures, US options, crypto, FX. data only | API | official | [details](https://tradingagentstack.com/tool/databento/) |
 | [Kalshi API](https://kalshi.com/) | prediction markets. live | API | official | [details](https://tradingagentstack.com/tool/kalshi-api/) |
 | [Massive (Polygon) API](https://massive.com/) | stocks, options, indices, forex. data only | API | official | [details](https://tradingagentstack.com/tool/massive-polygon-api/) |
-| [OpenBB](https://openbb.co/) | multi-provider wrapper. data only | API | official | [details](https://tradingagentstack.com/tool/openbb/) |
+| [OpenBB](https://openbb.co/) | multi-provider wrapper. data only. **Status:** Company winding down (announced Aug 25, 2026). Code released under Apache 2.0 and maintained by the non-profit OpenBQ (github.com/openbq-org). | API | official | [details](https://tradingagentstack.com/tool/openbb/) |
 | [Polymarket API](https://docs.polymarket.com/) | prediction markets. live | API | official | [details](https://tradingagentstack.com/tool/polymarket-api/) |
 | [SEC EDGAR APIs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces) | US filings/XBRL fundamentals. data only | API | official | [details](https://tradingagentstack.com/tool/sec-edgar-apis/) |
 | [ThetaData](https://www.thetadata.net/) | stocks, options, indices, interest rates. data only | API | official | [details](https://tradingagentstack.com/tool/thetadata/) |
@@ -99,6 +99,10 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 | Tool | Description | Type | Official / community | Details |
 |---|---|---|---|---|
 | [Canopii Trust Index](https://index.canopii.dev/) | MCP servers (any). n/a | Security tool | third-party | [details](https://tradingagentstack.com/tool/canopii-trust-index/) |
+
+## Use it from Claude or Cursor (MCP server)
+
+Search this dataset straight from your AI client with the read-only [TradingAgentStack MCP server](mcp-server/): `search_tools`, `get_tool`, `compare_brokers`, `list_categories`.
 
 ## Contributing
 
