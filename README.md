@@ -2,7 +2,7 @@
 
 An open, sourced dataset of the broker MCP servers, market data APIs, agent frameworks, backtesters and AI trading bots that let AI agents trade and research markets. Every entry links to an official source. Maintained by [TradingAgentStack](https://tradingagentstack.com), where each tool has a full page with pricing, rate limits, paper vs live trading and safety controls.
 
-**76 tools** · Last verified: **2026-10-17** · Data: [`data/tools.json`](data/tools.json) · [`data/tools.csv`](data/tools.csv) · License: [CC BY 4.0](LICENSE)
+**111 tools** · Last verified: **2026-10-17** · Data: [`data/tools.json`](data/tools.json) · [`data/tools.csv`](data/tools.csv) · License: [CC BY 4.0](LICENSE)
 
 📬 Get new tools and changes weekly: [subscribe to the TradingAgentStack newsletter](https://tradingagentstack.com/#nle).
 
@@ -65,10 +65,8 @@ An open, sourced dataset of the broker MCP servers, market data APIs, agent fram
 |---|---|---|---|---|
 | [Alpha Vantage API](https://www.alphavantage.co/) | stocks, ETFs, mutual funds, indices, options, forex, commodities, economic indicators, news & sentiment. data only | API | official | [details](https://tradingagentstack.com/tool/alpha-vantage-api/) |
 | [Databento](https://databento.com/) | US equities, US futures, US options, crypto, FX. data only | API | official | [details](https://tradingagentstack.com/tool/databento/) |
-| [Kalshi API](https://kalshi.com/) | prediction markets. live | API | official | [details](https://tradingagentstack.com/tool/kalshi-api/) |
 | [Massive (Polygon) API](https://massive.com/) | stocks, options, indices, forex. data only | API | official | [details](https://tradingagentstack.com/tool/massive-polygon-api/) |
 | [OpenBB](https://openbb.co/) | multi-provider wrapper. data only. **Status:** Company winding down (announced Aug 25, 2026). Code released under Apache 2.0 and maintained by the non-profit OpenBQ (github.com/openbq-org). | API | official | [details](https://tradingagentstack.com/tool/openbb/) |
-| [Polymarket API](https://docs.polymarket.com/) | prediction markets. live | API | official | [details](https://tradingagentstack.com/tool/polymarket-api/) |
 | [SEC EDGAR APIs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces) | US filings/XBRL fundamentals. data only | API | official | [details](https://tradingagentstack.com/tool/sec-edgar-apis/) |
 | [ThetaData](https://www.thetadata.net/) | stocks, options, indices, interest rates. data only | API | official | [details](https://tradingagentstack.com/tool/thetadata/) |
 | [yfinance](https://github.com/ranaroussi/yfinance) | stocks, options chains. data only | API | community | [details](https://tradingagentstack.com/tool/yfinance/) |

@@ -2,7 +2,7 @@
 Usage: python scripts/sync_from_site.py path/to/listings.json"""
 import csv, json, re, sys, pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
-CAT = {"broker_mcp":"Broker MCP servers","data_mcp":"Market data MCP servers","broker_api":"Broker APIs","data_api":"Market data APIs","agent_framework":"Agent frameworks","backtest_platform":"Backtesting","trading_agent":"Trading agents","security_tool":"Security","ai_bot_platform":"AI trading bot platforms","open_source_bot":"Open-source trading bots","bot_exchange":"Exchanges & brokers for bots","ai_signals":"AI signals & research copilots"}
+CAT = {"broker_mcp":"Broker MCP servers","data_mcp":"Market data MCP servers","broker_api":"Broker APIs","data_api":"Market data APIs","agent_framework":"Agent frameworks","backtest_platform":"Backtesting","trading_agent":"Trading agents","security_tool":"Security","ai_bot_platform":"AI trading bot platforms","open_source_bot":"Open-source trading bots","bot_exchange":"Exchanges & brokers for bots","ai_signals":"AI signals & research copilots","prediction_market":"Prediction market APIs & agents","risk_tool":"Risk, guardrails & paper trading","defi_agent":"DeFi & on-chain trading agents","copy_trading":"Copy trading & strategy marketplaces","bot_vps":"VPS & hosting for bots"}
 slug = lambda s: re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 src = json.load(open(sys.argv[1]))
 old = {x["name"]: x for x in json.load(open(R/"data/tools.json"))}
@@ -26,7 +26,7 @@ for k, v in CAT.items():
     rows = []
     for x in sorted(out, key=lambda x: x["name"].lower()):
         if x["category"] != k: continue
-        t = {"ai_bot_platform":"Bot platform","open_source_bot":"Open-source bot","bot_exchange":"Exchange","ai_signals":"Signals / research"}.get(k) or oldtype.get(x["name"]) or ("MCP" if k.endswith("mcp") else "API")
+        t = {"ai_bot_platform":"Bot platform","open_source_bot":"Open-source bot","bot_exchange":"Exchange","ai_signals":"Signals / research","prediction_market":"Prediction market","risk_tool":"Risk / paper trading","defi_agent":"DeFi agent","copy_trading":"Copy trading","bot_vps":"VPS"}.get(k) or oldtype.get(x["name"]) or ("MCP" if k.endswith("mcp") else "API")
         d = f"{', '.join(x['assets_covered'])}. {x['live_vs_paper']}"
         if x.get("status"): d += f". **Status:** {x['status']}"
         rows.append(f"| [{cell(x['name'])}]({x['url']}) | {cell(d)} | {t} | {x['official_or_community']} | [details]({x['details_url']}) |")

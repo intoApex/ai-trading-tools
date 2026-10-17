@@ -348,33 +348,45 @@
   {
     "name": "Kalshi API",
     "url": "https://kalshi.com/",
-    "category": "data_api",
+    "category": "prediction_market",
     "assets_covered": [
       "prediction markets"
     ],
-    "live_vs_paper": "live",
-    "order_approval_safety": "unknown",
-    "pricing_free_tier": "free websocket with full orderbook (per Reddit)",
+    "live_vs_paper": "live; separate demo environment with mock funds (demo.kalshi.co)",
+    "order_approval_safety": "official REST and WebSocket Trade API with RSA-PSS or Ed25519 signed keys; demo credentials are separate from production; no official MCP (community MCPs exist)",
+    "pricing_free_tier": "API access free; exchange trading fees apply per contract",
     "rate_limits": "token buckets by tier: Basic 200 read / 100 write tokens per second, most requests cost 10 tokens; higher tiers by volume (docs.kalshi.com)",
     "official_or_community": "official",
-    "last_checked": "2026-10-16",
-    "source": "https://www.reddit.com/r/algotrading/comments/1smdaah/data_vendor_recommendation_for_us_equities/",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.kalshi.com/getting_started/demo_env",
+    "sources": [
+      "https://docs.kalshi.com/getting_started/demo_env",
+      "https://docs.kalshi.com/getting_started/api_environments",
+      "https://docs.kalshi.com/getting_started/rate_limits"
+    ],
+    "regions": "US: yes (CFTC-regulated exchange); some contracts may be restricted in some states. Non-US access is limited: check Kalshi's eligibility page for your country.",
     "details_url": "https://tradingagentstack.com/tool/kalshi-api/"
   },
   {
     "name": "Polymarket API",
     "url": "https://docs.polymarket.com/",
-    "category": "data_api",
+    "category": "prediction_market",
     "assets_covered": [
       "prediction markets"
     ],
-    "live_vs_paper": "live",
-    "order_approval_safety": "unknown",
-    "pricing_free_tier": "free websocket with full orderbook (per Reddit)",
-    "rate_limits": "unknown",
+    "live_vs_paper": "live only (no testnet); CLOB V2 since Apr 28 2026",
+    "order_approval_safety": "wallet-signed orders on the international CLOB (V2 SDKs: py-clob-client-v2, clob-client-v2); separate Polymarket US API with Ed25519 keys and an order preview endpoint",
+    "pricing_free_tier": "API access free; trading fees vary by market",
+    "rate_limits": "per-endpoint limits in docs",
     "official_or_community": "official",
-    "last_checked": "2026-10-16",
-    "source": "https://www.reddit.com/r/algotrading/comments/1smdaah/data_vendor_recommendation_for_us_equities/",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.polymarket.com/v2-migration",
+    "sources": [
+      "https://docs.polymarket.com/v2-migration",
+      "https://docs.polymarket.us/api-reference/sdks/introduction",
+      "https://github.com/Polymarket/agents"
+    ],
+    "regions": "International polymarket.com: US persons cannot open positions (US is close-only) and other jurisdictions are blocked. US residents: use Polymarket US (separate CFTC-regulated app, ID-verified, separate API).",
     "details_url": "https://tradingagentstack.com/tool/polymarket-api/"
   },
   {
@@ -1473,5 +1485,731 @@
       "https://nansen.ai/affiliates"
     ],
     "details_url": "https://tradingagentstack.com/tool/nansen/"
+  },
+  {
+    "name": "Polymarket Agents",
+    "url": "https://github.com/Polymarket/agents",
+    "category": "prediction_market",
+    "assets_covered": [
+      "prediction markets"
+    ],
+    "live_vs_paper": "live (trades via the Polymarket API)",
+    "order_approval_safety": "official open-source framework (MIT) with LangChain/Chroma RAG, news sourcing and a CLI that can execute trades; check it targets CLOB V2 before trading",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "inherits Polymarket API limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/Polymarket/agents",
+    "sources": [
+      "https://github.com/Polymarket/agents"
+    ],
+    "regions": "Polymarket's terms bar US persons and other restricted jurisdictions from trading through the international API, including via agents.",
+    "details_url": "https://tradingagentstack.com/tool/polymarket-agents/"
+  },
+  {
+    "name": "Polymarket US API",
+    "url": "https://docs.polymarket.us/",
+    "category": "prediction_market",
+    "assets_covered": [
+      "prediction markets (US)"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "official Python and TypeScript SDKs; orders support preview, cancel and cancel-all; keys need an ID-verified Polymarket US account",
+    "pricing_free_tier": "API access free; trading fees per Polymarket US schedule",
+    "rate_limits": "see docs",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.polymarket.us/api-reference/sdks/introduction",
+    "sources": [
+      "https://docs.polymarket.us/api-reference/sdks/introduction"
+    ],
+    "regions": "US residents only, via the Polymarket US iOS app with identity verification.",
+    "details_url": "https://tradingagentstack.com/tool/polymarket-us-api/"
+  },
+  {
+    "name": "Limitless Exchange",
+    "url": "https://limitless.exchange/",
+    "category": "prediction_market",
+    "assets_covered": [
+      "prediction markets (crypto, on Base)"
+    ],
+    "live_vs_paper": "live only; no sandbox or testnet (docs say rehearse with minimum-size live orders)",
+    "order_approval_safety": "official trading MCP at api.limitless.exchange/mcp with a human approving each order in chat; open-source agents-starter repo runs dry-run by default",
+    "pricing_free_tier": "API access free; trading fees per market",
+    "rate_limits": "see docs",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.limitless.exchange/developers/introduction",
+    "sources": [
+      "https://docs.limitless.exchange/developers/introduction",
+      "https://limitless.exchange/blog/introducing-limitless-mcp-trade-prediction-markets-through-chat-gpt-claude-or-grok",
+      "https://github.com/limitless-labs-group/agents-starter"
+    ],
+    "regions": "Check Limitless's terms for restricted jurisdictions before trading.",
+    "details_url": "https://tradingagentstack.com/tool/limitless-exchange/"
+  },
+  {
+    "name": "Manifold Markets API",
+    "url": "https://docs.manifold.markets/api",
+    "category": "prediction_market",
+    "assets_covered": [
+      "play-money prediction markets"
+    ],
+    "live_vs_paper": "play money (mana); no real-money risk",
+    "order_approval_safety": "bots and automated trading explicitly permitted; API keys per user; good for testing agent logic without real money",
+    "pricing_free_tier": "free",
+    "rate_limits": "500 requests/min per IP",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.manifold.markets/api",
+    "sources": [
+      "https://docs.manifold.markets/api"
+    ],
+    "regions": "Available globally (play money).",
+    "details_url": "https://tradingagentstack.com/tool/manifold-markets-api/"
+  },
+  {
+    "name": "Kalshi MCP Server (community)",
+    "url": "https://github.com/cejor6/kalshi-mcp-server",
+    "category": "prediction_market",
+    "assets_covered": [
+      "prediction markets"
+    ],
+    "live_vs_paper": "demo and live; trading off by default",
+    "order_approval_safety": "community MIT MCP: two-step prepare/confirm order flow, safety caps that can only be tightened at runtime, demo mode, client-side rate limiting",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "mirrors Kalshi token buckets",
+    "official_or_community": "community",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/cejor6/kalshi-mcp-server",
+    "sources": [
+      "https://github.com/cejor6/kalshi-mcp-server"
+    ],
+    "regions": "Same eligibility as Kalshi.",
+    "details_url": "https://tradingagentstack.com/tool/kalshi-mcp-server-community/"
+  },
+  {
+    "name": "Prediction.Markets API",
+    "url": "https://prediction.markets/developers",
+    "category": "prediction_market",
+    "assets_covered": [
+      "prediction markets (Kalshi, Polymarket, Limitless)"
+    ],
+    "live_vs_paper": "data only (no execution)",
+    "order_approval_safety": "read-only unified API and MCP across venues with a consensus probability; MIT-licensed MCP",
+    "pricing_free_tier": "free during beta (1,000 req/day); paid tiers announced",
+    "rate_limits": "1,000 requests/day in beta",
+    "official_or_community": "third-party",
+    "last_checked": "2026-10-17",
+    "source": "https://prediction.markets/developers",
+    "sources": [
+      "https://prediction.markets/developers"
+    ],
+    "regions": "Data viewable globally.",
+    "details_url": "https://tradingagentstack.com/tool/prediction-markets-api/"
+  },
+  {
+    "name": "NeMo Guardrails",
+    "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+    "category": "risk_tool",
+    "assets_covered": [
+      "LLM agents (any)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "open-source (Apache-2.0) programmable rails for LLM apps: input/output checks, topical limits and tool-call control",
+    "pricing_free_tier": "free, open source; you pay for model calls",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/NVIDIA-NeMo/Guardrails",
+    "sources": [
+      "https://github.com/NVIDIA-NeMo/Guardrails"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/nemo-guardrails/"
+  },
+  {
+    "name": "Guardrails AI",
+    "url": "https://github.com/guardrails-ai/guardrails",
+    "category": "risk_tool",
+    "assets_covered": [
+      "LLM agents (any)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "open-source (Apache-2.0) validators for LLM output, e.g. schema checks before an order payload is sent",
+    "pricing_free_tier": "free, open source; validators run on your infrastructure",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/guardrails-ai/guardrails",
+    "sources": [
+      "https://github.com/guardrails-ai/guardrails"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/guardrails-ai/"
+  },
+  {
+    "name": "Invariant Guardrails",
+    "url": "https://github.com/invariantlabs-ai/invariant",
+    "category": "risk_tool",
+    "assets_covered": [
+      "MCP and agent tool calls"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "open-source (Apache-2.0) runtime policy rules for agent and MCP tool calls, e.g. block an order tool unless conditions are met",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/invariantlabs-ai/invariant",
+    "sources": [
+      "https://github.com/invariantlabs-ai/invariant"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/invariant-guardrails/"
+  },
+  {
+    "name": "PolicyGate Capital",
+    "url": "https://github.com/policygate/policygate-capital",
+    "category": "risk_tool",
+    "assets_covered": [
+      "orders from any bot or agent"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "open-source pre-trade policy layer: each proposed order returns ALLOW, DENY or MODIFY; daily-loss limits, drawdown kill switch, exposure caps, order-rate limits",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "n/a",
+    "official_or_community": "community",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/policygate/policygate-capital",
+    "sources": [
+      "https://github.com/policygate/policygate-capital"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/policygate-capital/"
+  },
+  {
+    "name": "Alpaca Paper Trading",
+    "url": "https://docs.alpaca.markets/us/docs/paper-trading",
+    "category": "risk_tool",
+    "assets_covered": [
+      "US stocks",
+      "ETFs",
+      "options",
+      "crypto"
+    ],
+    "live_vs_paper": "paper (simulated) with the same API as live",
+    "order_approval_safety": "separate paper endpoint and keys, so an agent can't touch real money by mistake",
+    "pricing_free_tier": "free; available globally",
+    "rate_limits": "same as Trading API",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.alpaca.markets/us/docs/paper-trading",
+    "sources": [
+      "https://docs.alpaca.markets/us/docs/paper-trading"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/alpaca-paper-trading/"
+  },
+  {
+    "name": "IBKR Paper Trading Account",
+    "url": "https://www.interactivebrokers.com/campus/trading-lessons/how-to-open-an-ibkr-paper-trading-account/",
+    "category": "risk_tool",
+    "assets_covered": [
+      "stocks",
+      "options",
+      "futures",
+      "forex"
+    ],
+    "live_vs_paper": "paper with $1M simulated buying power",
+    "order_approval_safety": "separate paper login usable with TWS API and IBKR's MCP; best way to dry-run an agent on IBKR",
+    "pricing_free_tier": "free; requires an approved live IBKR account",
+    "rate_limits": "same as TWS/Web API",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.interactivebrokers.com/campus/trading-lessons/how-to-open-an-ibkr-paper-trading-account/",
+    "sources": [
+      "https://www.interactivebrokers.com/campus/trading-lessons/how-to-open-an-ibkr-paper-trading-account/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/ibkr-paper-trading-account/"
+  },
+  {
+    "name": "TradingView Paper Trading",
+    "url": "https://www.tradingview.com/support/solutions/43000516466-paper-trading-main-functionality/",
+    "category": "risk_tool",
+    "assets_covered": [
+      "stocks",
+      "forex",
+      "crypto",
+      "futures",
+      "commodities"
+    ],
+    "live_vs_paper": "paper",
+    "order_approval_safety": "manual and alert-driven simulated trading; useful to sanity-check a strategy before wiring a bot",
+    "pricing_free_tier": "free for all TradingView users",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.tradingview.com/support/solutions/43000516466-paper-trading-main-functionality/",
+    "sources": [
+      "https://www.tradingview.com/support/solutions/43000516466-paper-trading-main-functionality/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/tradingview-paper-trading/"
+  },
+  {
+    "name": "Banana Gun",
+    "url": "https://bananagun.io/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana",
+      "Ethereum",
+      "Base",
+      "other EVM chains"
+    ],
+    "live_vs_paper": "live only (real funds)",
+    "order_approval_safety": "Telegram bot plus Banana Pro web terminal: sniping, copy trading, limit orders, honeypot/rug checks; custodial bot wallets, so only fund what you can lose",
+    "pricing_free_tier": "0.5% on manual Ethereum buys and limit orders; 1% on Ethereum auto-snipes and on other chains (incl. Solana); gas and tips extra",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.bananagun.io/banana-token/banana-bonus",
+    "sources": [
+      "https://docs.bananagun.io/banana-token/banana-bonus",
+      "https://banana-gun.gitbook.io/banana-gun/get-started/referrals"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/banana-gun/"
+  },
+  {
+    "name": "Maestro",
+    "url": "https://www.maestrobots.com/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana",
+      "Ethereum",
+      "BSC",
+      "Base",
+      "Arbitrum",
+      "TON",
+      "Tron"
+    ],
+    "live_vs_paper": "live only",
+    "order_approval_safety": "Telegram bot: snipe, copy trade, limit orders; bot-managed wallets",
+    "pricing_free_tier": "1% on every successful buy and sell; transfers free",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.maestrobots.com/sniper/faq/fees",
+    "sources": [
+      "https://docs.maestrobots.com/sniper/faq/fees",
+      "https://docs.maestrobots.com/sniper/referral-program"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/maestro/"
+  },
+  {
+    "name": "BONKbot",
+    "url": "https://bonkbot.io/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana"
+    ],
+    "live_vs_paper": "live only",
+    "order_approval_safety": "Solana Telegram swap bot with limit orders; wallet export available",
+    "pricing_free_tier": "1% per successful swap; volume-tiered cashback up to 25% in SOL",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.bonkbot.io/fee-structure",
+    "sources": [
+      "https://docs.bonkbot.io/fee-structure",
+      "https://docs.bonkbot.io/rewards/cashback",
+      "https://docs.bonkbot.io/rewards/referrals"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/bonkbot/"
+  },
+  {
+    "name": "Trojan",
+    "url": "https://trojan.com/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana"
+    ],
+    "live_vs_paper": "live only",
+    "order_approval_safety": "Solana Telegram bot and web app: copy trading, sniping, DCA, limit orders, Jito MEV protection; private-key export",
+    "pricing_free_tier": "1% per successful trade; rank-based cashback from 20% upward",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.trojanonsolana.com/about-trojan-on-solana/using-trojan-on-solana",
+    "sources": [
+      "https://docs.trojanonsolana.com/about-trojan-on-solana/using-trojan-on-solana",
+      "https://docs.trojan.com/trojan-arena/ranks-and-rewards",
+      "https://docs.trojan.com/trojan-arena/referral-system"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/trojan/"
+  },
+  {
+    "name": "1inch Swap API",
+    "url": "https://business.1inch.com/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "EVM DEX liquidity"
+    ],
+    "live_vs_paper": "live (on-chain swaps)",
+    "order_approval_safety": "DEX aggregator API: quotes and swap calldata your own wallet or agent signs; you keep custody",
+    "pricing_free_tier": "Dev free (100k calls/mo, 60 req/min); Startup $149, Pro $299, Business $599/mo; plus swap infrastructure fees of 2-10 bps (stables) / 5-30 bps (others) by plan; pay-per-request in USDC on Base also available",
+    "rate_limits": "60 req/min free; 10-40 req/s paid",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://business.1inch.com/pricing",
+    "sources": [
+      "https://business.1inch.com/pricing",
+      "https://business.1inch.com/portal/documentation/faq/infrastructure-fee"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/1inch-swap-api/"
+  },
+  {
+    "name": "0x Swap API",
+    "url": "https://0x.org/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "EVM chains",
+      "Solana"
+    ],
+    "live_vs_paper": "live (on-chain swaps)",
+    "order_approval_safety": "aggregator API for swaps, gasless and cross-chain trades; you sign transactions with your own wallet",
+    "pricing_free_tier": "standard plan charges 0.15% on swaps of select pairs; paid plans from $1,000 (5 RPS); custom high-volume plans",
+    "rate_limits": "5 RPS on the $1,000 plan",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://0x.org/pricing",
+    "sources": [
+      "https://0x.org/pricing"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/0x-swap-api/"
+  },
+  {
+    "name": "Jupiter API",
+    "url": "https://developers.jup.ag/",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana DEX liquidity"
+    ],
+    "live_vs_paper": "live (on-chain swaps)",
+    "order_approval_safety": "Solana swap aggregator API; keyless access at 0.5 req/s for testing; execute calls cost 0 credits",
+    "pricing_free_tier": "Free (1 RPS); Developer $25, Launch $100, Pro $500/mo",
+    "rate_limits": "1-150 RPS by plan",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://developers.jup.ag/docs/portal/plans",
+    "sources": [
+      "https://developers.jup.ag/docs/portal/plans"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/jupiter-api/"
+  },
+  {
+    "name": "Coinbase AgentKit",
+    "url": "https://github.com/coinbase/agentkit",
+    "category": "defi_agent",
+    "assets_covered": [
+      "EVM chains",
+      "Solana"
+    ],
+    "live_vs_paper": "live and testnet",
+    "order_approval_safety": "open-source toolkit giving an AI agent its own wallet (CDP, Privy or keypair providers) with transfer, swap and custom actions; use testnets and spending limits first",
+    "pricing_free_tier": "free, open source; CDP usage may be billed",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/coinbase/agentkit",
+    "sources": [
+      "https://github.com/coinbase/agentkit"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/coinbase-agentkit/"
+  },
+  {
+    "name": "Solana Agent Kit",
+    "url": "https://github.com/sendaifun/solana-agent-kit",
+    "category": "defi_agent",
+    "assets_covered": [
+      "Solana"
+    ],
+    "live_vs_paper": "live and devnet",
+    "order_approval_safety": "open-source (SendAI) plugin toolkit for Solana agents: token, DeFi, NFT and Blinks actions with embedded-wallet support",
+    "pricing_free_tier": "free, open source",
+    "rate_limits": "RPC provider limits",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://github.com/sendaifun/solana-agent-kit",
+    "sources": [
+      "https://github.com/sendaifun/solana-agent-kit",
+      "https://docs.sendai.fun/docs/v2/introduction"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/solana-agent-kit/"
+  },
+  {
+    "name": "eToro CopyTrader",
+    "url": "https://www.etoro.com/en-us/copytrader/",
+    "category": "copy_trading",
+    "assets_covered": [
+      "stocks",
+      "ETFs",
+      "crypto"
+    ],
+    "live_vs_paper": "live; free $100k virtual portfolio for demo",
+    "order_approval_safety": "copy up to 100 investors; set a loss threshold that stops copying and closes copied positions; stop or adjust any time",
+    "pricing_free_tier": "no extra charge to copy; 1% crypto fee and other transaction fees apply; $200 minimum per copied trader",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.etoro.com/en-us/copytrader/",
+    "sources": [
+      "https://www.etoro.com/en-us/copytrader/",
+      "https://www.etoro.com/en-us/trading/fees/"
+    ],
+    "regions": "Not available in all US states; product scope differs by region (CFDs not offered to US clients). Check eToro's site for your country.",
+    "details_url": "https://tradingagentstack.com/tool/etoro-copytrader/"
+  },
+  {
+    "name": "ZuluTrade",
+    "url": "https://www.zulutrade.com/",
+    "category": "copy_trading",
+    "assets_covered": [
+      "forex",
+      "CFDs",
+      "crypto CFDs"
+    ],
+    "live_vs_paper": "live and demo",
+    "order_approval_safety": "copy signal providers through a linked partner broker; set per-provider loss limits",
+    "pricing_free_tier": "no subscription or copy fee on the broker-linked plan; costs come through broker spreads and commissions",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.zulutrade.com/pricing",
+    "sources": [
+      "https://www.zulutrade.com/pricing"
+    ],
+    "regions": "Availability depends on the partner broker and your country; check ZuluTrade's site before signing up.",
+    "details_url": "https://tradingagentstack.com/tool/zulutrade/"
+  },
+  {
+    "name": "Collective2",
+    "url": "https://collective2.com/",
+    "category": "copy_trading",
+    "assets_covered": [
+      "stocks",
+      "options",
+      "futures",
+      "forex",
+      "crypto"
+    ],
+    "live_vs_paper": "live AutoTrade at supported brokers; strategies tracked publicly",
+    "order_approval_safety": "marketplace of strategies with public track records; AutoTrade mirrors trades at your broker; you can scale or stop at any time",
+    "pricing_free_tier": "strategy subscriptions set by each manager (often $20-$200+/mo) plus AutoTrade $49/mo (1 strategy) up to $299/mo (unlimited)",
+    "rate_limits": "API available",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://support.collective2.com/hc/en-us/articles/202933794-What-are-the-fees-involved-with-AutoTrading",
+    "sources": [
+      "https://support.collective2.com/hc/en-us/articles/202933794-What-are-the-fees-involved-with-AutoTrading",
+      "https://api.collective2.com/autotrade-plans"
+    ],
+    "regions": "US-based; available to US investors through supported brokers. Check broker support for your country.",
+    "details_url": "https://tradingagentstack.com/tool/collective2/"
+  },
+  {
+    "name": "Darwinex Zero",
+    "url": "https://www.darwinexzero.com/",
+    "category": "copy_trading",
+    "assets_covered": [
+      "CFDs",
+      "futures",
+      "crypto CFDs"
+    ],
+    "live_vs_paper": "virtual capital; track record can attract real allocation",
+    "order_approval_safety": "strategy-builder side: trade a virtual account and earn performance fees if Darwinex allocates; strict risk metrics",
+    "pricing_free_tier": "membership about €45/$50 per month (CFDs); futures €50/$56; discounted annual packs",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.darwinexzero.com/pricing",
+    "sources": [
+      "https://www.darwinexzero.com/pricing"
+    ],
+    "regions": "Check Darwinex Zero's site for excluded countries.",
+    "details_url": "https://tradingagentstack.com/tool/darwinex-zero/"
+  },
+  {
+    "name": "MQL5 Signals",
+    "url": "https://www.mql5.com/en/signals",
+    "category": "copy_trading",
+    "assets_covered": [
+      "forex",
+      "CFDs (MetaTrader 4/5)"
+    ],
+    "live_vs_paper": "live and demo signals",
+    "order_approval_safety": "copy MetaTrader signal providers inside MT4/MT5; subscriber sets max deposit share and stop-loss on copying",
+    "pricing_free_tier": "provider sets a fixed weekly or monthly price (many free signals); MQL5 keeps 20%",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.mql5.com/en/signals/rules",
+    "sources": [
+      "https://www.mql5.com/en/signals/rules"
+    ],
+    "regions": "Depends on your MetaTrader broker's jurisdiction.",
+    "details_url": "https://tradingagentstack.com/tool/mql5-signals/"
+  },
+  {
+    "name": "Bybit Copy Trading",
+    "url": "https://www.bybit.com/copyTrade/",
+    "category": "copy_trading",
+    "assets_covered": [
+      "crypto derivatives",
+      "spot"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "copy master traders on Bybit; set per-copy stop-loss and amount",
+    "pricing_free_tier": "masters take 10-15% profit share (classic) or up to 30% (Pro), weekly, high-water mark",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.bybit.com/en/help-center/article/Copy-Trading-Profit-Sharing-Explained",
+    "sources": [
+      "https://www.bybit.com/en/help-center/article/Copy-Trading-Profit-Sharing-Explained"
+    ],
+    "regions": "Bybit is not available to US residents; UK accounts become withdrawal-only from Oct 21 2026.",
+    "details_url": "https://tradingagentstack.com/tool/bybit-copy-trading/"
+  },
+  {
+    "name": "Bitget Copy Trading",
+    "url": "https://www.bitget.com/copy-trading",
+    "category": "copy_trading",
+    "assets_covered": [
+      "crypto futures",
+      "spot"
+    ],
+    "live_vs_paper": "live",
+    "order_approval_safety": "copy elite traders; high-water-mark profit share so profits are never shared twice",
+    "pricing_free_tier": "profit share capped at 10% by default for futures (up to 30% with approval)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.bitget.com/support/articles/12560603889437",
+    "sources": [
+      "https://www.bitget.com/support/articles/12560603889437"
+    ],
+    "regions": "Bitget restricts US persons.",
+    "details_url": "https://tradingagentstack.com/tool/bitget-copy-trading/"
+  },
+  {
+    "name": "QuantVPS",
+    "url": "https://www.quantvps.com/",
+    "category": "bot_vps",
+    "assets_covered": [
+      "futures",
+      "forex",
+      "crypto bots"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "Windows/Linux VPS near CME (Chicago) for NinjaTrader, TradeStation, MT4/5 and Python bots",
+    "pricing_free_tier": "from $29.99/mo (2 cores, 4GB); Lite $59.99, Pro $99.99, Ultra $189.99; dedicated from $299.99",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.quantvps.com/pricing",
+    "sources": [
+      "https://www.quantvps.com/pricing"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/quantvps/"
+  },
+  {
+    "name": "ForexVPS.net",
+    "url": "https://www.forexvps.net/",
+    "category": "bot_vps",
+    "assets_covered": [
+      "forex (MT4/MT5)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "Windows VPS in forex broker data centers (NY4, LD4 and others)",
+    "pricing_free_tier": "Core $40/mo ($28.80 annual), Edge $60, Prime $80; dedicated from $270",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.forexvps.net/",
+    "sources": [
+      "https://www.forexvps.net/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/forexvps-net/"
+  },
+  {
+    "name": "Chocoping",
+    "url": "https://chocoping.com/",
+    "category": "bot_vps",
+    "assets_covered": [
+      "forex (MT4/MT5)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "low-cost Windows forex VPS near major broker servers",
+    "pricing_free_tier": "standard plans about $12.99-$31.99/mo; promo pricing varies",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://chocoping.com/",
+    "sources": [
+      "https://chocoping.com/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/chocoping/"
+  },
+  {
+    "name": "DigitalOcean Droplets",
+    "url": "https://www.digitalocean.com/pricing/droplets",
+    "category": "bot_vps",
+    "assets_covered": [
+      "Python/Node bots (Freqtrade, Hummingbot)"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "general Linux cloud VMs; good for self-hosted crypto bots; snapshots and firewalls",
+    "pricing_free_tier": "from $4/mo (1 vCPU, 512 MiB)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://www.digitalocean.com/pricing/droplets",
+    "sources": [
+      "https://www.digitalocean.com/pricing/droplets"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/digitalocean-droplets/"
+  },
+  {
+    "name": "Hetzner Cloud",
+    "url": "https://www.hetzner.com/cloud/",
+    "category": "bot_vps",
+    "assets_covered": [
+      "Python/Node bots"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "low-cost EU/US cloud VMs; prices adjusted 15 Jun 2026",
+    "pricing_free_tier": "CX23 (2 vCPU, 4 GB) €5.49/mo excl. IPv4",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/",
+    "sources": [
+      "https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/hetzner-cloud/"
+  },
+  {
+    "name": "AWS Lightsail",
+    "url": "https://aws.amazon.com/lightsail/",
+    "category": "bot_vps",
+    "assets_covered": [
+      "Python/Node bots"
+    ],
+    "live_vs_paper": "n/a",
+    "order_approval_safety": "simple AWS VPS; Tokyo/Singapore/Frankfurt regions are close to many crypto exchange servers",
+    "pricing_free_tier": "from $5/mo (0.5 GB)",
+    "rate_limits": "n/a",
+    "official_or_community": "official",
+    "last_checked": "2026-10-17",
+    "source": "https://aws.amazon.com/lightsail/pricing/",
+    "sources": [
+      "https://aws.amazon.com/lightsail/pricing/"
+    ],
+    "details_url": "https://tradingagentstack.com/tool/aws-lightsail/"
   }
 ]
