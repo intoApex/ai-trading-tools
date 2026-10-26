@@ -15,6 +15,7 @@ test("server lists and runs all tools over stdio", async () => {
   assert.equal(s.results[0].slug, "alpaca-mcp-server");
   const g = parse(await client.callTool({ name: "get_tool", arguments: { slug: "alpaca-mcp-server" } }));
   assert.match(g.order_approval_safety, /ALPACA_TOOLSETS/);
+  assert.equal(typeof g.safety_pct, "number");
   const c = parse(await client.callTool({ name: "compare_brokers", arguments: { a: "alpaca-mcp-server", b: "tradier-mcp-server" } }));
   assert.deepEqual(c.tools, ["Alpaca MCP Server", "Tradier MCP Server"]);
   const miss = await client.callTool({ name: "get_tool", arguments: { slug: "zzzz-nope" } });

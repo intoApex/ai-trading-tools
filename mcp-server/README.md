@@ -1,6 +1,6 @@
 # TradingAgentStack MCP server
 
-A small, **read-only** MCP server that lets Claude, Cursor and other MCP clients search the [TradingAgentStack](https://tradingagentstack.com) directory: broker MCP servers, broker and market-data APIs, agent frameworks, backtesters and security tools. Each entry includes paper vs live trading, order approval and safety controls, pricing, rate limits, an official source and a last-checked date.
+A small, **read-only** MCP server that lets Claude, Cursor and other MCP clients search the [TradingAgentStack](https://tradingagentstack.com) directory: AI trading agents, broker MCP servers, market data APIs, Telegram bots, agent wallets and exchanges. Each entry includes paper vs live trading, order approval, the published safety score, pricing, rate limits, an official source and a last-checked date.
 
 It can't place trades or connect to any broker. It only reads the open dataset in [`../data/tools.json`](../data/tools.json) (CC BY 4.0).
 

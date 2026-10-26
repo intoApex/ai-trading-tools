@@ -9,7 +9,7 @@ labels: tool-submission
 
 - **Name:**
 - **Official URL:**
-- **Category:** broker_mcp / data_mcp / broker_api / data_api / agent_framework / backtest_platform / trading_agent / security_tool
+- **Category:** one directory category from the current dataset (broker_mcp, data_mcp, data_api, ai_trading_agent, defi_agent, agent_wallet, bot_exchange, and the others in data/tools.json)
 - **Assets covered:**
 - **Live vs paper:**
 - **Order approval / safety controls:**
