@@ -10,7 +10,7 @@
   "scripts": {
     "prepack": "node scripts/copy-data.js",
     "pretest": "node scripts/copy-data.js",
-    "test": "node --test test/"
+    "test": "node --test test/smoke.test.js"
   },
   "keywords": ["mcp", "model-context-protocol", "trading", "broker", "alpaca", "ai-agents", "market-data"],
   "homepage": "https://tradingagentstack.com",
