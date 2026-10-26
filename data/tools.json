@@ -5,8 +5,8 @@
     "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "TradingAgentStack (tradingagentstack.com)",
-    "generated": "2026-10-25",
-    "count": 134,
+    "generated": "2026-10-26",
+    "count": 143,
     "safety_formula": "https://tradingagentstack.com/safety-score/",
     "risk_v2_method": "https://tradingagentstack.com/methodology/#agent-risk-score",
     "incidents": "https://tradingagentstack.com/incidents/",
@@ -33,7 +33,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/alpacahq/alpaca-mcp-server",
       "source": "https://docs.alpaca.markets/us/docs/trading-api-mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/alpaca-mcp-server/",
       "safety_score": 68,
@@ -72,12 +72,12 @@
         "global multi-asset (account/portfolio, market data)"
       ],
       "live_vs_paper": "live account",
-      "order_approval_safety": "hosted at api.ibkr.com/v1/api/mcp-public; IBKR login, single-account authorization; order instructions require IBKR approval (you review and submit each order; the Connector also supports two-leg option strategies). Separately, IBKR Autonomous Trading lets eligible clients authorize an agent to trade on its own from a dedicated funded partition of their account; IBKR announced it on Oct 21, 2026, with availability varying by IBKR affiliate and country of residence; IBKR's AI integrations page limits it to individual, non-margin accounts that first execute at least 10 trades of $100 or more over two weeks in Review & Approve mode, and to stocks and equity options with day orders; AI Integration is not available in India or Japan",
+      "order_approval_safety": "hosted at api.ibkr.com/v1/api/mcp-public; IBKR login, single-account authorization; order instructions require IBKR approval (you review and submit each order; the Connector also supports two-leg option strategies). Separately, IBKR Autonomous Trading (announced Oct 21, 2026) lets eligible clients authorize connected AI to execute supported orders without approving each one, only inside a dedicated AI Partition funded with cash from the parent account; IBKR's AI integrations page says it is planned for eligible clients of IBKR LLC, Australia, Singapore and U.K., limited to individual, non-margin accounts that first execute at least 10 trades of $100 or more over two weeks in Review & Approve mode, and to stocks and equity options with day orders (no margin or short selling); access can be revoked in Client Portal; AI Integration is not available in India or Japan",
       "pricing_free_tier": "no additional cost (per IBKR's AI integrations page); needs an IBKR account",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://www.interactivebrokers.com/en/general/about/mediaRelations/7-28-26.php",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/interactive-brokers-ai-integration-mcp/",
       "safety_score": 60,
@@ -109,6 +109,10 @@
           "note": "Pricing filled in: IBKR's AI integrations page says there are no additional costs. Source: https://www.interactivebrokers.com/en/trading/ai-integrations.php"
         },
         {
+          "date": "2026-10-21",
+          "note": "IBKR officially announced Autonomous Trading: eligible clients can let connected AI submit supported orders without per-order approval, inside a dedicated, separately funded AI Partition. Source: https://www.interactivebrokers.com/en/general/about/mediaRelations/10-21-26.php"
+        },
+        {
           "date": "2026-10-22",
           "note": "Autonomous Trading eligibility corrected: IBKR's page sets rule-based eligibility (individual non-margin accounts after 10+ Review & Approve trades of $100+ over two weeks) and calls the service planned. Source: https://www.interactivebrokers.com/en/trading/ai-integrations.php"
         }
@@ -125,14 +129,14 @@
         "options",
         "warrants"
       ],
-      "live_vs_paper": "live trading tools (place/modify/cancel)",
-      "order_approval_safety": "hosted; vendor advises start read-only, enable trading after scope config; 160+ tools; two-step order flow: submit, replace and grid orders first return a short-lived code that the agent sends back to execute, and since v0.14.0 (Oct 16) that code covers every field that changes what is traded; DCA and multi-leg orders still execute on the first call",
-      "pricing_free_tier": "unknown",
+      "live_vs_paper": "live trading tools (place/modify/cancel); paper trading accounts work too, except on Longbridge US accounts, which have no paper account",
+      "order_approval_safety": "hosted; vendor advises start read-only, enable trading after scope config; 160+ tools; two-step order flow: submit, replace and cancel orders, fund orders (submit/cancel) and grid orders first return a code that the agent sends back to execute; the code is single-use, expires in 10 minutes and applies only to that exact order, and since v0.14.0 (Oct 16) it covers every field that changes what is traded; DCA and multi-leg orders still execute on the first call; since v0.15.0 (Oct 26) the account and order tools also work on Longbridge US accounts",
+      "pricing_free_tier": "Trading, account, fundamentals and news APIs are free; only real-time quote permissions (e.g. HK LV2, OPRA) are paid add-ons",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "repo": "https://github.com/longbridge/longbridge-mcp",
       "source": "https://open.longbridge.com/docs/mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/longbridge-mcp/",
       "safety_score": 68,
@@ -160,6 +164,14 @@
         {
           "date": "2026-10-18",
           "note": "v0.14.0 (Oct 16): the two-step order code now covers every traded field (order type, time in force, triggers, expiry), so a code from one previewed order can no longer place a different one. DCA and multi-leg orders still execute on the first call. Source: https://github.com/longbridge/longbridge-mcp/pull/171"
+        },
+        {
+          "date": "2026-10-26",
+          "note": "Clarified from Longbridge's docs: the confirmation code also gates cancel_order and fund order submit/cancel, is single use and expires in 10 minutes. Source: https://open.longbridge.com/docs/mcp"
+        },
+        {
+          "date": "2026-10-26",
+          "note": "v0.15.0 (Oct 26): balance, position, cash-flow and order tools now work on Longbridge US accounts, plus a new fx_rate tool (public ECB reference rates). The MCP docs now say Longbridge US accounts have no paper trading account, so agents on a US account trade live from the start. Sources: https://github.com/longbridge/longbridge-mcp/releases/tag/v0.15.0 and https://open.longbridge.com/docs/mcp"
         }
       ]
     },
@@ -178,11 +190,11 @@
       ],
       "live_vs_paper": "live: creates order instructions (stocks, options, futures, crypto, event contracts, algo) that you confirm in the Webull app/desktop; plus account data, order history, market data",
       "order_approval_safety": "hosted at api.webull.com/mcp; OAuth login; you pick which accounts and capability groups to authorize; every order instruction requires confirmation in the Webull APP/Desktop and can be revoked",
-      "pricing_free_tier": "unknown",
+      "pricing_free_tier": "Webull says there is no extra charge for API access; trading fees match the app and market data subscriptions are bought separately",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://developer.webull.com/apis/docs/AI-friendly-Resources/mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/webull-cloud-mcp-server/",
       "safety_score": 75,
@@ -229,7 +241,7 @@
       "rate_limits": "about 100 requests/min per account in beta, plus possible daily limits; up to 5,000 bars per request",
       "official_or_community": "official",
       "source": "https://www.tradingview.com/support/solutions/43000795699-mcp-server-connect-your-ai-assistant-to-tradingview/",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/tradingview-mcp-server/",
       "safety_score": 90,
@@ -271,7 +283,7 @@
       "repo": "https://github.com/massive-com/mcp_massive",
       "former_names": "Polygon MCP (mcp_polygon); repo renamed from polygon-io/mcp_polygon to massive-com/mcp_massive",
       "source": "https://massive.com/docs/ai-tools/quickstart",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/massive-formerly-polygon-mcp/",
       "safety_score": 100,
@@ -307,7 +319,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/alphavantage/alpha_vantage_mcp",
       "source": "https://github.com/alphavantage/alpha_vantage_mcp",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/alpha-vantage-mcp/",
       "safety_score": 100,
@@ -342,7 +354,7 @@
       "official_or_community": "community",
       "repo": "https://github.com/NimbleMarkets/dbn-go",
       "source": "https://github.com/NimbleMarkets/dbn-go/blob/main/cmd/README.md",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/databento-mcp-servers-dbn-go/",
       "safety_score": 96,
@@ -360,7 +372,13 @@
         "sourced": 6
       },
       "safety_sources": {},
-      "safety_level": "Can't place real-money orders"
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-24",
+          "note": "v0.10.0 released Oct 24, 2026; it confines the MCP servers' DuckDB file access to the cache directory. Source: https://github.com/NimbleMarkets/dbn-go/releases/tag/v0.10.0"
+        }
+      ]
     },
     {
       "slug": "canopii-trust-index",
@@ -376,7 +394,7 @@
       "rate_limits": "unknown",
       "official_or_community": "third-party",
       "source": "https://index.canopii.dev/",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/canopii-trust-index/",
       "safety_score": 86,
@@ -413,27 +431,26 @@
       "rate_limits": "market data API: 200 calls/min (Basic), 10,000 calls/min (Algo Trader Plus)",
       "official_or_community": "official",
       "source": "https://docs.alpaca.markets/us/docs/about-market-data-api",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Broker APIs",
       "page": "https://tradingagentstack.com/tool/alpaca-trading-api/",
-      "safety_score": 40,
-      "safety_score_max": 90,
-      "safety_pct": 44,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "keys"
-      ],
+      "safety_score": 50,
+      "safety_score_max": 100,
+      "safety_pct": 50,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": 15,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
       "safety_sources": {
-        "withdraw": "https://alpaca.markets/learn/fund-live-trading-account"
+        "withdraw": "https://alpaca.markets/learn/fund-live-trading-account",
+        "keys": "https://docs.alpaca.markets/docs/using-oauth2-and-trading-api"
       },
       "safety_level": "Can trade unattended"
     },
@@ -454,27 +471,28 @@
       "rate_limits": "TWS: market-data lines/2 req/sec (50 by default); historical pacing 60 per 10 min",
       "official_or_community": "official",
       "source": "https://aifinhub.io/articles/interactive-brokers-vs-alpaca-vs-tradier-api-2026/",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Broker APIs",
       "page": "https://tradingagentstack.com/tool/interactive-brokers-api/",
-      "safety_score": 21,
-      "safety_score_max": 75,
-      "safety_pct": 28,
+      "safety_score": 31,
+      "safety_score_max": 85,
+      "safety_pct": 36,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 6
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "keys": "https://interactivebrokers.github.io/tws-api/initial_setup.html"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -492,27 +510,28 @@
       "rate_limits": "per access token: 120 req/min account and market data, 60 req/min trading (sandbox 60 req/min), per docs.tradier.com",
       "official_or_community": "official",
       "source": "https://tradier.com/individuals/pricing",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Broker APIs",
       "page": "https://tradingagentstack.com/tool/tradier-brokerage-api/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
+      "safety_score": 35,
+      "safety_score_max": 85,
+      "safety_pct": 41,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "keys": "https://docs.tradier.com/docs/authentication"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -526,11 +545,11 @@
       ],
       "live_vs_paper": "live",
       "order_approval_safety": "OAuth (noted as complex). Schwab's Fall Business Update (Oct 15) lists a Model Context Protocol solution for AI-powered trading; on the call Schwab said it has started a pilot, beginning with Claude, for traders to connect their own LLM to its MCP layer, that LLMs can't move money, and that it blocks unauthorized agents that log in on a client's behalf",
-      "pricing_free_tier": "unknown",
+      "pricing_free_tier": "Schwab lists no separate API fee; online stock/ETF trades $0, options $0.65 per contract",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://aifinhub.io/articles/choosing-a-broker-api-2026/",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "Broker APIs",
       "page": "https://tradingagentstack.com/tool/schwab-trader-api/",
       "safety_score": 6,
@@ -578,7 +597,7 @@
       "rate_limits": "no hard limits on historical",
       "official_or_community": "official",
       "source": "https://databento.com/legal/databento-user-agreement/fees",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/databento/",
       "safety_score": 90,
@@ -621,7 +640,7 @@
       "rate_limits": "free: 5 API calls/min; paid plans: unlimited API calls",
       "official_or_community": "official",
       "source": "https://massive.com/stocks",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/massive-polygon-api/",
       "safety_score": 90,
@@ -658,7 +677,7 @@
       "rate_limits": "concurrent-request caps by plan (options: 2 / 4 / 8)",
       "official_or_community": "official",
       "source": "https://www.thetadata.net/subscribe",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/thetadata/",
       "safety_score": 90,
@@ -706,7 +725,7 @@
       "rate_limits": "free 25 requests/day; premium 75–1,200 requests/min",
       "official_or_community": "official",
       "source": "https://www.alphavantage.co/premium/",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/alpha-vantage-api/",
       "safety_score": 90,
@@ -740,7 +759,7 @@
       "rate_limits": "max 10 requests/second (SEC fair-access policy)",
       "official_or_community": "official",
       "source": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/sec-edgar-apis/",
       "safety_score": 90,
@@ -775,7 +794,7 @@
       "official_or_community": "official",
       "regions": "US: yes (CFTC-regulated exchange); some contracts may be restricted in some states. Non-US access is limited: check Kalshi's eligibility page for your country.",
       "source": "https://docs.kalshi.com/getting_started/demo_env",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/kalshi-api/",
       "safety_score": 50,
@@ -793,7 +812,8 @@
         "sourced": 10
       },
       "safety_sources": {
-        "withdraw": "https://docs.kalshi.com/getting_started/sub_users_vs_subaccounts"
+        "withdraw": "https://docs.kalshi.com/getting_started/sub_users_vs_subaccounts",
+        "keys": "https://docs.kalshi.com/getting_started/sub_users_vs_subaccounts"
       },
       "safety_level": "Can trade unattended",
       "changelog": [
@@ -819,7 +839,7 @@
       "official_or_community": "official",
       "regions": "International polymarket.com: US persons cannot open positions (US is close-only) and other jurisdictions are blocked. US residents: use Polymarket US (separate CFTC-regulated app, ID-verified, separate API).",
       "source": "https://docs.polymarket.com/v2-migration",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/polymarket-api/",
       "safety_score": 35,
@@ -863,7 +883,7 @@
       "status": "Company winding down (announced Aug 25, 2026). Code released under Apache 2.0 and maintained by the non-profit OpenBQ (github.com/openbq-org).",
       "repo": "https://github.com/openbq-org/OpenBB",
       "source": "https://openbb.co/blog/openbb-belongs-to-everyone/",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/openbb/",
       "safety_score": 100,
@@ -899,7 +919,7 @@
       "official_or_community": "community",
       "repo": "https://github.com/ranaroussi/yfinance",
       "source": "https://github.com/ranaroussi/yfinance",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Market data APIs",
       "page": "https://tradingagentstack.com/tool/yfinance/",
       "safety_score": 96,
@@ -934,7 +954,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/langchain-ai/langgraph",
       "source": "https://dotsagent.io/frameworks",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Agent frameworks",
       "page": "https://tradingagentstack.com/tool/langgraph/",
       "safety_score": 96,
@@ -969,7 +989,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/run-llama/llama_index",
       "source": "https://dotsagent.io/frameworks",
-      "last_checked": "2026-10-21",
+      "last_checked": "2026-10-26",
       "category_label": "Agent frameworks",
       "page": "https://tradingagentstack.com/tool/llamaindex/",
       "safety_score": 96,
@@ -1004,7 +1024,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/mastra-ai/mastra",
       "source": "https://dotsagent.io/frameworks",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "Agent frameworks",
       "page": "https://tradingagentstack.com/tool/mastra/",
       "safety_score": 96,
@@ -1039,7 +1059,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/microsoft/agent-framework",
       "source": "https://dotsagent.io/frameworks",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "Agent frameworks",
       "page": "https://tradingagentstack.com/tool/microsoft-agent-framework/",
       "safety_score": 96,
@@ -1075,7 +1095,7 @@
       "official_or_community": "academic",
       "repo": "https://github.com/The-FinAI/Agent_Market_Arena",
       "source": "https://arxiv.org/abs/2510.11695",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/agent-market-arena-ama/",
       "safety_score": 96,
@@ -1114,27 +1134,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/QuantConnect/Lean",
       "source": "https://www.quantconnect.com/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Backtesting",
       "page": "https://tradingagentstack.com/tool/quantconnect-lean/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://www.quantconnect.com/docs/v2/cloud-platform/live-trading/brokerages/coinbase",
+        "keys": "https://www.quantconnect.com/docs/v2/cloud-platform/live-trading/brokerages/binance"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -1158,28 +1178,29 @@
       "official_or_community": "official",
       "repo": "https://github.com/nautechsystems/nautilus_trader",
       "source": "https://github.com/nautechsystems/nautilus_trader",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Backtesting",
       "page": "https://tradingagentstack.com/tool/nautilustrader/",
-      "safety_score": 20,
-      "safety_score_max": 60,
-      "safety_pct": 33,
+      "safety_score": 35,
+      "safety_score_max": 75,
+      "safety_pct": 47,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "paper",
         "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
-        "paper": null,
+        "paper": 15,
         "withdraw": null,
         "keys": null,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "paper": "https://nautilustrader.io/docs/latest/concepts/overview/"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -1196,7 +1217,7 @@
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://github.com/polakowo/vectorbt",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Backtesting",
       "page": "https://tradingagentstack.com/tool/vectorbt/",
       "safety_score": 90,
@@ -1214,7 +1235,13 @@
         "sourced": 10
       },
       "safety_sources": {},
-      "safety_level": "Can't place real-money orders"
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-19",
+          "note": "v1.2.0 adds the ulcer index and Martin ratio and fixes expectancy (breakeven trades are now counted), OBV on unchanged closes, EWM standard deviation and drawdowns when a series ends in NaN."
+        }
+      ]
     },
     {
       "slug": "backtesting-py",
@@ -1231,7 +1258,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/kernc/backtesting.py",
       "source": "https://github.com/kernc/backtesting.py",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Backtesting",
       "page": "https://tradingagentstack.com/tool/backtesting-py/",
       "safety_score": 100,
@@ -1267,27 +1294,26 @@
       "official_or_community": "official",
       "repo": "https://github.com/freqtrade/freqtrade",
       "source": "https://www.freqtrade.io/en/stable/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/freqtrade/",
-      "safety_score": 50,
-      "safety_score_max": 90,
-      "safety_pct": 56,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": 15,
-        "keys": null,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
       "safety_sources": {
-        "withdraw": "https://docs.freqtrade.io/en/stable/exchanges/"
+        "withdraw": "https://docs.freqtrade.io/en/stable/exchanges/",
+        "keys": "https://www.freqtrade.io/en/stable/exchanges/"
       },
       "safety_level": "Can trade unattended"
     },
@@ -1301,11 +1327,11 @@
       ],
       "live_vs_paper": "live by default (connects to production unless TASTYTRADE_ENV=sandbox); sandbox available (no market data, resets every 24 hours)",
       "order_approval_safety": "order submit/edit tools require a single-use confirmation token from a dry_run tool (valid 60s, bound to request hash); self-hosted (no tastytrade-hosted endpoint); TASTYTRADE_READ_ONLY=1 blocks write tools; MAX_ORDER_NOTIONAL_USD caps order value (default $50,000); other destructive tools, including order cancels, act on the first call; the API cannot access any money movement actions or endpoints, so the MCP is limited to reading and order placement if trade permissions are granted (direct email confirmation from tastytrade API support, Connor, api.support@tastytrade.com, Oct 23, 2026)",
-      "pricing_free_tier": "unknown",
+      "pricing_free_tier": "tastytrade: $0 stock/ETF commissions, $1 per contract to open options ($10 max per leg); no subscription",
       "rate_limits": "tastytrade's per-endpoint limits plus a global cap of 50 requests per second in the server",
       "official_or_community": "official",
       "source": "https://developer.tastytrade.com/docs/sdks-and-tools/mcp-server/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/tastytrade-mcp-server/",
       "safety_score": 90,
@@ -1342,11 +1368,11 @@
       ],
       "live_vs_paper": "live, from a dedicated MCP account",
       "order_approval_safety": "hosted at agent.robinhood.com/mcp/trading; trades only in a dedicated MCP account (agent gets read access to all your Robinhood accounts); trade approvals toggle (off by default for MCP accounts, still rolling out); no multi-leg options orders via agents",
-      "pricing_free_tier": "unknown",
+      "pricing_free_tier": "No fee listed for external MCP agents; Robinhood's token billing ($5 free, then prepaid) applies only to its own hosted agents",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://robinhood.com/us/en/support/articles/onboarding-an-external-agent/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/robinhood-trading-mcp/",
       "safety_score": 60,
@@ -1388,11 +1414,11 @@
       ],
       "live_vs_paper": "Demo (simulated) and Live endpoints",
       "order_approval_safety": "beta, not generally available; remote OAuth; separate Demo/Live URLs and accounts",
-      "pricing_free_tier": "unknown",
+      "pricing_free_tier": "NinjaTrader plans: Free ($0/mo), Monthly $99/mo or Lifetime $1,499, plus per-side commissions; the MCP docs list no separate fee",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://docs.ninjatrader.com/mcp.md",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/ninjatrader-mcp-beta/",
       "safety_score": 58,
@@ -1432,7 +1458,7 @@
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://www.tradestation.com/platforms-and-tools/mcp/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/tradestation-mcp/",
       "safety_score": 60,
@@ -1475,13 +1501,13 @@
         "portfolio",
         "orders; HK, US, CN, SG, JP, MY markets (OpenAPI)"
       ],
-      "live_vs_paper": "Paper trading does not isolate an agent from live trading; paper and live trade permissions are always granted together, so there is no paper-only grant (direct email confirmation from the moomoo OpenAPI team, openapi@moomoo.com, Oct 23, 2026)",
-      "order_approval_safety": "Leaving the trade scope off at consent gives read-only access (the agent cannot do anything on the trading account). Paper and live trade permissions are always granted together. Hosted at mcp.moomoo.com/mcp; OAuth 2.1, no API key (direct email confirmation from the moomoo OpenAPI team, openapi@moomoo.com, Oct 23, 2026)",
-      "pricing_free_tier": "unknown",
+      "live_vs_paper": "Simulated (paper) trading is authorized separately from live trading; paper trading becomes available with market data authorization, so an agent can use paper trading without live trade access. moomoo says its docs may currently be wrong on this (moomoo OpenAPI team, email to TradingAgentStack, 2026-10-26)",
+      "order_approval_safety": "Leaving the trade scope off at consent keeps the agent from acting on the trading account. Simulated (paper) trading is authorized separately from live trading, and paper trading becomes available with market data authorization, so an agent can use paper trading without live trade access. Hosted at mcp.moomoo.com/mcp; OAuth 2.1, no API key. moomoo says its docs may currently be wrong on this (moomoo OpenAPI team, email to TradingAgentStack, 2026-10-26)",
+      "pricing_free_tier": "No extra fee for trading via the moomoo API (same as the app); some market data requires buying quote cards",
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://open.moomoo.com/mcp-docs/overview",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/moomoo-mcp/",
       "safety_score": 58,
@@ -1500,12 +1526,18 @@
       },
       "safety_sources": {
         "withdraw": "https://open.moomoo.com/mcp-docs/authentication",
-        "paper": "mailto:openapi@moomoo.com",
-        "keys": "mailto:openapi@moomoo.com"
+        "paper": "https://open.moomoo.com/mcp-docs/overview",
+        "keys": "https://open.moomoo.com/mcp-docs/authentication"
       },
       "safety_level": "Can trade unattended",
       "who_places_order": "AI trades directly",
-      "order_gating_note": "trade:write scope submits and cancels orders"
+      "order_gating_note": "Trade scope submits and cancels orders; paper trading is authorized separately from live",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Simulated (paper) trading is authorized separately from live trading. Paper trading becomes available with market data authorization, so an agent can use paper trading without live trade access. Leaving the trade scope off still keeps the agent from acting on the account. This replaces the 2026-10-23 claim that paper and live trade permissions are granted together. moomoo says its docs may currently be wrong on this. moomoo OpenAPI team, email to TradingAgentStack, 2026-10-26. Safety score stays 58/100. The paper input stays 15, because paper mode was already counted."
+        }
+      ]
     },
     {
       "slug": "public-hosted-mcp-server",
@@ -1521,7 +1553,7 @@
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://public.com/api/docs/templates/hosted-mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/public-hosted-mcp-server/",
       "safety_score": 10,
@@ -1570,7 +1602,7 @@
       "rate_limits": "not documented for MCP; Tradier API limits are 60 req/min trading, 120 req/min market data per token",
       "official_or_community": "official",
       "source": "https://docs.tradier.com/docs/tradier-mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/tradier-mcp-server/",
       "safety_score": 50,
@@ -1608,27 +1640,26 @@
       "rate_limits": "unknown",
       "official_or_community": "official",
       "source": "https://help.axi.com/en-US/axiv2--axicorp-prod/article/2JDefk4Y-what-can-and-cant-i-ask-claude-to-do-through-the-axi-mcp-connection",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/axi-mcp-mt5/",
-      "safety_score": 65,
-      "safety_score_max": 90,
-      "safety_pct": 72,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "keys"
-      ],
+      "safety_score": 75,
+      "safety_score_max": 100,
+      "safety_pct": 75,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 10,
         "approval": 15,
         "paper": 15,
         "withdraw": 15,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
       "safety_sources": {
-        "unattended": "https://help.axi.com/en-US/axiv2--axicorp-prod/article/X1s2pENA-how-do-i-manage-permissions-disconnect-reconnect-or-fix-axi-mcp-connection"
+        "unattended": "https://help.axi.com/en-US/axiv2--axicorp-prod/article/X1s2pENA-how-do-i-manage-permissions-disconnect-reconnect-or-fix-axi-mcp-connection",
+        "keys": "https://help.axi.com/en-US/axiv2--axicorp-prod/article/o_nIgjPF-how-do-i-manage-permissions-disconnect-reconnect-or-fix-axi-mcp-connection"
       },
       "safety_level": "Approval is optional",
       "who_places_order": "Approval optional",
@@ -1655,7 +1686,7 @@
       "rate_limits": "per request: up to 100 feeds (latest), 50 (historical), 500 candles; historical data from April 2025",
       "official_or_community": "official",
       "source": "https://docs.pyth.network/price-feeds/pro/mcp",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/pyth-pro-mcp-server/",
       "safety_score": 90,
@@ -1690,7 +1721,7 @@
       "rate_limits": "plan limits: e.g. Starter 5 DCA, 2 signal, 2 grid bots; 1 active API key per exchange",
       "official_or_community": "official",
       "source": "https://3commas.io/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/3commas/",
       "safety_score": 58,
@@ -1732,7 +1763,7 @@
       "rate_limits": "Explorer 15 coins, 80 open positions/exchange, 10-min interval; Hero 75 coins, 2-min interval",
       "official_or_community": "official",
       "source": "https://www.cryptohopper.com/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/cryptohopper/",
       "safety_score": 50,
@@ -1767,7 +1798,7 @@
       "rate_limits": "n/a (exchange order limits apply)",
       "official_or_community": "official",
       "source": "https://www.pionex.com/blog/is-there-any-fees-for-starting-a-bot-or-only-transaction-fees/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/pionex/",
       "safety_score": 20,
@@ -1807,12 +1838,12 @@
         "crypto futures"
       ],
       "live_vs_paper": "live via exchange API keys; free demo with 20 bots",
-      "order_approval_safety": "grid, DCA and COMBO bots across 17 exchanges (Binance, Coinbase Advanced, Kraken, OKX, Bybit, Hyperliquid and more); AI Assistant suggests bot settings; AI Portfolio Mode on Pro",
+      "order_approval_safety": "grid, DCA and COMBO bots across 17 exchanges (Binance, Binance US, Coinbase Advanced, Kraken, OKX, Bitget, Hyperliquid and more; Bybit is not on the supported list); AI Assistant suggests bot settings; AI Portfolio Mode on Pro",
       "pricing_free_tier": "Basic $23/mo annual ($29 monthly), Advanced $55 ($69), Pro $119 ($149); free plan with 20 demo bots, 3 live COMBO bots on Evedex and AI Chat; 7-day PRO trial, no card",
       "rate_limits": "Basic 3 grid + 10 DCA bots; Pro 50 grid + 250 DCA bots",
       "official_or_community": "official",
       "source": "https://bitsgap.com/pricing",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/bitsgap/",
       "safety_score": 50,
@@ -1835,6 +1866,10 @@
         {
           "date": "2026-10-22",
           "note": "Corrected to 17 supported exchanges; the free plan also includes 3 live COMBO bots on Evedex and AI Chat. Source: https://bitsgap.com/pricing"
+        },
+        {
+          "date": "2026-10-23",
+          "note": "Bitsgap now lists 17 supported exchanges (was 18); its exchanges page doesn't include Bybit, so we removed it from this listing. Source: https://bitsgap.com/exchanges"
         }
       ]
     },
@@ -1854,7 +1889,7 @@
       "rate_limits": "plan-based rule and market limits",
       "official_or_community": "official",
       "source": "https://coinrule.com/",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/coinrule/",
       "safety_score": 50,
@@ -1891,7 +1926,7 @@
       "rate_limits": "Free: 50 open positions, 10 API keys/exchange; Premium: 300 DCA, 200 grid bots",
       "official_or_community": "official",
       "source": "https://wundertrading.com/en/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/wundertrading/",
       "safety_score": 50,
@@ -1926,7 +1961,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://www.trade-ideas.com/pricing/",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/trade-ideas-holly-ai/",
       "safety_score": 25,
@@ -1964,11 +1999,11 @@
       ],
       "live_vs_paper": "live via SignalStack to 30+ brokers and exchanges (5 free automated orders/mo); backtesting and forward testing",
       "order_approval_safety": "trading bots fire orders from chart/indicator conditions; Quant Model Lab (KNN models, LLM feature engineering) and AI Sidekick assistant",
-      "pricing_free_tier": "Standard from ~$54/mo annual; 14-day trial for $19-$49 depending on plan; Advanced up to $349/mo",
+      "pricing_free_tier": "Standard from ~$54/mo annual; 14-day trial for $19-$49 depending on plan (Halloween sale for new website customers: $14 trial on every plan, discounted plans); Advanced up to $349/mo",
       "rate_limits": "Standard 5 bots, Premium 10, Enhanced 50, Advanced 100",
       "official_or_community": "official",
       "source": "https://trendspider.com/pricing/",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/trendspider/",
       "safety_score": 10,
@@ -1995,6 +2030,10 @@
         {
           "date": "2026-10-22",
           "note": "Trial price corrected: the 14-day trial costs $19 (Standard) to $49 (Advanced). Source: https://trendspider.com/pricing/"
+        },
+        {
+          "date": "2026-10-24",
+          "note": "Halloween sale: new website customers get the 14-day trial on any plan for $14 (TrendSpider calls it \"$1 a day\") plus discounted plans; promotional purchases are non-refundable. The regular trial is $19 to $49. Source: https://trendspider.com/pricing/"
         }
       ]
     },
@@ -2015,7 +2054,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://tickeron.com/",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/tickeron/",
       "safety_score": 25,
@@ -2059,28 +2098,29 @@
       "rate_limits": "Starter up to 200-node strategies; Pro up to 10,000 nodes and 500 strategies",
       "official_or_community": "official",
       "source": "https://www.composer.trade/pricing",
-      "last_checked": "2026-10-22",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/composer/",
-      "safety_score": 10,
-      "safety_score_max": 60,
-      "safety_pct": 17,
+      "safety_score": 25,
+      "safety_score_max": 85,
+      "safety_pct": 29,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "paper",
-        "withdraw",
-        "keys"
+        "paper"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": null,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 0,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://help.composer.trade/article/196-how-do-i-withdraw",
+        "keys": "https://api.composer.trade/docs/index.html"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -2106,7 +2146,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://capitalise.ai/getstarted/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/capitalise-ai/",
       "safety_score": 25,
@@ -2144,27 +2184,28 @@
       "rate_limits": "50 bots, $100k limit per bot",
       "official_or_community": "official",
       "source": "https://optionalpha.com/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/option-alpha/",
-      "safety_score": 33,
-      "safety_score_max": 75,
-      "safety_pct": 44,
+      "safety_score": 48,
+      "safety_score_max": 90,
+      "safety_pct": 53,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": 15,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": null,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.optionalpha.com/technical-documentation/platform/infrastructure-and-security"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -2184,27 +2225,28 @@
       "rate_limits": "Starter: 1 live account",
       "official_or_community": "official",
       "source": "https://traderspost.io/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/traderspost/",
-      "safety_score": 50,
-      "safety_score_max": 75,
-      "safety_pct": 67,
+      "safety_score": 65,
+      "safety_score_max": 90,
+      "safety_pct": 72,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 10,
         "approval": 15,
         "paper": 15,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": null,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.traderspost.io/docs/core-concepts/brokers-connections"
+      },
       "safety_level": "Approval is optional"
     },
     {
@@ -2223,27 +2265,27 @@
       "rate_limits": "Core: 1 external broker connection",
       "official_or_community": "official",
       "source": "https://surmount.ai/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading bot platforms",
       "page": "https://tradingagentstack.com/tool/surmount/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 50,
+      "safety_score_max": 100,
+      "safety_pct": 50,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://surmount.ai/is-surmount-safe-here-s-what-you-need-to-know",
+        "keys": "https://surmount.ai/is-surmount-safe-here-s-what-you-need-to-know"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -2264,27 +2306,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/hummingbot/hummingbot",
       "source": "https://hummingbot.org/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/hummingbot/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://hummingbot.org/client/connect/",
+        "keys": "https://hummingbot.org/client/connect/"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -2302,27 +2344,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/Drakkar-Software/OctoBot",
       "source": "https://www.octobot.cloud/en/pricing",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/octobot/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://www.octobot.cloud/en/investing/what-is-an-exchange-api-key",
+        "keys": "https://www.octobot.cloud/en/investing/what-is-an-exchange-api-key"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -2342,28 +2384,28 @@
       "official_or_community": "official",
       "repo": "https://github.com/jesse-ai/jesse",
       "source": "https://jesse.trade/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/jesse/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
+      "safety_score": 45,
+      "safety_score_max": 85,
+      "safety_pct": 53,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
       "safety_sources": {
-        "paper": "https://docs.jesse.trade/docs/live-configuration"
+        "paper": "https://docs.jesse.trade/docs/live-configuration",
+        "keys": "https://docs.jesse.trade/docs/supported-exchanges/exchange-setup-guide.html"
       },
       "safety_level": "Can trade unattended"
     },
@@ -2382,27 +2424,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/Superalgos/Superalgos",
       "source": "https://superalgos.org/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/superalgos/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://superalgos.org/faqs-crypto-trading-bots-trust-and-safety.shtml",
+        "keys": "https://superalgos.org/faqs-crypto-trading-bots-trust-and-safety.shtml"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -2422,7 +2464,7 @@
       "official_or_community": "official",
       "regions": "US: not available (Binance.US is a separate exchange with no testnet). UK and EU: eligibility varies; check Binance's terms for your country.",
       "source": "https://developers.binance.com/en/docs/agent-native/mcp-server",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/binance/",
       "safety_score": 58,
@@ -2515,7 +2557,7 @@
       "official_or_community": "official",
       "regions": "US: restricted. UK: no new registrations; from Oct 21 2026 UK accounts are withdrawal-only and active bots are terminated. EU/EEA: separate MiCA-authorized Bybit EU platform.",
       "source": "https://github.com/bybit-exchange/trading-mcp",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/bybit/",
       "safety_score": 50,
@@ -2615,7 +2657,7 @@
       "repo": "https://github.com/okx/agent-trade-kit",
       "regions": "US: separate OKX US exchange with a narrower product set. EU/EEA: OKX Europe (MiCA licence, Malta). UK: check OKX's UK terms.",
       "source": "https://www.okx.com/docs-v5/agent_en/",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/okx/",
       "safety_score": 68,
@@ -2710,7 +2752,7 @@
       "repo": "https://github.com/krakenfx/kraken-cli",
       "regions": "US, UK and EU (MiCA) supported; some products and US states are restricted; check Kraken's availability page.",
       "source": "https://docs.kraken.com/home/mcp",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/kraken/",
       "safety_score": 85,
@@ -2801,7 +2843,7 @@
       "official_or_community": "official",
       "regions": "US, UK and EU (MiCA) supported; product availability (e.g. futures) varies by country.",
       "source": "https://docs.cdp.coinbase.com/coinbase-for-agents/overview",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/coinbase-advanced/",
       "safety_score": 75,
@@ -2900,7 +2942,7 @@
       "official_or_community": "official",
       "regions": "US and Ontario (Canada): restricted by Hyperliquid's terms, along with sanctioned jurisdictions. UK/EU: not restricted by the terms; check local rules.",
       "source": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/rate-limits-and-user-limits",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/hyperliquid/",
       "safety_score": 50,
@@ -2995,7 +3037,7 @@
       "official_or_community": "official",
       "regions": "US: prohibited. UK: served via an FCA-approved partner (authorised person). EU: check Bitget's EU entity for your country.",
       "source": "https://www.bitget.com/docs/uta/agent-hub",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/bitget/",
       "safety_score": 50,
@@ -3090,7 +3132,7 @@
       "repo": "https://github.com/gemini/developer-platform",
       "regions": "US (NY-regulated trust company), UK and EU (MiCA) supported; derivatives availability varies.",
       "source": "https://developer.gemini.com/rate-limit",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Exchanges & brokers for bots",
       "page": "https://tradingagentstack.com/tool/gemini/",
       "safety_score": 60,
@@ -3184,7 +3226,7 @@
       "rate_limits": "Elite plan includes Danelfin API Expert (10,000 API calls/month)",
       "official_or_community": "official",
       "source": "https://danelfin.com/pricing/annual",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/danelfin/",
       "safety_score": 90,
@@ -3226,7 +3268,7 @@
       "rate_limits": "credit-based usage",
       "official_or_community": "official",
       "source": "https://www.kavout.com/pricing-plans",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/kavout/",
       "safety_score": 90,
@@ -3261,7 +3303,7 @@
       "rate_limits": "Level 1: 10 custom alerts; Level 2: 100",
       "official_or_community": "official",
       "source": "https://www.levelfields.ai/trade-the-signal-annual",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/levelfields/",
       "safety_score": 90,
@@ -3301,7 +3343,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://learn.prospero.ai/",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/prospero-ai/",
       "safety_score": 90,
@@ -3335,7 +3377,7 @@
       "rate_limits": "MCP on Pro: 30 calls/min, 600/day; API on Pro: 5,000 calls/mo",
       "official_or_community": "official",
       "source": "https://app.santiment.net/pricing",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/santiment/",
       "safety_score": 90,
@@ -3370,7 +3412,7 @@
       "rate_limits": "Individual 10 req/min, 2,000/day; Builder 100/min; Scale 500/min",
       "official_or_community": "official",
       "source": "https://lunarcrush.com/pricing/",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/lunarcrush/",
       "safety_score": 90,
@@ -3404,7 +3446,7 @@
       "rate_limits": "per plan",
       "official_or_community": "official",
       "source": "https://pro.kaito.ai/pricing",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/kaito/",
       "safety_score": 90,
@@ -3440,7 +3482,7 @@
       "rate_limits": "credit-based usage",
       "official_or_community": "official",
       "source": "https://intellectia.ai/pricing",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/intellectia/",
       "safety_score": 90,
@@ -3474,7 +3516,7 @@
       "rate_limits": "credit-based; premium tools cost more credits",
       "official_or_community": "official",
       "source": "https://docs.nansen.ai/getting-started/credits",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "AI signals & research copilots",
       "page": "https://tradingagentstack.com/tool/nansen/",
       "safety_score": 90,
@@ -3510,27 +3552,28 @@
       "status": "Archived by Polymarket on GitHub (read-only). The last code change was Nov 5, 2024, before Polymarket's switch to CLOB V2 on Apr 28, 2026, so treat it as reference code, not a ready-to-trade agent.",
       "regions": "Polymarket's terms bar US persons and other restricted jurisdictions from trading through the international API, including via agents.",
       "source": "https://github.com/Polymarket/agents",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/polymarket-agents/",
       "safety_score": 38,
-      "safety_score_max": 70,
-      "safety_pct": 54,
+      "safety_score_max": 85,
+      "safety_pct": 45,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "paper",
-        "withdraw"
+        "paper"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": null,
-        "withdraw": null,
+        "withdraw": 0,
         "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/Polymarket/agents/blob/main/README.md"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -3554,7 +3597,7 @@
       "official_or_community": "official",
       "regions": "US residents only, via the Polymarket US iOS app with identity verification.",
       "source": "https://docs.polymarket.us/api-reference/sdks/introduction",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/polymarket-us-api/",
       "safety_score": 50,
@@ -3600,27 +3643,27 @@
       "official_or_community": "official",
       "regions": "Check Limitless's terms for restricted jurisdictions before trading.",
       "source": "https://docs.limitless.exchange/developers/introduction",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/limitless-exchange/",
-      "safety_score": 75,
-      "safety_score_max": 75,
+      "safety_score": 100,
+      "safety_score_max": 100,
       "safety_pct": 100,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 25,
         "approval": 15,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.limitless.exchange/api-reference/portfolio/add-withdrawal-address",
+        "keys": "https://docs.limitless.exchange/api-reference/api-tokens/derive-token"
+      },
       "safety_level": "You confirm each order"
     },
     {
@@ -3638,7 +3681,7 @@
       "official_or_community": "official",
       "regions": "Available globally (play money).",
       "source": "https://docs.manifold.markets/api",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/manifold-markets-api/",
       "safety_score": 90,
@@ -3673,27 +3716,27 @@
       "official_or_community": "community",
       "regions": "Same eligibility as Kalshi.",
       "source": "https://github.com/cejor6/kalshi-mcp-server",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/kalshi-mcp-server-community/",
-      "safety_score": 56,
-      "safety_score_max": 75,
-      "safety_pct": 75,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 81,
+      "safety_score_max": 100,
+      "safety_pct": 81,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 10,
         "approval": 15,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 6
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/cejor6/kalshi-mcp-server",
+        "keys": "https://github.com/cejor6/kalshi-mcp-server"
+      },
       "safety_level": "Approval is optional",
       "changelog": [
         {
@@ -3717,7 +3760,7 @@
       "official_or_community": "third-party",
       "regions": "Data viewable globally.",
       "source": "https://prediction.markets/developers",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Prediction market APIs & agents",
       "page": "https://tradingagentstack.com/tool/prediction-markets-api/",
       "safety_score": 96,
@@ -3751,7 +3794,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://github.com/NVIDIA-NeMo/Guardrails",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/nemo-guardrails/",
       "safety_score": 100,
@@ -3785,7 +3828,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://github.com/guardrails-ai/guardrails",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/guardrails-ai/",
       "safety_score": 100,
@@ -3819,7 +3862,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://github.com/invariantlabs-ai/invariant",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/invariant-guardrails/",
       "safety_score": 100,
@@ -3853,7 +3896,7 @@
       "rate_limits": "n/a",
       "official_or_community": "community",
       "source": "https://github.com/policygate/policygate-capital",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/policygate-capital/",
       "safety_score": 96,
@@ -3890,7 +3933,7 @@
       "rate_limits": "same as Trading API",
       "official_or_community": "official",
       "source": "https://docs.alpaca.markets/us/docs/paper-trading",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/alpaca-paper-trading/",
       "safety_score": 90,
@@ -3927,7 +3970,7 @@
       "rate_limits": "same as TWS/Web API",
       "official_or_community": "official",
       "source": "https://www.interactivebrokers.com/campus/trading-lessons/how-to-open-an-ibkr-paper-trading-account/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/ibkr-paper-trading-account/",
       "safety_score": 90,
@@ -3965,7 +4008,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://www.tradingview.com/support/solutions/43000516466-paper-trading-main-functionality/",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Risk, safety & paper trading",
       "page": "https://tradingagentstack.com/tool/tradingview-paper-trading/",
       "safety_score": 90,
@@ -4002,7 +4045,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://docs.bananagun.io/banana-token/banana-bonus",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/banana-gun/",
       "safety_score": 10,
@@ -4103,7 +4146,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://docs.maestrobots.com/sniper/faq/fees",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/maestro/",
       "safety_score": 10,
@@ -4196,27 +4239,28 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://docs.bonkbot.io/fee-structure",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/bonkbot/",
       "safety_score": 10,
-      "safety_score_max": 75,
-      "safety_pct": 13,
+      "safety_score_max": 90,
+      "safety_pct": 11,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 0,
-        "withdraw": null,
+        "withdraw": 0,
         "keys": null,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.bonkbot.io/security/2fa-setup"
+      },
       "safety_level": "Can trade unattended",
       "risk_v2": {
         "version": 2,
@@ -4288,11 +4332,11 @@
       ],
       "live_vs_paper": "live only",
       "order_approval_safety": "Solana Telegram bot and web app: copy trading, sniping, DCA, limit orders, Jito MEV protection; private-key export",
-      "pricing_free_tier": "1% per successful trade; rank-based cashback from 20% upward",
+      "pricing_free_tier": "1% per successful trade; Arena rank cashback from 10% (Degen) to 35% (Titan), up to 45% with quests",
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://docs.trojanonsolana.com/about-trojan-on-solana/using-trojan-on-solana",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/trojan/",
       "safety_score": 10,
@@ -4315,6 +4359,12 @@
         "withdraw": "https://docs.trojanonsolana.com/telegram-bot-user-guide/withdraw"
       },
       "safety_level": "Can trade unattended",
+      "changelog": [
+        {
+          "date": "2026-10-24",
+          "note": "Cashback corrected: Trojan Arena ranks give 10% (Degen), 15%, 20%, 25% and 35% (Titan) cashback, up to 45% with quests; the older FAQ still quotes a flat 20%. Source: https://docs.trojan.com/trojan-arena/ranks-and-rewards"
+        }
+      ],
       "risk_v2": {
         "version": 2,
         "score": 10,
@@ -4387,7 +4437,7 @@
       "rate_limits": "60 req/min free; 10-40 req/s paid",
       "official_or_community": "official",
       "source": "https://business.1inch.com/pricing",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/1inch-swap-api/",
       "safety_score": 25,
@@ -4482,27 +4532,28 @@
       "rate_limits": "5 RPS on the $1,000 plan",
       "official_or_community": "official",
       "source": "https://0x.org/pricing",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/0x-swap-api/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
+      "safety_score": 35,
+      "safety_score_max": 85,
+      "safety_pct": 41,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "paper",
-        "keys"
+        "paper"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": null,
         "withdraw": 15,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "keys": "https://docs.0x.org/docs/introduction/quickstart/getting-started"
+      },
       "safety_level": "Can trade unattended",
       "risk_v2": {
         "version": 2,
@@ -4577,28 +4628,29 @@
       "rate_limits": "1-150 RPS by plan",
       "official_or_community": "official",
       "source": "https://developers.jup.ag/docs/portal/plans",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/jupiter-api/",
-      "safety_score": 10,
-      "safety_score_max": 60,
-      "safety_pct": 17,
+      "safety_score": 25,
+      "safety_score_max": 75,
+      "safety_pct": 33,
       "safety_partial": true,
       "safety_missing_inputs": [
         "paper",
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": null,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": null,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://developers.jup.ag/docs/swap/order-and-execute"
+      },
       "safety_level": "Can trade unattended",
       "risk_v2": {
         "version": 2,
@@ -4674,26 +4726,26 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://github.com/coinbase/agentkit",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/coinbase-agentkit/",
-      "safety_score": 50,
-      "safety_score_max": 90,
-      "safety_pct": 56,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": 15,
-        "keys": null,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "keys": "https://docs.cdp.coinbase.com/get-started/authentication/security-best-practices"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -4771,27 +4823,27 @@
       "rate_limits": "RPC provider limits",
       "official_or_community": "official",
       "source": "https://github.com/sendaifun/solana-agent-kit",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "On-chain & DeFi trading agents",
       "page": "https://tradingagentstack.com/tool/solana-agent-kit/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 45,
+      "safety_score_max": 100,
+      "safety_pct": 45,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/sendaifun/solana-agent-kit",
+        "keys": "https://docs.sendai.fun/"
+      },
       "safety_level": "Can trade unattended",
       "risk_v2": {
         "version": 2,
@@ -4869,28 +4921,28 @@
       "official_or_community": "official",
       "regions": "Not available in all US states; product scope differs by region (CFDs not offered to US clients). Check eToro's site for your country.",
       "source": "https://www.etoro.com/en-us/copytrader/",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/etoro-copytrader/",
-      "safety_score": 33,
-      "safety_score_max": 75,
-      "safety_pct": 44,
+      "safety_score": 43,
+      "safety_score_max": 85,
+      "safety_pct": 51,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
       "safety_sources": {
-        "paper": "https://www.etoro.com/trading/demo-account/"
+        "paper": "https://www.etoro.com/trading/demo-account/",
+        "keys": "https://api-portal.etoro.com/core/getting-started/authentication"
       },
       "safety_level": "Can trade unattended"
     },
@@ -4911,7 +4963,7 @@
       "official_or_community": "official",
       "regions": "Availability depends on the partner broker and your country; check ZuluTrade's site before signing up.",
       "source": "https://www.zulutrade.com/pricing",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/zulutrade/",
       "safety_score": 33,
@@ -4955,28 +5007,28 @@
       "official_or_community": "official",
       "regions": "US-based; available to US investors through supported brokers. Check broker support for your country.",
       "source": "https://support.collective2.com/hc/en-us/articles/202933794-What-are-the-fees-involved-with-AutoTrading",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/collective2/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
+      "safety_score": 35,
+      "safety_score_max": 85,
+      "safety_pct": 41,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
       "safety_sources": {
-        "paper": "https://support.collective2.com/hc/en-us/articles/115012788448-The-one-click-SIM-explained-to-Trade-Leaders"
+        "paper": "https://support.collective2.com/hc/en-us/articles/115012788448-The-one-click-SIM-explained-to-Trade-Leaders",
+        "keys": "https://trade.collective2.com/c2-api.html"
       },
       "safety_level": "Can trade unattended"
     },
@@ -4997,7 +5049,7 @@
       "official_or_community": "official",
       "regions": "Check Darwinex Zero's site for excluded countries.",
       "source": "https://www.darwinexzero.com/pricing",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/darwinex-zero/",
       "safety_score": 90,
@@ -5026,37 +5078,42 @@
         "forex",
         "CFDs (MetaTrader 4/5)"
       ],
-      "live_vs_paper": "live and demo signals",
-      "order_approval_safety": "copy MetaTrader signal providers inside MT4/MT5; subscriber sets max deposit share and stop-loss on copying",
-      "pricing_free_tier": "provider sets a fixed weekly or monthly price (many free signals); MQL5 keeps 20%",
+      "live_vs_paper": "live only: copyable signals must come from real-money accounts (demo, contest and cent account signals are not allowed)",
+      "order_approval_safety": "copy MetaTrader signal providers inside MT4/MT5; subscriber sets the deposit share used, can copy SL/TP, and can set an equity floor that stops copying and closes positions",
+      "pricing_free_tier": "provider sets a monthly subscription fee for signals on real accounts (free signals also exist); MQL5 keeps 20%",
       "rate_limits": "n/a",
       "official_or_community": "official",
       "regions": "Depends on your MetaTrader broker's jurisdiction.",
       "source": "https://www.mql5.com/en/signals/rules",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/mql5-signals/",
-      "safety_score": 18,
-      "safety_score_max": 75,
-      "safety_pct": 24,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 43,
+      "safety_score_max": 100,
+      "safety_pct": 43,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": 0,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
       "safety_sources": {
-        "paper": "https://www.mql5.com/en/signals/rules"
+        "paper": "https://www.mql5.com/en/signals/rules",
+        "withdraw": "https://www.mql5.com/en/articles/618",
+        "keys": "https://www.mql5.com/en/articles/618"
       },
-      "safety_level": "Can trade unattended"
+      "safety_level": "Can trade unattended",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Corrected: MQL5's rules only allow signals from real-money accounts (demo, contest and cent account signals are not allowed); subscriptions are a monthly fee. Source: https://www.mql5.com/en/signals/rules"
+        }
+      ]
     },
     {
       "slug": "bybit-copy-trading",
@@ -5074,28 +5131,29 @@
       "official_or_community": "official",
       "regions": "Bybit is not available to US residents; UK accounts become withdrawal-only from Oct 21 2026.",
       "source": "https://www.bybit.com/en/help-center/article/Copy-Trading-Profit-Sharing-Explained",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/bybit-copy-trading/",
-      "safety_score": 18,
-      "safety_score_max": 60,
-      "safety_pct": 30,
+      "safety_score": 43,
+      "safety_score_max": 85,
+      "safety_pct": 51,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "paper",
-        "withdraw",
-        "keys"
+        "paper"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": null,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://bybit-exchange.github.io/docs/v5/user/apikey-info",
+        "keys": "https://bybit-exchange.github.io/docs/v5/user/create-subuid-apikey"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -5114,28 +5172,29 @@
       "official_or_community": "official",
       "regions": "Bitget restricts US persons.",
       "source": "https://www.bitget.com/support/articles/12560603889437",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Copy trading & strategy marketplaces",
       "page": "https://tradingagentstack.com/tool/bitget-copy-trading/",
-      "safety_score": 10,
-      "safety_score_max": 60,
-      "safety_pct": 17,
+      "safety_score": 20,
+      "safety_score_max": 70,
+      "safety_pct": 29,
       "safety_partial": true,
       "safety_missing_inputs": [
         "paper",
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": null,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "keys": "https://www.bitget.com/support/articles/12560603847571"
+      },
       "safety_level": "Can trade unattended"
     },
     {
@@ -5150,11 +5209,11 @@
       ],
       "live_vs_paper": "n/a",
       "order_approval_safety": "Windows/Linux VPS near CME (Chicago) for NinjaTrader, TradeStation, MT4/5 and Python bots",
-      "pricing_free_tier": "from $29.99/mo (2 cores, 4GB); Lite $59.99, Pro $99.99, Ultra $189.99; dedicated from $299.99",
+      "pricing_free_tier": "Standard (AMD EPYC, DDR4) from $29.99/mo (2 cores, 4GB); Lite $59.99, Pro $99.99, Ultra $189.99; Dedicated $299.99. Performance (Ryzen 9 9950X, DDR5): Starter+ $39.99, Lite+ $79.99, Pro+ $129.99, Ultra+ $199.99, Dedicated+ $399.99; annual billing saves 20%",
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://www.quantvps.com/pricing",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/quantvps/",
       "safety_score": 90,
@@ -5172,7 +5231,13 @@
         "sourced": 10
       },
       "safety_sources": {},
-      "safety_level": "Can't place real-money orders"
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-24",
+          "note": "Added the Performance plan line (Ryzen 9 9950X, DDR5) from $39.99/mo (Starter+) to $399.99/mo (Dedicated+); Standard prices unchanged. Source: https://www.quantvps.com/pricing"
+        }
+      ]
     },
     {
       "slug": "forexvps-net",
@@ -5188,7 +5253,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://www.forexvps.net/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/forexvps-net/",
       "safety_score": 90,
@@ -5222,7 +5287,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://chocoping.com/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/chocoping/",
       "safety_score": 90,
@@ -5256,7 +5321,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://www.digitalocean.com/pricing/droplets",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/digitalocean-droplets/",
       "safety_score": 90,
@@ -5290,7 +5355,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/hetzner-cloud/",
       "safety_score": 90,
@@ -5324,7 +5389,7 @@
       "rate_limits": "n/a",
       "official_or_community": "official",
       "source": "https://aws.amazon.com/lightsail/pricing/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "VPS & hosting for bots",
       "page": "https://tradingagentstack.com/tool/aws-lightsail/",
       "safety_score": 90,
@@ -5362,7 +5427,7 @@
       "official_or_community": "official",
       "regions": "Not available to eToro clients in the US, Australia or Singapore (eToro, Oct 8 2026). Capabilities vary by assistant and jurisdiction.",
       "source": "https://www.etoro.com/news-and-analysis/press-releases/your-ai-already-runs-your-day-now-it-knows-your-portfolio/",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/etoro-mcp-connectors/",
       "safety_score": 90,
@@ -5379,7 +5444,10 @@
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://www.etoro.com/news-and-analysis/press-releases/your-ai-already-runs-your-day-now-it-knows-your-portfolio/",
+        "keys": "https://www.etoro.com/news-and-analysis/press-releases/your-ai-already-runs-your-day-now-it-knows-your-portfolio/"
+      },
       "safety_level": "You confirm each order",
       "who_places_order": "You confirm each order",
       "order_gating_note": "hosted at mcp.public-api.etoro.com; sign in with your eToro account (no API keys); read-only or read-and-act access where available; every action is proposed for your review and approval; funding and withdrawals stay in eToro; on Claude, the web connector can read and act (each write needs your OK) while Claude Desktop is read-only for now; not currently available to clients in the US, Australia or Singapore",
@@ -5410,7 +5478,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/coinpaprika/dexpaprika-mcp",
       "source": "https://github.com/coinpaprika/dexpaprika-mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Market data MCP servers",
       "page": "https://tradingagentstack.com/tool/dexpaprika-mcp/",
       "safety_score": 100,
@@ -5433,6 +5501,10 @@
         {
           "date": "2026-10-17",
           "note": "Added. CoinPaprika's official MCP server; v2.9.0 released Oct 16, 2026."
+        },
+        {
+          "date": "2026-10-21",
+          "note": "v2.9.1 and v2.9.2 are security releases: tool arguments (network, pool or token address) can no longer change which API path a request goes to, ids are checked against the characters real ids use, and redirects are only followed to the same host, so your API key is not re-sent elsewhere. Update if you run it locally."
         }
       ]
     },
@@ -5452,7 +5524,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/TauricResearch/TradingAgents",
       "source": "https://github.com/TauricResearch/TradingAgents",
-      "last_checked": "2026-10-19",
+      "last_checked": "2026-10-26",
       "category_label": "Agent frameworks",
       "page": "https://tradingagentstack.com/tool/tradingagents/",
       "safety_score": 100,
@@ -5494,27 +5566,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/ccxt/ccxt",
       "source": "https://github.com/ccxt/ccxt/tree/master/mcp",
-      "last_checked": "2026-10-25",
+      "last_checked": "2026-10-26",
       "category_label": "Broker MCP servers",
       "page": "https://tradingagentstack.com/tool/ccxt-mcp-server/",
-      "safety_score": 60,
-      "safety_score_max": 75,
-      "safety_pct": 80,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 85,
+      "safety_score_max": 100,
+      "safety_pct": 85,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 10,
         "approval": 15,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/ccxt/ccxt/tree/master/mcp",
+        "keys": "https://github.com/ccxt/ccxt/tree/master/mcp"
+      },
       "safety_level": "Approval is optional",
       "who_places_order": "Approval optional",
       "order_gating_note": "official local MCP server from the ccxt project (MIT), runs over stdio and keys never appear in tool parameters; capability tiers (market, read, trading, funds for withdrawals, raw write endpoints) are off until set in the config file, which no tool can edit; writes are previewed and confirmed by default on live accounts (confirm: always | live | never), checked against a per-order USD cap you set (maxOrderValue), optional daily cap and symbol allowlist, and logged to an append-only audit journal",
@@ -5539,27 +5611,27 @@
       "rate_limits": "not stated on the pages we checked (faucet limits apply on testnet)",
       "official_or_community": "official",
       "source": "https://docs.cdp.coinbase.com/server-wallets/v2/using-the-wallet-api/policies/overview",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/coinbase-cdp-server-wallets/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 35,
+      "safety_score_max": 100,
+      "safety_pct": 35,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.cdp.coinbase.com/server-wallets/v2/using-the-wallet-api/policies/overview",
+        "keys": "https://docs.cdp.coinbase.com/api-reference/v2/authentication"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -5638,27 +5710,27 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://docs.privy.io/recipes/agent-integrations/agentic-wallets",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/privy-server-wallets/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 35,
+      "safety_score_max": 100,
+      "safety_pct": 35,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.privy.io/wallets/overview/solutions/agent-wallets",
+        "keys": "https://docs.privy.io/wallets/overview/solutions/agent-wallets"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -5736,27 +5808,27 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://docs.turnkey.com/concepts/policies/overview",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/turnkey/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 50,
+      "safety_score_max": 100,
+      "safety_pct": 50,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.turnkey.com/solutions/company-wallets/agentic-wallets",
+        "keys": "https://docs.turnkey.com/solutions/company-wallets/agentic-wallets"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -5835,27 +5907,27 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://docs.crossmint.com/agents/wallets/overview",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/crossmint-agent-wallets/",
-      "safety_score": 25,
-      "safety_score_max": 75,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 35,
+      "safety_score_max": 100,
+      "safety_pct": 35,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.crossmint.com/api-reference/wallets/register-delegated-key",
+        "keys": "https://docs.crossmint.com/introduction/platform/api-keys"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -5934,28 +6006,28 @@
       "official_or_community": "official",
       "repo": "https://github.com/safe-global/safe-smart-account",
       "source": "https://docs.safe.global/home/ai-agent-quickstarts/human-approval",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/safe-smart-account/",
-      "safety_score": 20,
-      "safety_score_max": 60,
-      "safety_pct": 33,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "paper",
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
-        "paper": null,
-        "withdraw": null,
-        "keys": null,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "paper": "https://docs.safe.global/home/ai-agent-quickstarts/human-approval",
+        "withdraw": "https://docs.safe.global/home/ai-agent-quickstarts/human-approval",
+        "keys": "https://docs.safe.global/home/ai-overview"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6034,27 +6106,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/zerodevapp/kernel",
       "source": "https://docs.zerodev.app/sdk/permissions/intro",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent wallets",
       "page": "https://tradingagentstack.com/tool/zerodev/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 45,
+      "safety_score_max": 100,
+      "safety_pct": 45,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.zerodev.app/smart-accounts/permissions/policies/call",
+        "keys": "https://docs.zerodev.app/sdk/permissions/intro"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6135,28 +6207,28 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://docs.stripe.com/issuing/agents",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/stripe-issuing-for-agents/",
-      "safety_score": 10,
-      "safety_score_max": 60,
-      "safety_pct": 17,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "paper",
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 50,
+      "safety_score_max": 100,
+      "safety_pct": 50,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
-        "paper": null,
-        "withdraw": null,
-        "keys": null,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "paper": "https://docs.stripe.com/api/issuing/authorizations/test_mode_create",
+        "withdraw": "https://docs.stripe.com/issuing/agents",
+        "keys": "https://docs.stripe.com/keys/restricted-api-keys"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6237,26 +6309,26 @@
       "official_or_community": "official",
       "repo": "https://github.com/binance/binance-skills-hub",
       "source": "https://developers.binance.com/docs/agentic-wallet/welcome",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading agents",
       "page": "https://tradingagentstack.com/tool/binance-agentic-wallet/",
-      "safety_score": 38,
-      "safety_score_max": 85,
-      "safety_pct": 45,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw"
-      ],
+      "safety_score": 53,
+      "safety_score_max": 100,
+      "safety_pct": 53,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 8,
         "paper": 0,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://developers.binance.com/docs/agentic-wallet/welcome"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6335,27 +6407,28 @@
       "official_or_community": "official",
       "repo": "https://github.com/x402-foundation/x402",
       "source": "https://docs.x402.org/faq",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/x402/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
+      "safety_score": 50,
+      "safety_score_max": 90,
+      "safety_pct": 56,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": null,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.x402.org/core-concepts/facilitator"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6440,27 +6513,28 @@
       "official_or_community": "official",
       "repo": "https://github.com/coinbase/agentic-wallet-skills",
       "source": "https://docs.cdp.coinbase.com/agentic-wallet/cli/welcome",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/coinbase-agentic-wallet/",
       "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
+      "safety_score_max": 90,
+      "safety_pct": 39,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
+        "withdraw": 0,
         "keys": null,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.cdp.coinbase.com/agentic-wallet/cli/welcome"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6540,27 +6614,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/stripe/link-cli",
       "source": "https://link.com/agents",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/link-agent-wallet/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.stripe.com/agentic-commerce/agents/link-agent-wallet",
+        "keys": "https://docs.stripe.com/agentic-commerce/agents/link-agent-wallet"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6641,27 +6715,27 @@
       "official_or_community": "official",
       "repo": "https://github.com/Virtual-Protocol/acp-cli",
       "source": "https://github.com/Virtual-Protocol/acp-cli",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Agent tokens with a product",
       "page": "https://tradingagentstack.com/tool/virtuals-acp-acp-cli/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 60,
+      "safety_score_max": 100,
+      "safety_pct": 60,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 15,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/Virtual-Protocol/acp-cli",
+        "keys": "https://github.com/Virtual-Protocol/acp-cli"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6740,27 +6814,27 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://web3.okx.com/onchainos/dev-docs/wallet/agentic-wallet",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading agents",
       "page": "https://tradingagentstack.com/tool/okx-agentic-wallet/",
-      "safety_score": 10,
-      "safety_score_max": 75,
-      "safety_pct": 13,
-      "safety_partial": true,
-      "safety_missing_inputs": [
-        "withdraw",
-        "keys"
-      ],
+      "safety_score": 20,
+      "safety_score_max": 100,
+      "safety_pct": 20,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 0,
-        "withdraw": null,
-        "keys": null,
+        "withdraw": 0,
+        "keys": 10,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://web3.okx.com/onchainos/dev-docs/wallet/agentic-wallet-skills",
+        "keys": "https://web3.okx.com/onchainos/dev-docs/wallet/agentic-wallet"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -6840,27 +6914,28 @@
       "rate_limits": "not stated on the pages we checked",
       "official_or_community": "official",
       "source": "https://docs.heyanon.ai/heyanon-v2/readme/getting-started/account-settings",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading agents",
       "page": "https://tradingagentstack.com/tool/heyanon/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
+      "safety_score": 50,
+      "safety_score_max": 90,
+      "safety_pct": 56,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 10,
         "approval": 15,
         "paper": 0,
-        "withdraw": null,
+        "withdraw": 15,
         "keys": null,
         "open": 0,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://docs.heyanon.ai/heyanon-v2/readme/getting-started/account-settings"
+      },
       "safety_level": "Approval is optional",
       "changelog": [
         {
@@ -6941,7 +7016,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/lightninglabs/lightning-agent-tools",
       "source": "https://github.com/lightninglabs/lightning-agent-tools",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/lightning-agent-tools/",
       "safety_score": 100,
@@ -7041,27 +7116,28 @@
       "official_or_community": "official",
       "repo": "https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill",
       "source": "https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI trading agents",
       "page": "https://tradingagentstack.com/tool/bitget-wallet-skill/",
       "safety_score": 20,
-      "safety_score_max": 75,
-      "safety_pct": 27,
+      "safety_score_max": 90,
+      "safety_pct": 22,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
         "keys"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 0,
-        "withdraw": null,
+        "withdraw": 0,
         "keys": null,
         "open": 10,
         "sourced": 10
       },
-      "safety_sources": {},
+      "safety_sources": {
+        "withdraw": "https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill"
+      },
       "safety_level": "Can trade unattended",
       "changelog": [
         {
@@ -7142,7 +7218,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/valory-xyz/olas-operate-app",
       "source": "https://olas.network/blog/introducing-pearl-v1-the-ai-agent-app-store-powered-by-olas",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "Agent tokens with a product",
       "page": "https://tradingagentstack.com/tool/olas-pearl/",
       "safety_score": 20,
@@ -7169,6 +7245,10 @@
         {
           "date": "2026-10-23",
           "note": "Added. Olas Pearl: app that runs autonomous Olas agents (Polystrat, Basius and others) from Safe smart wallets."
+        },
+        {
+          "date": "2026-10-22",
+          "note": "Pearl v1.12.0 puts the agent's activity feed and chat together, keeps an activity history of trades and pool entries, and lets you check and approve new mechs (AI agents that sell services to your agent, and what it pays them) from the chat; Polystrat now uses the Polymarket v2 Data API. v1.12.1 (Oct 23) is a security update. No safety score change."
         }
       ],
       "risk_v2": {
@@ -7246,7 +7326,7 @@
       "official_or_community": "official",
       "repo": "https://github.com/google-agentic-commerce/AP2",
       "source": "https://ap2-protocol.org/",
-      "last_checked": "2026-10-23",
+      "last_checked": "2026-10-26",
       "category_label": "AI agent payments",
       "page": "https://tradingagentstack.com/tool/agent-payments-protocol-ap2/",
       "safety_score": 100,
@@ -7351,29 +7431,29 @@
       "official_or_community": "official",
       "repo": "https://github.com/Lumiwealth/lumibot",
       "source": "https://lumibot.lumiwealth.com/brokers.html",
-      "last_checked": "2026-10-24",
+      "last_checked": "2026-10-26",
       "category_label": "Open-source trading bots",
       "page": "https://tradingagentstack.com/tool/lumibot/",
-      "safety_score": 35,
-      "safety_score_max": 75,
-      "safety_pct": 47,
+      "safety_score": 45,
+      "safety_score_max": 85,
+      "safety_pct": 53,
       "safety_partial": true,
       "safety_missing_inputs": [
-        "withdraw",
-        "keys"
+        "withdraw"
       ],
       "safety_inputs": {
         "unattended": 0,
         "approval": 0,
         "paper": 15,
         "withdraw": null,
-        "keys": null,
+        "keys": 10,
         "open": 10,
         "sourced": 10
       },
       "safety_sources": {
         "unattended": "https://lumibot.lumiwealth.com/agents.html",
-        "paper": "https://lumibot.lumiwealth.com/brokers.html"
+        "paper": "https://lumibot.lumiwealth.com/brokers.html",
+        "keys": "https://lumibot.lumiwealth.com/faq.html"
       },
       "safety_level": "Can trade unattended",
       "changelog": [
@@ -7382,6 +7462,458 @@
           "note": "Added. GPL-3.0 on the default branch (dev), 2,164 GitHub stars on Oct 24, 2026. The strategy class can backtest, then paper or live trade, but the runner has to select which. Research agents can use allow_trading=False; one agent can submit orders, and no per-order confirmation step is documented in the library. Withdrawal permission and API key scoping were not in the docs we checked, so those safety inputs are missing."
         }
       ]
+    },
+    {
+      "slug": "vibe-trading",
+      "name": "Vibe-Trading",
+      "url": "https://github.com/HKUDS/Vibe-Trading",
+      "category": "open_source_bot",
+      "assets_covered": [
+        "stocks (US, HK, China A-shares, UK, Canada, India, Korea, Brazil and more)",
+        "crypto",
+        "futures",
+        "forex"
+      ],
+      "live_vs_paper": "backtest, paper and live (self-hosted). v0.1.17 (Oct 21, 2026) adds daily paper trading with saved accounts that fill against completed daily bars and never reach a broker. Most of its 19 broker connectors also place orders on the broker's own paper account; bounded live orders are wired for Alpaca, Binance, OKX, Futu, Tiger, eToro, MetaTrader 5 and Robinhood (Robinhood is live-only). Paper vs live is a per-broker runtime check (account id, host, demo flag), not a setting the agent can flip, and brokers without such a signal are capped at paper and read-only.",
+      "order_approval_safety": "open-source (MIT) Python trading agent from the Data Intelligence Lab at HKU (GitHub org HKUDS), with CLI, Web UI and an MCP server. Live orders need a mandate you commit (symbols, order size, exposure, leverage, daily cap) and run inside it with no per-order human confirmation; there is a kill switch (/halt) that cancels and flattens, mandate auto-expiry and an append-only audit ledger. IBKR, Scalable Capital, Trading 212 and Toss Securities connectors are read-only. It holds no funds: the broker holds the money and executes. 36,701 GitHub stars on Oct 26, 2026. The maker warns that the X account VibeTrading_HKU and any Vibe-Trading token or memecoin are not official; it has never launched a token.",
+      "pricing_free_tier": "free, open source (MIT); pip install vibe-trading-ai. You pay your LLM provider plus any broker or data costs.",
+      "rate_limits": "n/a (set by your LLM, data and broker providers)",
+      "official_or_community": "official",
+      "repo": "https://github.com/HKUDS/Vibe-Trading",
+      "source": "https://github.com/HKUDS/Vibe-Trading",
+      "last_checked": "2026-10-26",
+      "category_label": "Open-source trading bots",
+      "page": "https://tradingagentstack.com/tool/vibe-trading/",
+      "safety_score": 53,
+      "safety_score_max": 85,
+      "safety_pct": 62,
+      "safety_partial": true,
+      "safety_missing_inputs": [
+        "withdraw"
+      ],
+      "safety_inputs": {
+        "unattended": 0,
+        "approval": 8,
+        "paper": 15,
+        "withdraw": null,
+        "keys": 10,
+        "open": 10,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can trade unattended",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Added. MIT-licensed AI trading agent (36,701 GitHub stars on Oct 26, 2026). v0.1.17 (Oct 21) added daily paper trading; v0.1.18 (Oct 21) is a same-day follow-up. Live orders run only inside a mandate you commit, with a kill switch; no per-order confirmation. Withdrawal permissions were not in the docs we checked, so that safety input is missing."
+        }
+      ]
+    },
+    {
+      "slug": "siftingio-mcp",
+      "name": "SiftingIO MCP",
+      "url": "https://sifting.io/integrations/mcp",
+      "category": "data_mcp",
+      "assets_covered": [
+        "US stocks",
+        "forex",
+        "crypto",
+        "commodities",
+        "DEX and on-chain data",
+        "SEC fundamentals"
+      ],
+      "live_vs_paper": "data only",
+      "order_approval_safety": "read-only market data: the hosted connector (10 read-only tools, OAuth sign-in to your SiftingIO account, used from ChatGPT or Claude) can't place orders or change your account; the open-source local server (siftingio-mcp on npm, MIT, 36 tools) reads your API key from the SIFTING_API_KEY environment variable",
+      "pricing_free_tier": "free plan: 10,000 REST calls/month, no card (internal, non-commercial use); paid plans per market, e.g. Crypto Builder $79/mo and Pro $239/mo billed annually, US Stocks from $103/mo",
+      "rate_limits": "free 60 requests/min; Builder 100/sec, Pro 150/sec, Ultra 250/sec; MCP calls use your plan's normal quota",
+      "official_or_community": "official",
+      "repo": "https://github.com/SiftingIO/siftingio-mcp",
+      "source": "https://sifting.io/integrations/mcp",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data MCP servers",
+      "page": "https://tradingagentstack.com/tool/siftingio-mcp/",
+      "safety_score": 100,
+      "safety_score_max": 100,
+      "safety_pct": 100,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 10,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-23",
+          "note": "Added (vendor submission, verified against SiftingIO's docs): official market data MCP, hosted read-only connector plus an MIT-licensed local server."
+        }
+      ]
+    },
+    {
+      "slug": "cryptoquant-mcp-server",
+      "name": "CryptoQuant MCP Server",
+      "url": "https://cryptoquant.com/mcp",
+      "category": "data_mcp",
+      "assets_covered": [
+        "Bitcoin",
+        "Ethereum",
+        "XRP",
+        "TRON",
+        "stablecoins",
+        "ERC-20 tokens",
+        "alts"
+      ],
+      "live_vs_paper": "data only",
+      "order_approval_safety": "read-only on-chain and market data plus CryptoQuant research (9 tools); remote server at mcp.cryptoquant.com/mcp with OAuth 2.0 + PKCE sign-in using your API key or keyless on a shared pool; no trading or wallet access",
+      "pricing_free_tier": "same plans and credits as the CryptoQuant API: Basic (free) 10,000 credits/month, 30 days of history, no on-chain data; on-chain data needs Professional or Premium; research and Quicktake tools free during the beta",
+      "rate_limits": "Basic 10/min, Advanced 60/min, Professional 120/min, Premium 800/min; keyless access shares a pool",
+      "official_or_community": "official",
+      "source": "https://cryptoquant.com/mcp",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data MCP servers",
+      "page": "https://tradingagentstack.com/tool/cryptoquant-mcp-server/",
+      "safety_score": 90,
+      "safety_score_max": 100,
+      "safety_pct": 90,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-23",
+          "note": "Added: CryptoQuant's official remote MCP server for on-chain analytics and research."
+        }
+      ]
+    },
+    {
+      "slug": "crowdwisdomtrading-setups-api",
+      "name": "CrowdWisdomTrading Setups API",
+      "url": "https://www.crowdwisdomtrading.com/api-program",
+      "category": "data_api",
+      "assets_covered": [
+        "US stocks (trade setups)"
+      ],
+      "live_vs_paper": "data only (no order placement)",
+      "order_approval_safety": "REST API returning crowd-consensus trade setups (ticker, direction, entry/stop/target levels, risk/reward); Bearer keys hashed at rest, up to 5 named keys; signals only, it cannot place orders",
+      "pricing_free_tier": "Setups API $299/month (separate from the trader product, which has a free tier); licensed for in-house use only, showing data to your clients needs a partner licence",
+      "rate_limits": "10 requests/min, 1,000/day; 90-day history",
+      "official_or_community": "official",
+      "source": "https://www.crowdwisdomtrading.com/api-program",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data APIs",
+      "page": "https://tradingagentstack.com/tool/crowdwisdomtrading-setups-api/",
+      "safety_score": 90,
+      "safety_score_max": 100,
+      "safety_pct": 90,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-23",
+          "note": "Added (vendor submission, verified against the API program page and OpenAPI docs)."
+        }
+      ]
+    },
+    {
+      "slug": "poly-research-robotics",
+      "name": "Poly Research & Robotics",
+      "url": "https://www.polyresearchrobotics.com/",
+      "category": "data_api",
+      "assets_covered": [
+        "prediction markets (Polymarket): crypto, sports, esports and weather markets"
+      ],
+      "live_vs_paper": "data and research only",
+      "order_approval_safety": "free community and research for Polymarket bot builders: bot-building guides written for AI coding agents, trader reports, a strategy database and a Discord AI assistant; sells historical order-book, price-feed and TWAP datasets (Parquet, 30s to 1d); no trading access",
+      "pricing_free_tier": "Discord, guides, trader reports and strategy database free; historical datasets paid, with free samples",
+      "rate_limits": "n/a",
+      "official_or_community": "community",
+      "source": "https://www.polyresearchrobotics.com/llms.txt",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data APIs",
+      "page": "https://tradingagentstack.com/tool/poly-research-robotics/",
+      "safety_score": 86,
+      "safety_score_max": 100,
+      "safety_pct": 86,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 0,
+        "sourced": 6
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-23",
+          "note": "Added (submission, verified against the site): free Polymarket bot-builder community with paid historical order-book data."
+        }
+      ]
+    },
+    {
+      "slug": "coinboss-api",
+      "name": "CoinBoss API",
+      "url": "https://www.coinboss.com/api-docs",
+      "category": "data_api",
+      "assets_covered": [
+        "crypto derivatives: liquidations, open interest, funding rates, long/short ratios, options",
+        "Hyperliquid positions and vaults",
+        "ETF flows, stablecoins, exchange balances"
+      ],
+      "live_vs_paper": "data only",
+      "order_approval_safety": "read-only public REST API at api.coinboss.com (65 documented endpoints); no trading, account or wallet access; works without a key, and an optional API key from the account center is for usage tracking",
+      "pricing_free_tier": "free for now: all endpoints are free for everyone; paid tiers are announced as coming soon",
+      "rate_limits": "1,200 requests/min (Professional tier, which registered users get by default for a limited time; anonymous calls have the same cap)",
+      "official_or_community": "official",
+      "source": "https://www.coinboss.com/api-docs",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data APIs",
+      "page": "https://tradingagentstack.com/tool/coinboss-api/",
+      "safety_score": 90,
+      "safety_score_max": 100,
+      "safety_pct": 90,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-25",
+          "note": "Added (vendor submission, verified against CoinBoss's API docs): free public REST API for crypto derivatives data."
+        }
+      ]
+    },
+    {
+      "slug": "reslyce-flow-mcp",
+      "name": "Reslyce Flow MCP",
+      "url": "https://www.reslyce.com/flow-mcp",
+      "category": "data_mcp",
+      "assets_covered": [
+        "US stock and ETF options flow (captured 0-2 DTE activity for 100 tracked tickers)",
+        "large options prints ($1M+) out to 45 DTE",
+        "daily open interest by strike"
+      ],
+      "live_vs_paper": "data only",
+      "order_approval_safety": "read-only options-flow data: a hosted MCP server (https://www.reslyce.com/mcp) that ChatGPT, Claude and other MCP clients connect to with OAuth sign-in to your Reslyce account; it does not connect to a broker or place orders; covers only captured sessions and recorded contracts available to your account, not a complete options tape; index options such as SPX are not included",
+      "pricing_free_tier": "needs Reslyce Flow access: 21 days free with no card, then $29/month if you continue; MCP and API access are included in the subscription",
+      "rate_limits": "not stated on the pages we checked; data is live during the regular options session (9:30 a.m. to 4 p.m. ET) and past sessions stay available for 60 days",
+      "official_or_community": "official",
+      "source": "https://www.reslyce.com/flow-mcp",
+      "last_checked": "2026-10-26",
+      "category_label": "Market data MCP servers",
+      "page": "https://tradingagentstack.com/tool/reslyce-flow-mcp/",
+      "safety_score": 90,
+      "safety_score_max": 100,
+      "safety_pct": 90,
+      "safety_partial": false,
+      "safety_missing_inputs": [],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 15,
+        "withdraw": 15,
+        "keys": 10,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {},
+      "safety_level": "Can't place real-money orders",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Added (vendor submission, verified against Reslyce's Flow MCP page and pricing): read-only MCP server for captured US options flow."
+        }
+      ]
+    },
+    {
+      "slug": "deskbot-for-kalshi",
+      "name": "DeskBot for Kalshi",
+      "url": "https://deskbot.store/",
+      "category": "prediction_market",
+      "assets_covered": [
+        "Kalshi 15-minute up/down markets: 9 crypto (BTC, ETH, XRP, SOL, DOGE, HYPE, ZEC, NEAR, BNB), 5 metals, oil, natural gas and 3 currency pairs",
+        "Kalshi multi-leg combos and parlays",
+        "Polymarket 15-minute crypto Up/Down markets (on your own Polymarket account)"
+      ],
+      "live_vs_paper": "live on your own Kalshi account (and optionally Polymarket); starts in paper mode with simulated trading until you arm each market",
+      "order_approval_safety": "closed-source desktop app for Mac and Windows that runs on your computer with your own Kalshi API key and trades 15-minute contracts automatically once a market is switched to live, with no per-trade approval; controls are a master switch, a live switch per market, stake, daily budget and open-position caps, and a daily loss limit that pauses new live entries ($15 by default); the main lane buys favorites priced around 90-95¢, so one loss can cost as much as a dozen or more wins; a copy mode mirrors a lead account's fills into other accounts; DeskBot never holds your money (funds stay in your Kalshi account); its 'Official coin' page says no DeskBot coin has launched yet and that a copycat 'Desk Bot Kalshi' coin is fake",
+      "pricing_free_tier": "$19.99/month, first month $1; card required, renews monthly, no refunds once access is delivered; needs a funded Kalshi account (Kalshi trading fees apply)",
+      "rate_limits": "n/a (Kalshi API limits apply); your computer must stay on while it runs",
+      "official_or_community": "official",
+      "source": "https://deskbot.store/products/deskbot-kalshi-bot",
+      "last_checked": "2026-10-26",
+      "category_label": "Prediction market APIs & agents",
+      "page": "https://tradingagentstack.com/tool/deskbot-for-kalshi/",
+      "safety_score": 33,
+      "safety_score_max": 75,
+      "safety_pct": 44,
+      "safety_partial": true,
+      "safety_missing_inputs": [
+        "withdraw",
+        "keys"
+      ],
+      "safety_inputs": {
+        "unattended": 0,
+        "approval": 8,
+        "paper": 15,
+        "withdraw": null,
+        "keys": null,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {
+        "unattended": "https://deskbot.store/pages/how-it-works",
+        "paper": "https://deskbot.store/pages/get-deskbot",
+        "approval": "https://deskbot.store/products/deskbot-kalshi-bot"
+      },
+      "safety_level": "Can trade unattended",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Added (vendor submission, verified against DeskBot's own pages): closed-source desktop bot that trades Kalshi 15-minute markets with your API key, $19.99/month, starts in paper mode."
+        }
+      ]
+    },
+    {
+      "slug": "craic-hub-exchange",
+      "name": "Craic Hub Exchange",
+      "url": "https://thehubexchange.com/",
+      "category": "defi_agent",
+      "assets_covered": [
+        "Solana tokens (any token with a liquidity pool, including new pump.fun coins), routed through Jupiter",
+        "cross-chain swaps (Bitcoin, Ethereum, Base, BNB Chain, Arbitrum and more) through LI.FI",
+        "token launches on 8 chains"
+      ],
+      "live_vs_paper": "live only: real tokens on Solana and other mainnets; no paper or demo mode on the site",
+      "order_approval_safety": "closed-source web swap site, token launchpad and Auto Trade (limit buys, take-profit and DCA as Jupiter on-chain orders); every trade, order and launch is signed in your own wallet and the site never asks for or stores seed phrases or private keys; once you sign a limit or DCA order, Jupiter fills it later without asking again; before Auto Trade opens your wallet the site decodes the transaction and blocks unknown programs, unlimited approvals and authority changes; no stop-loss orders (a stop-loss is only an alert with a one-tap sell link); the Craic Bot, a Telegram bot that turns plain-English requests into orders you sign, is marked coming soon and not open to the public; the site has its own memecoin, $CRAIC (a pump.fun token), that gives fee discounts, fees paid in it are burned, and burns, staking and holder rewards are stated as aims, not promises; the security page is the team's own self-review, not an independent audit; the site lists brand-new memecoins, which it calls very high risk",
+      "pricing_free_tier": "no sign-up; swaps pay network and Jupiter fees plus a 0% to 0.75% platform fee (lower for $CRAIC holders); 25% off launch and featured-listing fees when paid in $CRAIC; Craic Bot plans listed at $15, $30 and $50/month (20% off in $CRAIC), payments not open yet",
+      "rate_limits": "n/a",
+      "official_or_community": "official",
+      "source": "https://thehubexchange.com/security.html",
+      "last_checked": "2026-10-26",
+      "category_label": "On-chain & DeFi trading agents",
+      "page": "https://tradingagentstack.com/tool/craic-hub-exchange/",
+      "safety_score": 65,
+      "safety_score_max": 90,
+      "safety_pct": 72,
+      "safety_partial": true,
+      "safety_missing_inputs": [
+        "keys"
+      ],
+      "safety_inputs": {
+        "unattended": 25,
+        "approval": 15,
+        "paper": 0,
+        "withdraw": 15,
+        "keys": null,
+        "open": 0,
+        "sourced": 10
+      },
+      "safety_sources": {
+        "unattended": "https://thehubexchange.com/security.html"
+      },
+      "safety_level": "You confirm each order",
+      "changelog": [
+        {
+          "date": "2026-10-26",
+          "note": "Added (vendor submission, verified against the site): non-custodial memecoin swap site with Auto Trade and its own $CRAIC coin; the Telegram Craic Bot is not open yet."
+        }
+      ],
+      "risk_v2": {
+        "version": 2,
+        "score": 65,
+        "max": 80,
+        "partial": true,
+        "missing": [
+          "limits"
+        ],
+        "inputs": {
+          "custody": {
+            "points": 20,
+            "max": 20,
+            "note": "Non-custodial: you sign in your own wallet, and the site never asks for, sees or stores a seed phrase or private key",
+            "source": "https://thehubexchange.com/security.html"
+          },
+          "limits": {
+            "points": null,
+            "max": 20,
+            "note": "Missing: no official source found yet",
+            "source": null
+          },
+          "approval": {
+            "points": 15,
+            "max": 15,
+            "note": "Every trade, order and launch needs your wallet signature; the Craic Bot (coming soon) reads each request back and gives you one tap to sign",
+            "source": "https://thehubexchange.com/craicbot"
+          },
+          "withdraw": {
+            "points": 15,
+            "max": 15,
+            "note": "The site and bot hold no keys, so they can't send your funds anywhere without your signature",
+            "source": "https://thehubexchange.com/security.html"
+          },
+          "preview": {
+            "points": 5,
+            "max": 10,
+            "note": "Auto Trade only: before your wallet opens, the site decodes the transaction and blocks unknown programs, unlimited approvals and authority changes",
+            "source": "https://thehubexchange.com/security.html"
+          },
+          "open": {
+            "points": 0,
+            "max": 10,
+            "note": "Closed: no public source code; the security page is the team's own self-review, not an independent audit",
+            "source": "https://thehubexchange.com/security.html"
+          },
+          "record": {
+            "points": 10,
+            "max": 10,
+            "note": "No incident naming this tool in our incident tracker for the last 12 months, and every scored input links an official source",
+            "source": "https://tradingagentstack.com/incidents/"
+          }
+        },
+        "incidents": [],
+        "method": "https://tradingagentstack.com/methodology/#agent-risk-score"
+      }
     }
   ],
   "incidents": [
@@ -7750,7 +8282,7 @@
       ],
       "last_checked": "2026-10-24",
       "links_status": "verified",
-      "status": "Under review (Oct 26, 2026): reports say wallets used with Bloom were drained (about 9,400 SOL from 41+ wallets, signed with the owners' own keys). Bloom says it is investigating, that other wallets remain safe, and that it has temporarily disabled some services; the cause is not confirmed. If you imported a key into Bloom, move funds to a fresh wallet with a new seed."
+      "status": "Under review (Oct 26, 2026): wallets used with Bloom were drained (about 9,400 SOL, signed with the owners' own keys). Bloom says 49 wallets belonging to 9 users were affected and it will fully reimburse them; it is still investigating the cause, including a possible third-party compromise. If you imported a key into Bloom, move funds to a fresh wallet with a new seed."
     },
     {
       "name": "Sigma",
