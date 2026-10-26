@@ -1,0 +1,38 @@
+name: Sync dataset
+
+# Refresh the tool list from TradingAgentStack's public dataset.
+# Commits only when data/tools.json, data/tools.csv or README.md changed.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate the list
+        run: python scripts/sync_from_site.py
+
+      - name: Commit if the dataset changed
+        run: |
+          git add -- data/tools.json data/tools.csv README.md
+          if git diff --cached --quiet; then
+            echo "No dataset changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync tool list from tradingagentstack.com"
+          git push
