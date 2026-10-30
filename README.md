@@ -4,7 +4,7 @@
 
 A sourced list of AI trading agents, broker MCP servers, market data APIs, Telegram bots, agent wallets and exchanges. Every fact and score is copied from the [TradingAgentStack](https://tradingagentstack.com) open dataset.
 
-**143 tools.** Dataset generated **2026-10-26**. Newest listing check: **2026-10-26**.
+**147 tools.** Dataset generated **2026-10-30**. Newest listing check: **2026-10-30**.
 
 Not financial advice. Verify details with each vendor before connecting real money.
 
@@ -17,21 +17,21 @@ Not financial advice. Verify details with each vendor before connecting real mon
 - [How scores work](#how-scores-work)
 - [Trade with a bot](#hub-trade)
   - [AI trading agents (4)](#cat-ai_trading_agent)
-  - [AI trading bot platforms (14)](#cat-ai_bot_platform)
+  - [AI trading bot platforms (15)](#cat-ai_bot_platform)
   - [Open-source trading bots (7)](#cat-open_source_bot)
   - [On-chain & DeFi trading agents (9)](#cat-defi_agent)
   - [AI signals & research copilots (9)](#cat-ai_signals)
   - [Copy trading & strategy marketplaces (7)](#cat-copy_trading)
   - [Agent tokens with a product (2)](#cat-agent_token)
 - [Build an AI agent](#hub-build)
-  - [Broker MCP servers (14)](#cat-broker_mcp)
+  - [Broker MCP servers (16)](#cat-broker_mcp)
   - [Market data MCP servers (9)](#cat-data_mcp)
   - [Agent frameworks (5)](#cat-agent_framework)
   - [Risk, safety & paper trading (9)](#cat-risk_tool)
   - [AI agent wallets (7)](#cat-agent_wallet)
   - [AI agent payments (6)](#cat-agent_payments)
 - [Markets & infrastructure](#hub-markets)
-  - [Exchanges & brokers for bots (8)](#cat-bot_exchange)
+  - [Exchanges & brokers for bots (9)](#cat-bot_exchange)
   - [Prediction market APIs & agents (9)](#cat-prediction_market)
   - [Broker APIs (4)](#cat-broker_api)
   - [Market data APIs (10)](#cat-data_api)
@@ -68,7 +68,7 @@ See [Trade with a bot](https://tradingagentstack.com/trade-with-a-bot/).
 
 <a id="cat-ai_bot_platform"></a>
 
-### AI trading bot platforms (14)
+### AI trading bot platforms (15)
 
 [AI trading bot platforms on TradingAgentStack](https://tradingagentstack.com/ai-trading-bots/)
 
@@ -80,6 +80,7 @@ See [Trade with a bot](https://tradingagentstack.com/trade-with-a-bot/).
 | [Coinrule](https://tradingagentstack.com/tool/coinrule/) | crypto, US stocks, ETFs | live via exchange/broker connection; backtesting; templates | official | 50% |  |
 | [Composer](https://tradingagentstack.com/tool/composer/) | US stocks, ETFs | live in a Composer brokerage account; unlimited backtests | official | 29% (partial) |  |
 | [Cryptohopper](https://tradingagentstack.com/tool/cryptohopper/) | crypto | live via exchange API or OAuth; paper trading bot included | official | 50% |  |
+| [Nova Trading App](https://tradingagentstack.com/tool/nova-trading-app/) | crypto spot (live on KuCoin, Bybit, Bybit EU, Bitget and HTX), crypto futures and long/short strategies (paper only) | every account starts in paper mode; live spot trading through your own exchange account is optional | official | 53% (partial) |  |
 | [Option Alpha](https://tradingagentstack.com/tool/option-alpha/) | US options, US stocks | live and paper via connected brokers | official | 53% (partial) |  |
 | [Pionex](https://tradingagentstack.com/tool/pionex/) | crypto spot, crypto futures | live (Pionex is the exchange; bots are built in) | official | 24% (partial) |  |
 | [Surmount](https://tradingagentstack.com/tool/surmount/) | US stocks, ETFs, crypto | paper trading on Core; live via connected brokers or Quantbase account | official | 50% |  |
@@ -136,7 +137,7 @@ Guide: [Best Telegram trading bots](https://tradingagentstack.com/best-telegram-
 | [Danelfin](https://tradingagentstack.com/tool/danelfin/) | US stocks, ETFs, European stocks | research only (no execution); broker sync on paid plans | official | 90% |  |
 | [Intellectia](https://tradingagentstack.com/tool/intellectia/) | US stocks, ETFs, crypto | research only | official | 90% |  |
 | [Kaito](https://tradingagentstack.com/tool/kaito/) | crypto | research only | official | 90% |  |
-| [Kavout](https://tradingagentstack.com/tool/kavout/) | US stocks, ETFs, crypto | research only | official | 90% |  |
+| [Kavout](https://tradingagentstack.com/tool/kavout/) | US stocks, ETFs, global stocks and ETFs (30+ exchanges in 29 countries, Pro and Premium), crypto, forex | research only | official | 90% |  |
 | [LevelFields](https://tradingagentstack.com/tool/levelfields/) | US stocks, options | alerts only | official | 90% |  |
 | [LunarCrush](https://tradingagentstack.com/tool/lunarcrush/) | crypto, stocks | research only | official | 90% |  |
 | [Nansen](https://tradingagentstack.com/tool/nansen/) | crypto (on-chain) | research only | official | 90% |  |
@@ -178,7 +179,7 @@ See [Build an AI agent](https://tradingagentstack.com/build-an-ai-agent/).
 
 <a id="cat-broker_mcp"></a>
 
-### Broker MCP servers (14)
+### Broker MCP servers (16)
 
 [Broker MCP servers on TradingAgentStack](https://tradingagentstack.com/category/broker-mcp/)
 
@@ -186,15 +187,17 @@ See [Build an AI agent](https://tradingagentstack.com/build-an-ai-agent/).
 |---|---|---|---|---|---|
 | [Alpaca MCP Server](https://tradingagentstack.com/tool/alpaca-mcp-server/) | US stocks, ETFs, options, crypto, fixed income quotes | live and paper (ALPACA_PAPER_TRADE defaults to true/paper; paper with simulated $100K) | official | 68% |  |
 | [Axi MCP (MT5)](https://tradingagentstack.com/tool/axi-mcp-mt5/) | Axi MT5 account instruments (live prices, candles, positions, orders) | live and demo MT5 accounts; MT4 and Axi trading platform accounts can't connect | official | 75% |  |
+| [B2Trader MCP (B2PRIME)](https://tradingagentstack.com/tool/b2trader-mcp-b2prime/) | forex, crypto spot and crypto perpetual futures, CFDs on indices, commodities, energies and metals, NDFs | live: the full-access endpoint places real orders on your B2Trader account | official | 40% (partial) |  |
 | [CCXT MCP Server](https://tradingagentstack.com/tool/ccxt-mcp-server/) | crypto spot and derivatives on 100+ exchanges via the unified ccxt API, prediction markets (e.g. Polymarket) | live and sandbox/testnet accounts (per exchange); out of the box only public market data; trading must be enabled per account in the config file, and `"trading": true` works only on sandbox/demo accounts (live needs `"trading": "live"`) | official | 85% |  |
+| [cTrader AI Agent Connect (MCP)](https://tradingagentstack.com/tool/ctrader-ai-agent-connect-mcp/) | forex, CFDs (instruments depend on your cTrader broker) | live: with trading enabled, the agent places, modifies and closes real orders on the connected cTrader account | official | 64% (partial) |  |
 | [eToro MCP Connectors](https://tradingagentstack.com/tool/etoro-mcp-connectors/) | stocks, ETFs, crypto, commodities | live account; eToro suggests testing workflows on a demo account first | official | 90% |  |
 | [Interactive Brokers AI Integration (MCP)](https://tradingagentstack.com/tool/interactive-brokers-ai-integration-mcp/) | global multi-asset (account/portfolio, market data) | live account | official | 71% (partial) |  |
 | [Longbridge MCP](https://tradingagentstack.com/tool/longbridge-mcp/) | quotes/depth, fundamentals, options, warrants | live trading tools (place/modify/cancel); paper trading accounts work too, except on Longbridge US accounts, which have no paper account | official | 68% |  |
 | [moomoo MCP](https://tradingagentstack.com/tool/moomoo-mcp/) | quotes, portfolio, orders; HK, US, CN, SG, JP, MY markets (OpenAPI) | Simulated (paper) trading is authorized separately from live trading; paper trading becomes available with market data authorization, so an agent can use paper trading without live trade access. moomoo says its docs may currently be wrong on this (moomoo OpenAPI team, email to TradingAgentStack, 2026-10-26) | official | 58% |  |
-| [NinjaTrader MCP (beta)](https://tradingagentstack.com/tool/ninjatrader-mcp-beta/) | NinjaTrader account (contracts, quotes, orders, risk) | Demo (simulated) and Live endpoints | official | 58% |  |
-| [Public Hosted MCP Server](https://tradingagentstack.com/tool/public-hosted-mcp-server/) | Public.com brokerage account | live (real money) | official | 17% (partial) |  |
+| [NinjaTrader MCP](https://tradingagentstack.com/tool/ninjatrader-mcp/) | futures and event contracts in your NinjaTrader or Tradovate account (contracts, quotes, orders, risk) | Demo (simulated) and Live endpoints | official | 58% |  |
+| [Public Hosted MCP Server](https://tradingagentstack.com/tool/public-hosted-mcp-server/) | Public.com brokerage account | live (real money); no paper or sandbox account: every order is a real order in your Public account (Public, email to TradingAgentStack, 2026-10-26) | official | 28% (partial) |  |
 | [Robinhood Trading MCP](https://tradingagentstack.com/tool/robinhood-trading-mcp/) | equities (long), options, crypto | live, from a dedicated MCP account | official | 71% (partial) |  |
-| [tastytrade MCP Server](https://tradingagentstack.com/tool/tastytrade-mcp-server/) | tastytrade account (orders, quotes) | live by default (connects to production unless TASTYTRADE_ENV=sandbox); sandbox available (no market data, resets every 24 hours) | official | 90% |  |
+| [tastytrade MCP Server](https://tradingagentstack.com/tool/tastytrade-mcp-server/) | tastytrade account (orders, quotes) | live by default (connects to production unless TASTYTRADE_ENV=sandbox); sandbox available (no market data, resets every 24 hours) | official | 100% |  |
 | [TradeStation MCP](https://tradingagentstack.com/tool/tradestation-mcp/) | TradeStation execution, market data, account APIs | live | official | 86% (partial) |  |
 | [Tradier MCP Server](https://tradingagentstack.com/tool/tradier-mcp-server/) | US stocks, options (single-leg and multi-leg) | live and paper (PAPER_TRADING flag with your paper token) | official | 50% |  |
 | [Webull Cloud MCP Server](https://tradingagentstack.com/tool/webull-cloud-mcp-server/) | stocks, ETFs, options, futures, crypto, event contracts | live: creates order instructions (stocks, options, futures, crypto, event contracts, algo) that you confirm in the Webull app/desktop; plus account data, order history, market data | official | 88% (partial) |  |
@@ -288,20 +291,21 @@ See [Markets & infrastructure](https://tradingagentstack.com/markets-and-infrast
 
 <a id="cat-bot_exchange"></a>
 
-### Exchanges & brokers for bots (8)
+### Exchanges & brokers for bots (9)
 
 [Exchanges & brokers for bots on TradingAgentStack](https://tradingagentstack.com/crypto-exchanges-for-trading-bots/)
 
 | Tool | Markets | Live or paper | Maintainer | Safety | Agent risk |
 |---|---|---|---|---|---|
-| [Binance](https://tradingagentstack.com/tool/binance/) | crypto spot, crypto margin, crypto futures | live; Spot Testnet (testnet.binance.vision) for paper testing | official | 58% | 86% (partial) |
+| [Binance](https://tradingagentstack.com/tool/binance/) | crypto spot, crypto margin, crypto futures | live; Spot Testnet (testnet.binance.vision) for paper testing | official | 58% | 71% (partial) |
 | [Bitget](https://tradingagentstack.com/tool/bitget/) | crypto spot, crypto futures, copy trading | live; demo trading in app, and the --paper-trading flag routes MCP, CLI and SDK requests to Bitget's Demo environment | official | 50% | 80% (partial) |
 | [Bybit](https://tradingagentstack.com/tool/bybit/) | crypto spot, crypto derivatives, options | live; Demo Trading (api-demo.bybit.com, live prices) and a separate Testnet | official | 50% | 89% (partial) |
 | [Coinbase Advanced](https://tradingagentstack.com/tool/coinbase-advanced/) | crypto spot, crypto futures (eligible regions), crypto perps (20+ tokens) and index perps (US only) via Coinbase for Agents, eligible US stocks via Coinbase for Agents | live; static Advanced Trade sandbox (mocked Accounts and Orders responses) | official | 75% | 72% (partial) |
-| [Gemini](https://tradingagentstack.com/tool/gemini/) | crypto spot, crypto perpetuals (eligible regions) | live; full-function sandbox with test funds (exchange.sandbox.gemini.com) | official | 60% | 70% (partial) |
+| [Gemini](https://tradingagentstack.com/tool/gemini/) | crypto spot, crypto perpetuals (eligible regions), prediction markets | live; full-function sandbox with test funds (exchange.sandbox.gemini.com) | official | 60% | 70% (partial) |
 | [Hyperliquid](https://tradingagentstack.com/tool/hyperliquid/) | crypto perpetuals, crypto spot (on-chain) | live; public testnet (api.hyperliquid-testnet.xyz) | official | 50% | 64% (partial) |
-| [Kraken](https://tradingagentstack.com/tool/kraken/) | crypto spot, crypto futures, xStocks, forex | live; built-in spot and futures paper trading in Kraken CLI (no API key needed) | official | 85% | 76% |
+| [Kraken](https://tradingagentstack.com/tool/kraken/) | crypto spot, crypto futures, xStocks, forex | live; built-in spot and futures paper trading in Kraken CLI (no API key needed) | official | 85% | 84% |
 | [OKX](https://tradingagentstack.com/tool/okx/) | crypto spot, crypto perpetuals, futures, options | live; demo trading profile (simulated) supported by the MCP | official | 68% | 84% (partial) |
+| [Veranta MCP (formerly Avantis)](https://tradingagentstack.com/tool/veranta-mcp-formerly-avantis/) | perpetuals on crypto, US stocks and indices, FX, gold and oil | live on Base; testnet paper trading with test USDC | official | 75% | 83% |
 
 <a id="cat-prediction_market"></a>
 
