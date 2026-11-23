@@ -4,7 +4,7 @@
 
 A sourced list of AI trading agents, broker MCP servers, market data APIs, Telegram bots, agent wallets and exchanges. Every fact and score is copied from the [TradingAgentStack](https://tradingagentstack.com) open dataset.
 
-**174 tools.** Dataset generated **2026-11-15**. Newest listing check: **2026-11-16**.
+**182 tools.** Dataset generated **2026-11-23**. Newest listing check: **2026-11-23**.
 
 Not financial advice. Verify details with each vendor before connecting real money.
 
@@ -17,21 +17,21 @@ Not financial advice. Verify details with each vendor before connecting real mon
 - [How scores work](#how-scores-work)
 - [Trade with a bot](#hub-trade)
   - [AI trading agents (6)](#cat-ai_trading_agent)
-  - [AI trading bot platforms (18)](#cat-ai_bot_platform)
+  - [AI trading bot platforms (22)](#cat-ai_bot_platform)
   - [Open-source trading bots (7)](#cat-open_source_bot)
-  - [On-chain & DeFi trading agents (9)](#cat-defi_agent)
-  - [AI signals & research copilots (9)](#cat-ai_signals)
+  - [On-chain & DeFi trading agents (10)](#cat-defi_agent)
+  - [AI signals & research copilots (10)](#cat-ai_signals)
   - [Copy trading & strategy marketplaces (7)](#cat-copy_trading)
   - [Agent tokens with a product (2)](#cat-agent_token)
 - [Build an AI agent](#hub-build)
   - [Broker MCP servers (17)](#cat-broker_mcp)
-  - [Market data MCP servers (15)](#cat-data_mcp)
+  - [Market data MCP servers (16)](#cat-data_mcp)
   - [Agent frameworks (6)](#cat-agent_framework)
   - [Risk, safety & paper trading (9)](#cat-risk_tool)
   - [AI agent wallets (7)](#cat-agent_wallet)
   - [AI agent payments (7)](#cat-agent_payments)
 - [Markets & infrastructure](#hub-markets)
-  - [Exchanges & brokers for bots (18)](#cat-bot_exchange)
+  - [Exchanges & brokers for bots (19)](#cat-bot_exchange)
   - [Prediction market APIs & agents (9)](#cat-prediction_market)
   - [Broker APIs (4)](#cat-broker_api)
   - [Market data APIs (12)](#cat-data_api)
@@ -70,18 +70,20 @@ See [Trade with a bot](https://tradingagentstack.com/trade-with-a-bot/).
 
 <a id="cat-ai_bot_platform"></a>
 
-### AI trading bot platforms (18)
+### AI trading bot platforms (22)
 
 [AI trading bot platforms on TradingAgentStack](https://tradingagentstack.com/ai-trading-bots/)
 
 | Tool | Markets | Live or paper | Maintainer | Safety | Agent risk |
 |---|---|---|---|---|---|
 | [3Commas](https://tradingagentstack.com/tool/3commas/) | crypto spot, crypto futures | live via exchange API keys; free trial; backtesting | official | 58% |  |
+| [Amaltash](https://tradingagentstack.com/tool/amaltash/) | US stocks and ETFs, US Treasuries (T-Bills, notes, bonds and TIPS), crypto in the Alpaca brokerage account (per its terms) | paper or live: strategies are backtested on past prices and can run on paper; live strategies trade your Alpaca brokerage account | official | 44% (partial) |  |
 | [Bitsgap](https://tradingagentstack.com/tool/bitsgap/) | crypto spot, crypto futures | live via exchange API keys; free demo with 20 bots | official | 50% |  |
 | [Capitalise.ai](https://tradingagentstack.com/tool/capitalise-ai/) | forex, CFDs, crypto, stocks (via partner brokers) | live via partner brokers; backtesting and simulation | official | 33% (partial) |  |
 | [Coinrule](https://tradingagentstack.com/tool/coinrule/) | crypto, US stocks, ETFs | live via exchange/broker connection; backtesting; templates | official | 50% |  |
 | [Composer](https://tradingagentstack.com/tool/composer/) | US stocks, ETFs | live in a Composer brokerage account; unlimited backtests | official | 29% (partial) |  |
 | [Cryptohopper](https://tradingagentstack.com/tool/cryptohopper/) | crypto | live via exchange API or OAuth; paper trading bot included | official | 50% |  |
+| [DeskBot for Robinhood](https://tradingagentstack.com/tool/deskbot-for-robinhood/) | US stocks in your own Robinhood account (stock scalp and stock swing lanes), single-leg long calls and puts for accounts approved for options (option scalp and option swing lanes); no spreads, no option writing, no crypto or futures | live in your own Robinhood account; no practice mode documented (the dashboard pictures on its site use sample data) | official | 30% (partial) |  |
 | [DeskBot for TopstepX](https://tradingagentstack.com/tool/deskbot-for-topstepx/) | futures on TopstepX (a supported futures watchlist; contracts not named on the product page) | runs on TopstepX Trading Combine, Express Funded or Practice (simulated) accounts; Live Funded accounts are not supported; an offline demo with synthetic candles | official | 33% (partial) |  |
 | [Nova Trading App](https://tradingagentstack.com/tool/nova-trading-app/) | crypto spot (live on KuCoin, Bybit, Bybit EU, Bitget and HTX), crypto futures and long/short strategies (paper only) | every account starts in paper mode; live spot trading through your own exchange account is optional | official | 53% (partial) |  |
 | [Nyria](https://tradingagentstack.com/tool/nyria/) | US stocks and options (option spreads up to 4 legs), crypto | free paper trading (Nyria Paper, Alpaca Paper, Tradier Sandbox); live on Charles Schwab, Tradier, tastytrade and Alpaca | official | 51% (partial) |  |
@@ -92,7 +94,9 @@ See [Trade with a bot](https://tradingagentstack.com/trade-with-a-bot/).
 | [Trade Ideas (Holly AI)](https://tradingagentstack.com/tool/trade-ideas-holly-ai/) | US stocks, ETFs | live via connected brokers; real-time paper trading | official | 33% (partial) |  |
 | [TradersPost](https://tradingagentstack.com/tool/traderspost/) | US stocks, futures, options, crypto | paper auto-submit free; live auto-submit on paid plans | official | 72% (partial) |  |
 | [tread.fi](https://tradingagentstack.com/tool/tread-fi/) | crypto spot, crypto perpetuals (CEX and perp DEX), prediction markets (Polymarket, Kalshi, Hyperliquid HIP-4) | live trading on your own connected exchange accounts and wallets; pre-trade analytics before you start a bot or algo order | official | 40% (partial) |  |
+| [Trend0x](https://tradingagentstack.com/tool/trend0x/) | crypto on your own exchange account: Bybit, Binance, OKX, WhiteBIT, Bitunix, Gate, Hyperliquid, Coinbase and Revolut X, US stocks and crypto through Alpaca, account reads only: Bitpanda, Gemini and EdgeX (EdgeX live orders need separate delegated signing) | paper runner (simulation) first; live trading on your own exchange account starts only once a launch is confirmed in Trend0x | official | 58% |  |
 | [TrendSpider](https://tradingagentstack.com/tool/trendspider/) | US stocks, ETFs, futures, options, forex, crypto | live via SignalStack to 30+ brokers and exchanges (5 free automated orders/mo); backtesting and forward testing | official | 17% (partial) |  |
+| [Tritonix](https://tradingagentstack.com/tool/tritonix/) | US stocks and ETFs (Copy Trade and the Swing and Day Trade bots trade US equities in your own broker account), research across 50+ markets, including crypto, FX and commodities | live through your own connected broker account (Alpaca, Robinhood, Public, Tradier or Longbridge); a practice mode isn't documented | official | 51% (partial) |  |
 | [WunderTrading](https://tradingagentstack.com/tool/wundertrading/) | crypto spot, crypto futures | live via exchange API keys; demo account | official | 50% |  |
 
 <a id="cat-open_source_bot"></a>
@@ -113,7 +117,7 @@ See [Trade with a bot](https://tradingagentstack.com/trade-with-a-bot/).
 
 <a id="cat-defi_agent"></a>
 
-### On-chain & DeFi trading agents (9)
+### On-chain & DeFi trading agents (10)
 
 [On-chain & DeFi trading agents on TradingAgentStack](https://tradingagentstack.com/defi-trading-bots-and-agents/)
 
@@ -126,6 +130,7 @@ Guide: [Best Telegram trading bots](https://tradingagentstack.com/best-telegram-
 | [Banana Gun](https://tradingagentstack.com/tool/banana-gun/) | Solana, Ethereum, Base, other EVM chains | live only (real funds) | official | 11% (partial) | 11% (partial) |
 | [BONKbot](https://tradingagentstack.com/tool/bonkbot/) | Solana | live only | official | 11% (partial) | 11% (partial) |
 | [Craic Hub Exchange](https://tradingagentstack.com/tool/craic-hub-exchange/) | Solana tokens (any token with a liquidity pool, including new pump.fun coins), routed through Jupiter, cross-chain swaps (Bitcoin, Ethereum, Base, BNB Chain, Arbitrum and more) through LI.FI, token launches on 8 chains | live only: real tokens on Solana and other mainnets; no paper or demo mode on the site | official | 80% | 80% |
+| [Hashlock Markets](https://tradingagentstack.com/tool/hashlock-markets/) | cross-chain atomic swaps between Bitcoin, Ethereum, Base, Robinhood Chain, TRON and Solana: assets in Hashlock's registry (tokens from Bankr, Virtuals and Clanker are listed automatically, others after safety and liquidity checks) | live only: mainnet swaps, with no public sandbox or testnet | official | 70% | 70% |
 | [Jupiter API](https://tradingagentstack.com/tool/jupiter-api/) | Solana DEX liquidity | live (on-chain swaps) | official | 41% (partial) | 41% (partial) |
 | [Maestro](https://tradingagentstack.com/tool/maestro/) | Solana, Ethereum, BSC, Base, Arbitrum, TON, Tron | live only | official | 10% | 10% |
 | [Solana Agent Kit](https://tradingagentstack.com/tool/solana-agent-kit/) | Solana | live and devnet | official | 35% | 35% |
@@ -133,7 +138,7 @@ Guide: [Best Telegram trading bots](https://tradingagentstack.com/best-telegram-
 
 <a id="cat-ai_signals"></a>
 
-### AI signals & research copilots (9)
+### AI signals & research copilots (10)
 
 [AI signals & research copilots on TradingAgentStack](https://tradingagentstack.com/ai-trading-signals/)
 
@@ -145,7 +150,8 @@ Guide: [Best Telegram trading bots](https://tradingagentstack.com/best-telegram-
 | [Kavout](https://tradingagentstack.com/tool/kavout/) | US stocks, ETFs, global stocks and ETFs (30+ exchanges in 29 countries, Pro and Premium), crypto, forex | research only | official | 90% |  |
 | [LevelFields](https://tradingagentstack.com/tool/levelfields/) | US stocks, options | alerts only | official | 90% |  |
 | [LunarCrush](https://tradingagentstack.com/tool/lunarcrush/) | crypto, stocks | research only | official | 90% |  |
-| [Nansen](https://tradingagentstack.com/tool/nansen/) | crypto (on-chain) | research only | official | 90% |  |
+| [Meridian Engine](https://tradingagentstack.com/tool/meridian-engine/) | Gold and silver, FX (EURUSD), US500 index, Crypto (BTC, ETH) | research only: market analyses by email and a public record; places no orders and connects to no account | official | 90% |  |
+| [Nansen](https://tradingagentstack.com/tool/nansen/) | crypto (on-chain) | live: Trading API since Aug 17, 2026 (spot swaps on Solana and Base, Hyperliquid perps), real funds, no testnet; the MCP tools read data only | official | 70% |  |
 | [Prospero.ai](https://tradingagentstack.com/tool/prospero-ai/) | US stocks | research only | official | 90% |  |
 | [Santiment](https://tradingagentstack.com/tool/santiment/) | crypto | research only | official | 90% |  |
 
@@ -210,7 +216,7 @@ See [Build an AI agent](https://tradingagentstack.com/build-an-ai-agent/).
 
 <a id="cat-data_mcp"></a>
 
-### Market data MCP servers (15)
+### Market data MCP servers (16)
 
 [Market data MCP servers on TradingAgentStack](https://tradingagentstack.com/category/data-mcp/)
 
@@ -226,11 +232,12 @@ See [Build an AI agent](https://tradingagentstack.com/build-an-ai-agent/).
 | [PredixLab MCP](https://tradingagentstack.com/tool/predixlab-mcp/) | S&P 500 and Nasdaq-100 stocks (daily signal snapshots, screener, quotes, technicals), US options activity, unusual options and gamma exposure | data only | official | 90% |  |
 | [Pulse Verity](https://tradingagentstack.com/tool/pulse-verity/) | signed crypto reference prices (an index combined live from several exchanges; BTC, ETH and SOL without a key, the wider catalogue, memecoins included, with a developer key), recorded signed prints and price history (how far back depends on the plan) | data only | official | 100% |  |
 | [Pyth Pro MCP Server](https://tradingagentstack.com/tool/pyth-pro-mcp-server/) | crypto, FX, equities, metals, rates, commodities, funding rates, NAVs, crypto indexes, redemption rates, economic data, Kalshi prediction-market feeds | data only | official | 90% |  |
-| [Redstone MCP](https://tradingagentstack.com/tool/redstone-mcp/) | about 2,900 US-listed stocks and 1,200 US ETFs (end-of-day returns and risk metrics, up to 5 years), portfolio backtests with quarterly rebalancing | data only | official | 90% |  |
+| [Redstone MCP](https://tradingagentstack.com/tool/redstone-mcp/) | 4,600+ US-listed stocks and ETFs, including about 1,700 of the most traded US ETFs (end-of-day returns and risk metrics, up to 5 years), portfolio backtests with quarterly rebalancing | data only | official | 90% |  |
 | [Reslyce Flow MCP](https://tradingagentstack.com/tool/reslyce-flow-mcp/) | US stock and ETF options flow (captured 0-2 DTE activity for 100 tracked tickers), large options prints ($1M+) out to 45 DTE, daily open interest by strike | data only | official | 90% |  |
 | [SiftingIO MCP](https://tradingagentstack.com/tool/siftingio-mcp/) | US stocks, forex, crypto, commodities, DEX and on-chain data, SEC fundamentals | data only | official | 100% |  |
 | [TickerLayer](https://tradingagentstack.com/tool/tickerlayer/) | crypto, forex and US stock prices (derived, indicative data that is not sourced from exchanges; these three feeds are on the free plan), more feeds on paid plans, among them perpetual futures (a composite calculated from third-party perp markets) and futures CFD reference prices | data only | official | 90% |  |
-| [TradingView MCP Server](https://tradingagentstack.com/tool/tradingview-mcp-server/) | stocks, ETFs, forex, crypto, futures, indices, bonds, macro | no trading (watchlists/alerts only) | official | 90% |  |
+| [TradingView MCP Server](https://tradingagentstack.com/tool/tradingview-mcp-server/) | stocks, ETFs, forex, crypto, futures, indices, bonds, macro | no trading (watchlists, alerts and Pine scripts only) | official | 90% |  |
+| [XRPL.to API and MCP](https://tradingagentstack.com/tool/xrpl-to-api-and-mcp/) | XRP Ledger tokens, prices, DEX trades, order books and AMM pools, XRPL NFTs and collections, XRPL accounts and transactions | data only | official | 90% |  |
 
 <a id="cat-agent_framework"></a>
 
@@ -279,7 +286,7 @@ See [Build an AI agent](https://tradingagentstack.com/build-an-ai-agent/).
 | [Privy server wallets](https://tradingagentstack.com/tool/privy-server-wallets/) | Ethereum and EVM chains, Solana | live and testnet (the REST quickstart sends a Sepolia transaction) | official | 65% | 65% |
 | [Safe Smart Account](https://tradingagentstack.com/tool/safe-smart-account/) | EVM chains | live; contracts are deployed on many networks (see Safe's supported-networks list) | official | 100% | 100% |
 | [Turnkey](https://tradingagentstack.com/tool/turnkey/) | EVM chains, Solana, Bitcoin, Dogecoin, Tron, Cosmos and other chains | live; official code examples sign on testnets (Dogecoin, Tron, Celestia, Arc, Tempo) | official | 65% | 65% |
-| [ZeroDev](https://tradingagentstack.com/tool/zerodev/) | EVM chains (ERC-4337 smart accounts) | live and testnet (the free Sandbox plan is testnet only) | official | 70% | 70% |
+| [ZeroDev](https://tradingagentstack.com/tool/zerodev/) | EVM chains (ERC-4337 smart accounts) | live and testnet (the free Sandbox plan now includes mainnet) | official | 70% | 70% |
 
 <a id="cat-agent_payments"></a>
 
@@ -305,7 +312,7 @@ See [Markets & infrastructure](https://tradingagentstack.com/markets-and-infrast
 
 <a id="cat-bot_exchange"></a>
 
-### Exchanges & brokers for bots (18)
+### Exchanges & brokers for bots (19)
 
 [Exchanges & brokers for bots on TradingAgentStack](https://tradingagentstack.com/crypto-exchanges-for-trading-bots/)
 
@@ -316,6 +323,7 @@ See [Markets & infrastructure](https://tradingagentstack.com/markets-and-infrast
 | [Binance](https://tradingagentstack.com/tool/binance/) | crypto spot, crypto margin, crypto futures | live; Spot Testnet (testnet.binance.vision) for paper testing | official | 49% | 49% |
 | [Bitget](https://tradingagentstack.com/tool/bitget/) | crypto spot, crypto futures, copy trading | live; demo trading in app; the --paper-trading flag (a Demo key) routes the legacy local MCP, CLI and SDK to Bitget's Demo environment, and the remote MCP documents no paper mode | official | 85% | 85% |
 | [Bybit](https://tradingagentstack.com/tool/bybit/) | crypto spot, crypto derivatives, options | live; Demo Trading (api-demo.bybit.com, live prices) and a separate Testnet | official | 85% | 85% |
+| [BYDFi](https://tradingagentstack.com/tool/bydfi/) | crypto spot, USDT-M and COIN-M perpetual contracts, copy trading and built-in spot and futures grid bots | live; demo trading on a futures testnet (futures.testnet.bydfi.com) | official | 33% (partial) | 33% (partial) |
 | [Coinbase Advanced](https://tradingagentstack.com/tool/coinbase-advanced/) | crypto spot, crypto futures (eligible regions), crypto perps (20+ tokens) and index perps (US only) via Coinbase for Agents, eligible US stocks via Coinbase for Agents | live; static Advanced Trade sandbox (mocked Accounts and Orders responses) | official | 75% | 75% |
 | [dYdX](https://tradingagentstack.com/tool/dydx/) | crypto perpetuals | live; public testnet with faucet | official | 68% | 68% |
 | [edgeX](https://tradingagentstack.com/tool/edgex/) | crypto perpetuals | live | official | 29% (partial) | 29% (partial) |
@@ -324,7 +332,7 @@ See [Markets & infrastructure](https://tradingagentstack.com/markets-and-infrast
 | [GMX](https://tradingagentstack.com/tool/gmx/) | crypto perpetuals (pool-based, oracle-priced) | live; testnet contracts on Arbitrum Sepolia and Avalanche Fuji | official | 68% | 68% |
 | [Hyperliquid](https://tradingagentstack.com/tool/hyperliquid/) | crypto perpetuals, crypto spot (on-chain) | live; public testnet (api.hyperliquid-testnet.xyz) | official | 50% | 50% |
 | [Kraken](https://tradingagentstack.com/tool/kraken/) | crypto spot, crypto futures, xStocks, forex | live; built-in spot and futures paper trading in Kraken CLI (no API key needed) | official | 85% | 85% |
-| [Lighter](https://tradingagentstack.com/tool/lighter/) | crypto perpetuals, crypto spot | live; public testnet (testnet.app.lighter.xyz, settles to Sepolia); a separate Lighter exchange runs on Robinhood Chain with its own endpoints (api.rh.lighter.xyz) | official | 68% | 68% |
+| [Lighter](https://tradingagentstack.com/tool/lighter/) | crypto perpetuals, crypto spot | live; public testnet (testnet.app.lighter.xyz, settles to Sepolia); a separate Lighter exchange runs on Robinhood Chain with its own endpoints (api.rh.lighter.xyz) | official | 63% | 63% |
 | [OKX](https://tradingagentstack.com/tool/okx/) | crypto spot, crypto perpetuals, futures, options | live; demo trading profile (simulated) supported by the MCP | official | 85% | 85% |
 | [Pacifica](https://tradingagentstack.com/tool/pacifica/) | crypto perpetuals, crypto spot | live; testnet API (the official MCP server defaults to testnet) | official | 62% (partial) | 62% (partial) |
 | [Paradex](https://tradingagentstack.com/tool/paradex/) | crypto perpetuals, crypto options, crypto spot | live; testnet with $1M test USDC per account | official | 68% | 68% |
